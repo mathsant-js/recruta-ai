@@ -22,6 +22,14 @@ python -m app.main
 ```
 
 O projeto usa exclusivamente o modelo `gemma4:cloud` pela API cloud do Ollama.
+As versões de Gradio e Pydantic estão fixadas em uma combinação compatível para que
+a instalação reproduzível mantenha a validação em Pydantic v2.
+
+Ao iniciar, acesse [http://localhost:7860](http://localhost:7860). A interface oferece
+chat com memória isolada por sessão, envio pelo botão ou pela tecla Enter, limpeza da
+conversa e da memória, e geração de uma análise estruturada exibida como JSON somente
+depois da validação Pydantic. O aviso permanente no rodapé reforça privacidade, uso
+responsável e revisão humana.
 
 ## Chat com memória
 
