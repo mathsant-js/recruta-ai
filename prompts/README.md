@@ -11,7 +11,8 @@ ativa em `app/prompts.py` deve ser atualizada explicitamente.
 | `system_prompt_v1.md` | histórico | Primeira persona completa do domínio. |
 | `system_prompt_v2.md` | ativo | Reforça limites, privacidade, equidade e resistência a desvio de persona. |
 | `chat_human_v1.md` | ativo | Mantém histórico e solicitação em uma mensagem `human` separada. |
-| `structured_analysis_human_v1.md` | ativo | Reserva variáveis para a futura chain estruturada LCEL. |
+| `structured_analysis_human_v1.md` | ativo | Fornece conversa, pedido e formato à chain estruturada LCEL. |
+| `structured_retry_human_v1.md` | ativo | Limita a correção de uma saída inválida a uma nova tentativa. |
 
 A versão 2 foi produzida por revisão humana, sem meta prompting automático. O histórico permite
 documentar posteriormente o antes/depois do diferencial de meta prompting sem apagar versões.

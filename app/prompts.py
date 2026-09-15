@@ -9,6 +9,7 @@ PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
 ACTIVE_SYSTEM_PROMPT_VERSION = "v2"
 ACTIVE_CHAT_HUMAN_PROMPT_VERSION = "v1"
 ACTIVE_STRUCTURED_HUMAN_PROMPT_VERSION = "v1"
+ACTIVE_STRUCTURED_RETRY_PROMPT_VERSION = "v1"
 
 SUPPORTED_CASES = (
     "levantamento e revisão de vagas",
@@ -44,6 +45,9 @@ CHAT_HUMAN_PROMPT = _load_prompt(
 STRUCTURED_ANALYSIS_HUMAN_PROMPT = _load_prompt(
     f"structured_analysis_human_{ACTIVE_STRUCTURED_HUMAN_PROMPT_VERSION}.md"
 )
+STRUCTURED_RETRY_HUMAN_PROMPT = _load_prompt(
+    f"structured_retry_human_{ACTIVE_STRUCTURED_RETRY_PROMPT_VERSION}.md"
+)
 
 
 def build_chat_prompt() -> ChatPromptTemplate:
@@ -68,5 +72,17 @@ def build_structured_analysis_prompt() -> ChatPromptTemplate:
     )
 
 
+def build_structured_retry_prompt() -> ChatPromptTemplate:
+    """Solicita uma única correção quando a primeira saída não passa no schema."""
+
+    return ChatPromptTemplate.from_messages(
+        [
+            ("system", SYSTEM_PROMPT),
+            ("human", STRUCTURED_RETRY_HUMAN_PROMPT),
+        ]
+    )
+
+
 CHAT_PROMPT = build_chat_prompt()
 STRUCTURED_ANALYSIS_PROMPT = build_structured_analysis_prompt()
+STRUCTURED_RETRY_PROMPT = build_structured_retry_prompt()

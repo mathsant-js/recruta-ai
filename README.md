@@ -69,5 +69,23 @@ de formato são inseridos por variáveis do próprio template, sem montagem manu
 
 Os testes adversariais determinísticos verificam que tentativas de desvio permanecem na mensagem
 humana não confiável e que a mensagem de sistema preserva as regras de domínio, equidade,
-privacidade, recusa segura e revisão humana. Testes reais de comportamento do modelo serão
-adicionados junto à integração das chains.
+privacidade, recusa segura e revisão humana. Chamadas reais dependem da credencial local e são
+mantidas separadas dos testes unitários determinísticos.
+
+## Análise estruturada LCEL
+
+A segunda chain usa a composição explícita
+`ChatPromptTemplate | ChatOllama | PydanticOutputParser`. As instruções JSON são geradas pelo
+próprio parser a partir de `AnaliseRecrutamento`, e o retorno interno é uma instância validada
+desse modelo Pydantic v2. O schema tipa intenção, resumo, competências, perguntas, pontos de
+atenção, próximo passo e confiança; campos desconhecidos e confiança fora de 0 a 1 são rejeitados.
+
+Se a primeira resposta do modelo não puder ser validada, o serviço faz somente uma nova tentativa
+com o erro e as instruções de formato. Uma segunda falha resulta em mensagem compreensível, sem
+ignorar o erro nem converter silenciosamente a saída em `dict`. Na interface, o `dict` é produzido
+apenas depois da validação, por `model_dump`, para que o componente JSON possa exibi-lo.
+
+A interface inclui a ação **Gerar análise estruturada**, que analisa todo o histórico visível da
+sessão. Os testes determinísticos em `tests/test_chains.py` cobrem sucesso, tipo final, correção
+limitada e falha de parsing sem realizar chamadas externas. A validação com saída real do
+`gemma4:cloud` exige `OLLAMA_API_KEY` e conectividade com o Ollama Cloud.

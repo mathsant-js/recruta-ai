@@ -3,4 +3,6 @@ python-dotenv==1.0.1
 langchain==0.3.27
 langchain-core==0.3.86
 langchain-ollama==0.3.10
+pydantic==2.13.4
+gradio==5.49.1
 pytest==8.3.5
