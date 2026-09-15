@@ -157,6 +157,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local generated files
+tmp/
+
 # Spyder project settings
 .spyderproject
 .spyproject
