@@ -6,7 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
-ACTIVE_SYSTEM_PROMPT_VERSION = "v2"
+ACTIVE_SYSTEM_PROMPT_VERSION = "v3"
 ACTIVE_CHAT_HUMAN_PROMPT_VERSION = "v1"
 ACTIVE_STRUCTURED_HUMAN_PROMPT_VERSION = "v1"
 ACTIVE_STRUCTURED_RETRY_PROMPT_VERSION = "v1"

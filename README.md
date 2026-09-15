@@ -71,7 +71,7 @@ não usa ou infere atributos sensíveis, não produz diagnósticos e exige revis
 
 Os prompts ficam como arquivos Markdown imutáveis em `prompts/`. A versão ativa é selecionada
 explicitamente em `app/prompts.py`; qualquer alteração deve criar um novo arquivo numerado, sem
-apagar o histórico. Atualmente, `system_prompt_v2.md` é a versão final ativa. As mensagens
+apagar o histórico. Atualmente, `system_prompt_v3.md` é a versão final ativa. As mensagens
 `system` e `human` são separadas por `ChatPromptTemplate`, e histórico, solicitação e instruções
 de formato são inseridos por variáveis do próprio template, sem montagem manual com f-strings.
 
@@ -79,6 +79,28 @@ Os testes adversariais determinísticos verificam que tentativas de desvio perma
 humana não confiável e que a mensagem de sistema preserva as regras de domínio, equidade,
 privacidade, recusa segura e revisão humana. Chamadas reais dependem da credencial local e são
 mantidas separadas dos testes unitários determinísticos.
+
+### Meta prompting
+
+A versão `system_prompt_v2.md` foi preservada como o “antes” e submetida a uma crítica real do
+`gemma4:cloud`. O fluxo reproduzível usa:
+
+```bash
+python -m app.meta_prompting
+```
+
+O modelo identifica ambiguidades, lacunas e riscos em uma saída validada por Pydantic, gravada em
+`artifacts/meta_prompting/critica_modelo.json`. O comando não edita nem promove prompts: a saída é
+marcada como pendente de revisão humana. Das quatro sugestões recebidas, uma foi aceita, duas foram
+aceitas com ajustes e uma foi rejeitada. A versão final `system_prompt_v3.md` acrescenta vínculo de
+conclusões de triagem a evidências, proteção contra instruções em documentos e tratamento de dados
+sensíveis já enviados. O redirecionamento sugerido para política interna ou especialista foi rejeitado
+por poder indicar recursos inexistentes.
+
+As decisões completas e a comparação antes/depois estão em
+`artifacts/meta_prompting/revisao_humana.md`. Os testes verificam a integração das novas regras, mas
+não eliminam riscos probabilísticos de jailbreak ou viés; as respostas continuam exigindo revisão
+humana.
 
 ## Análise estruturada LCEL
 
@@ -106,8 +128,8 @@ O experimento reproduzível está em `app/context_rot.py` e é executado com:
 python -m app.context_rot
 ```
 
-Ele usa exclusivamente `gemma4:cloud`, o `system_prompt_v2.md` ativo, a mesma pergunta
-final e os mesmos oito fatos de uma vaga fictícia em todos os cenários. Um único histórico
+Ele usou exclusivamente `gemma4:cloud`, o `system_prompt_v2.md` que estava ativo na data da execução,
+a mesma pergunta final e os mesmos oito fatos de uma vaga fictícia em todos os cenários. Um único histórico
 de 1.462 tokens aproximados mantém os fatos no início e insere notas administrativas
 irrelevantes entre eles e a pergunta final. Para reproduzir o comportamento da
 `ConversationTokenBufferMemory`, cada cenário preserva a cauda mais recente e descarta o
@@ -137,3 +159,5 @@ do prompt, data, fatos-base e hash da pergunta final. A métrica “informaçõe
 autodeclaração estruturada do modelo e, portanto, não substitui auditoria humana. A utilidade é
 determinística (recuperação factual em escala de 0 a 5, penalizada quando há quebra de persona),
 e os tempos representam uma única execução por cenário, sem valor de benchmark estatístico.
+Uma nova execução usa a versão ativa atual (`system_prompt_v3.md`) e atualiza os metadados; os
+artefatos existentes foram preservados como evidência histórica da execução com a v2.
