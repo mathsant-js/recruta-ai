@@ -97,3 +97,43 @@ A interface inclui a ação **Gerar análise estruturada**, que analisa todo o h
 sessão. Os testes determinísticos em `tests/test_chains.py` cobrem sucesso, tipo final, correção
 limitada e falha de parsing sem realizar chamadas externas. A validação com saída real do
 `gemma4:cloud` exige `OLLAMA_API_KEY` e conectividade com o Ollama Cloud.
+
+## Experimento de context rot
+
+O experimento reproduzível está em `app/context_rot.py` e é executado com:
+
+```bash
+python -m app.context_rot
+```
+
+Ele usa exclusivamente `gemma4:cloud`, o `system_prompt_v2.md` ativo, a mesma pergunta
+final e os mesmos oito fatos de uma vaga fictícia em todos os cenários. Um único histórico
+de 1.462 tokens aproximados mantém os fatos no início e insere notas administrativas
+irrelevantes entre eles e a pergunta final. Para reproduzir o comportamento da
+`ConversationTokenBufferMemory`, cada cenário preserva a cauda mais recente e descarta o
+excedente conforme a janela. A contagem usa `tiktoken` com `cl100k_base`: ela é uma
+aproximação comparável entre cenários, não o tokenizador nativo do Gemma.
+
+Execução real realizada em **15/09/2026**, com saída validada por Pydantic:
+
+| Cenário | Janela | Tokens descartados | Requisitos recuperados | Inventados | Persona | Utilidade | Tempo (s) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Muito curta | 256 | 1.206 | 0/8 | 0 | 1 | 0,00 | 0,985 |
+| Curta | 512 | 950 | 0/8 | 0 | 1 | 0,00 | 1,010 |
+| Referência mínima | 800 | 662 | 0/8 | 0 | 1 | 0,00 | 0,940 |
+| Escolha do chatbot | 1.200 | 262 | 0/8 | 0 | 1 | 0,00 | 1,166 |
+| Limite superior | 1.500 | 0 | 8/8 | 0 | 1 | 5,00 | 1,402 |
+
+A degradação ocorreu por **truncamento**, não por troca de prompt ou modelo. O bloco de fatos
+estava na parte mais antiga do histórico; quando 262 ou mais tokens foram removidos, todos os
+oito identificadores ficaram fora do contexto enviado. Por isso, inclusive a janela operacional
+de 1.200 tokens perdeu 100% dos requisitos. Com 1.500 tokens, o histórico completo coube na
+janela e a recuperação subiu para 100%. Isso demonstra o risco de posicionar fatos essenciais
+apenas no começo de conversas longas e justifica recapitulações periódicas ou resumos explícitos.
+
+`artifacts/context_rot/resultados.csv` contém métricas e respostas validadas; a tabela comparativa
+está em `artifacts/context_rot/tabela_comparativa.md`, e `metadados.json` registra modelo, versão
+do prompt, data, fatos-base e hash da pergunta final. A métrica “informações inventadas” é a
+autodeclaração estruturada do modelo e, portanto, não substitui auditoria humana. A utilidade é
+determinística (recuperação factual em escala de 0 a 5, penalizada quando há quebra de persona),
+e os tempos representam uma única execução por cenário, sem valor de benchmark estatístico.

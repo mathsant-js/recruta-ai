@@ -1,0 +1,18 @@
+{
+  "executado_em_utc": "2026-09-15T22:23:27.164215+00:00",
+  "modelo": "gemma4:cloud",
+  "system_prompt": "system_prompt_v2.md",
+  "tokenizador_aproximado": "tiktoken cl100k_base (nao e o tokenizador nativo do Gemma)",
+  "pergunta_final_sha256": "fb1c3cbfb13f083589c51a77df42716099a8832a01bb7125ea3b632ed8061304",
+  "fatos_base": [
+    "cargo_analista_dados",
+    "senioridade_pleno",
+    "python_obrigatorio",
+    "sql_obrigatorio",
+    "airflow_obrigatorio",
+    "dbt_desejavel",
+    "hibrido_sp_dois_dias",
+    "ingles_intermediario"
+  ],
+  "observacao": "Resultados provenientes de chamadas reais; linhas com erro permanecem explicitas."
+}
