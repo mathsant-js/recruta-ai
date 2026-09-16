@@ -188,8 +188,9 @@ O experimento reproduzível está em `app/context_rot.py` e é executado com:
 python -m app.context_rot
 ```
 
-Ele usou exclusivamente `gemma4:cloud`, o `system_prompt_v2.md` que estava ativo na data da execução,
-a mesma pergunta final e os mesmos oito fatos de uma vaga fictícia em todos os cenários. Um único histórico
+Ele usou exclusivamente `gemma4:cloud` e o `system_prompt_v3.md`, que também é a versão ativa
+na aplicação entregue. A mesma pergunta final e os mesmos oito fatos de uma vaga fictícia foram
+mantidos em todos os cenários. Um único histórico
 de 1.462 tokens aproximados mantém os fatos no início e insere notas administrativas
 irrelevantes entre eles e a pergunta final. Para reproduzir o comportamento da
 `ConversationTokenBufferMemory`, cada cenário preserva a cauda mais recente e descarta o
@@ -200,11 +201,11 @@ Execução real realizada em **15/09/2026**, com saída validada por Pydantic:
 
 | Cenário | Janela | Tokens descartados | Requisitos recuperados | Inventados | Persona | Utilidade | Tempo (s) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Muito curta | 256 | 1.206 | 0/8 | 0 | 1 | 0,00 | 0,985 |
-| Curta | 512 | 950 | 0/8 | 0 | 1 | 0,00 | 1,010 |
-| Referência mínima | 800 | 662 | 0/8 | 0 | 1 | 0,00 | 0,940 |
-| Escolha do chatbot | 1.200 | 262 | 0/8 | 0 | 1 | 0,00 | 1,166 |
-| Limite superior | 1.500 | 0 | 8/8 | 0 | 1 | 5,00 | 1,402 |
+| Muito curta | 256 | 1.206 | 0/8 | 0 | 1 | 0,00 | 1,278 |
+| Curta | 512 | 950 | 0/8 | 0 | 1 | 0,00 | 1,418 |
+| Referência mínima | 800 | 662 | 0/8 | 0 | 1 | 0,00 | 1,266 |
+| Escolha do chatbot | 1.200 | 262 | 0/8 | 0 | 1 | 0,00 | 1,255 |
+| Limite superior | 1.500 | 0 | 8/8 | 0 | 1 | 5,00 | 1,998 |
 
 A degradação ocorreu por **truncamento**, não por troca de prompt ou modelo. O bloco de fatos
 estava na parte mais antiga do histórico; quando 262 ou mais tokens foram removidos, todos os
@@ -219,8 +220,10 @@ do prompt, data, fatos-base e hash da pergunta final. A métrica “informaçõe
 autodeclaração estruturada do modelo e, portanto, não substitui auditoria humana. A utilidade é
 determinística (recuperação factual em escala de 0 a 5, penalizada quando há quebra de persona),
 e os tempos representam uma única execução por cenário, sem valor de benchmark estatístico.
-Uma nova execução usa a versão ativa atual (`system_prompt_v3.md`) e atualiza os metadados; os
-artefatos existentes foram preservados como evidência histórica da execução com a v2.
+A execução final com o `system_prompt_v3.md` reproduziu o mesmo padrão de recuperação observado
+anteriormente: as janelas de até 1.200 tokens descartaram o bloco de fatos, enquanto a janela de
+1.500 tokens preservou o contexto completo. Os tempos e os textos das respostas variaram, como
+esperado em chamadas reais a um modelo probabilístico.
 
 ## Testes
 
