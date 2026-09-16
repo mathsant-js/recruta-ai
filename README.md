@@ -31,6 +31,8 @@ recrutadores, analistas de RH, gestores solicitantes e consultorias de recrutame
 Requisitos locais: Python 3.10 ou superior, acesso ao Ollama Cloud e uma chave válida em
 `OLLAMA_API_KEY`. Não versione o arquivo `.env`.
 
+### Linux/Mac
+
 1. Crie e ative um ambiente virtual:
 
    ```bash
@@ -48,6 +50,30 @@ Requisitos locais: Python 3.10 ou superior, acesso ao Ollama Cloud e uma chave v
 
    ```bash
    cp .env.example .env
+   ```
+
+   O arquivo deve conter `OLLAMA_API_KEY=sua_chave`. A chave é carregada com
+   `python-dotenv`; `.env` está no `.gitignore` e `.env.example` não possui segredo real.
+
+### Windows
+
+1. Crie e ative um ambiente virtual:
+
+   ```cmd
+   python -m venv venv
+   venv/bin/activate.bat
+   ```
+
+2. Instale as dependências fixadas:
+
+   ```cmd
+   pip install -r requirements.txt
+   ```
+
+3. Copie `.env.example` para `.env` e informe sua chave da API do Ollama:
+
+   ```bash
+   copy .env.example .env
    ```
 
    O arquivo deve conter `OLLAMA_API_KEY=sua_chave`. A chave é carregada com
