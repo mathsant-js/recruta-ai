@@ -1,17 +1,57 @@
 # Recruta AI
 
-Chatbot para recrutamento e RH.
+Chatbot profissional de apoio a recrutamento e RH desenvolvido para o CKP01 do segundo
+semestre da FIAP.
+
+## Integrantes
+
+| Nome completo | RM |
+|---|----|
+| Bernardo Zauza Amorim | 568808 |
+| Bruno Almeida de Oliveira | 572648 |
+| Gabriel Góes Nunes Pereira | 571735 |
+| Guilherme Vinciguerra Carvalho | 571951 |
+| Marcos Peterson Martins Pereira | 573857 |
+| Matheus Jorge Santana | 574166 |
+
+## Domínio, justificativa e usuários-alvo
+
+O Recruta AI atua no domínio de recrutamento e Recursos Humanos. Ele ajuda a levantar e
+esclarecer requisitos, elaborar ou revisar descrições de vagas, separar requisitos
+obrigatórios de desejáveis, identificar competências observáveis, sugerir perguntas de
+entrevista e consolidar a solicitação em uma análise estruturada.
+
+Esse domínio foi escolhido porque briefings de vagas frequentemente chegam incompletos,
+subjetivos ou dispersos. Uma conversa guiada reduz omissões e torna os critérios mais claros
+e verificáveis, sem transferir ao modelo a decisão sobre pessoas. Os usuários-alvo são
+recrutadores, analistas de RH, gestores solicitantes e consultorias de recrutamento.
 
 ## Configuração
 
-1. Crie e ative um ambiente virtual.
-2. Instale as dependências:
+Requisitos locais: Python 3.10 ou superior, acesso ao Ollama Cloud e uma chave válida em
+`OLLAMA_API_KEY`. Não versione o arquivo `.env`.
+
+1. Crie e ative um ambiente virtual:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+
+2. Instale as dependências fixadas:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Copie `.env.example` para `.env` e informe sua chave da API do Ollama.
+3. Copie `.env.example` para `.env` e informe sua chave da API do Ollama:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   O arquivo deve conter `OLLAMA_API_KEY=sua_chave`. A chave é carregada com
+   `python-dotenv`; `.env` está no `.gitignore` e `.env.example` não possui segredo real.
 
 ## Execução
 
@@ -30,6 +70,26 @@ chat com memória isolada por sessão, envio pelo botão ou pela tecla Enter, li
 conversa e da memória, e geração de uma análise estruturada exibida como JSON somente
 depois da validação Pydantic. O aviso permanente no rodapé reforça privacidade, uso
 responsável e revisão humana.
+
+Se a chave estiver ausente, o processo termina antes de criar a interface e mostra uma
+mensagem orientando a configurar `OLLAMA_API_KEY`. Em distribuições nas quais apenas
+`python3` existe fora do ambiente virtual, ative o ambiente virtual para usar o comando
+oficial `python -m app.main`.
+
+## Arquitetura das duas chains
+
+O projeto mantém dois fluxos separados:
+
+1. **Chat com memória:** `ConversationChain` recebe o prompt de sistema e o histórico de uma
+   `ConversationTokenBufferMemory` exclusiva por sessão. `ChatService` cria, reutiliza e
+   remove essas chains sob demanda.
+2. **Análise estruturada:** a composição LCEL
+   `ChatPromptTemplate | ChatOllama | PydanticOutputParser` devolve uma instância validada de
+   `AnaliseRecrutamento`. Uma falha de parsing permite uma única correção; a segunda falha
+   vira um erro de domínio compreensível.
+
+Ambas usam exclusivamente `gemma4:cloud`. Templates, schema, memória, regras de negócio,
+experimento e interface ficam em módulos separados dentro de `app/`.
 
 ## Chat com memória
 
@@ -161,3 +221,61 @@ determinística (recuperação factual em escala de 0 a 5, penalizada quando há
 e os tempos representam uma única execução por cenário, sem valor de benchmark estatístico.
 Uma nova execução usa a versão ativa atual (`system_prompt_v3.md`) e atualiza os metadados; os
 artefatos existentes foram preservados como evidência histórica da execução com a v2.
+
+## Testes
+
+Execute a suíte determinística com:
+
+```bash
+python -m pytest -q
+```
+
+Os testes não consomem a API: usam modelos locais controlados para validar contratos, erros e
+estado. A evidência do experimento real permanece separada em `artifacts/context_rot/`.
+
+| Item solicitado | Evidência automatizada |
+|---|---|
+| Inicialização pelo ponto de entrada oficial | `tests/test_interface.py::test_ponto_de_entrada_oficial_inicia_na_porta_7860` verifica que `main()` inicia em `0.0.0.0:7860`; o comando documentado é `python -m app.main`. |
+| Ausência da chave de API | `tests/test_interface.py::test_ponto_de_entrada_falha_com_mensagem_clara_sem_chave` garante falha antes da criação da interface. |
+| Schema válido e inválido | `tests/test_schemas.py` cobre instância Pydantic, valores fora dos limites, texto vazio, intenção inválida e campos extras. |
+| Histórico com mais de cinco turnos | `tests/test_memory.py::test_roteiro_recupera_requisitos_e_embasa_perguntas` executa seis mensagens e inspeciona o contexto recuperado. |
+| Limpeza e isolamento da memória | `tests/test_memory.py::test_sessoes_sao_isoladas_e_podem_ser_limpas` e o teste de limpeza da interface. |
+| Erro de parsing | `tests/test_chains.py` cobre correção única e erro compreensível após a segunda falha. |
+| Comportamento fora do escopo | `tests/test_prompts.py::test_pedido_fora_do_escopo_recebe_regra_de_limite_e_redirecionamento` verifica limite, redirecionamento seguro e resistência à instrução conflitante. |
+| Execução do context rot | `tests/test_context_rot.py` percorre as cinco janelas, valida saídas e testa geração dos artefatos sem fabricar chamadas cloud. |
+
+Testes determinísticos demonstram a implementação do contrato, mas não provam que toda
+resposta probabilística do modelo obedecerá ao prompt. Para uma validação integrada, configure
+a credencial, inicie a interface e execute manualmente o roteiro de memória. O context rot real
+pode ser repetido com `python -m app.context_rot`; essa operação faz cinco chamadas cloud e
+substitui os artefatos no diretório de saída escolhido.
+
+## Requisitos atendidos
+
+| Requisito | Implementação |
+|---|---|
+| Projeto Python local e comando oficial | Pacote `app`, executado por `python -m app.main`. |
+| Interface Gradio | Chat, envio, limpeza, análise JSON e aviso em `http://localhost:7860`. |
+| Modelo e configuração segura | Somente `gemma4:cloud`; chave carregada do `.env`, nunca hardcoded. |
+| Duas chains | `ConversationChain` com memória e pipeline LCEL estruturado. |
+| Memória gerenciada | Limite aproximado de 1.200 tokens, isolamento e limpeza por sessão. |
+| Pydantic v2 | `AnaliseRecrutamento` tipado, restrito e integrado ao parser. |
+| Prompts | Mensagens `system`/`human` separadas, variáveis de template, persona XML e versões preservadas. |
+| Context rot | Mesma tarefa em 256, 512, 800, 1.200 e 1.500 tokens, com CSV, tabela e metadados reais. |
+| Meta prompting | Crítica real preservada, revisão humana documentada e v3 promovida manualmente. |
+| Testes e documentação | Suíte determinística e rastreabilidade nesta matriz e na tabela de testes. |
+
+## Limitações e uso responsável
+
+- O Recruta AI apoia o trabalho de RH; não decide contratação, rejeição, promoção ou
+  demissão. Toda saída que afete uma pessoa exige revisão humana.
+- O modelo pode errar, omitir contexto ou variar entre execuções. A validação Pydantic garante
+  formato e restrições de tipo, não veracidade factual.
+- O limite de 1.200 tokens usa uma aproximação local; ele pode descartar fatos antigos, como o
+  experimento demonstra. Recapitule requisitos essenciais em conversas longas.
+- Não envie CPF, documentos, dados médicos, endereço completo, fotos ou outros dados pessoais
+  desnecessários. Prefira dados fictícios ou anonimizados.
+- A ferramenta não deve inferir nem usar idade, raça, gênero, religião, deficiência ou outros
+  atributos sensíveis, nem produzir diagnósticos psicológicos.
+- O uso depende de disponibilidade, latência e credencial válida do Ollama Cloud. Os tempos do
+  context rot representam uma única execução e não constituem benchmark.

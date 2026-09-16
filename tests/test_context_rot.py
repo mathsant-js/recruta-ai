@@ -1,12 +1,16 @@
 """Testes deterministas do desenho experimental de context rot."""
 
+import json
 from pathlib import Path
+
+from langchain_core.runnables import RunnableLambda
 
 from app.context_rot import (
     FACT_IDS,
     ExperimentResult,
     build_full_context,
     count_tokens,
+    run_experiment,
     truncate_context,
     write_artifacts,
 )
@@ -35,3 +39,29 @@ def test_artefatos_sao_gerados_sem_fabricar_resultados(tmp_path: Path) -> None:
     assert "taxa_recuperacao" in (tmp_path / "resultados.csv").read_text()
     assert "2/8" in (tmp_path / "tabela_comparativa.md").read_text()
     assert '"modelo": "gemma4:cloud"' in (tmp_path / "metadados.json").read_text()
+
+
+def test_experimento_executa_as_cinco_janelas_com_saida_validada() -> None:
+    resposta = {
+        "requisitos_recuperados": [],
+        "requisitos_obrigatorios": [],
+        "requisitos_desejaveis": [],
+        "lacunas": ["Requisitos não encontrados na janela recebida."],
+        "informacoes_inventadas": [],
+        "resumo": "Não há requisitos recuperáveis nesta resposta de teste.",
+        "revisao_humana_recomendada": True,
+    }
+    llm_local = RunnableLambda(lambda _: json.dumps(resposta, ensure_ascii=False))
+
+    resultados = run_experiment(llm=llm_local)
+
+    assert len(resultados) == 5
+    assert [resultado.janela_tokens for resultado in resultados] == [
+        256,
+        512,
+        800,
+        1_200,
+        1_500,
+    ]
+    assert all(not resultado.erro for resultado in resultados)
+    assert all(resultado.resposta_validada for resultado in resultados)

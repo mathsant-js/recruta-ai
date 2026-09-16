@@ -2,6 +2,10 @@
 
 from typing import Any
 
+import pytest
+
+import app.main as main_module
+from app.config import Settings
 from app.main import (
     _clear_chat,
     _conversation_text,
@@ -45,6 +49,46 @@ class FakeAnalysisService:
             proximo_passo="Confirmar a modalidade de trabalho.",
             confianca=0.9,
         )
+
+
+class FakeDemo:
+    """Registra os argumentos de inicialização sem abrir um servidor real."""
+
+    def __init__(self) -> None:
+        self.launch_kwargs: dict[str, Any] = {}
+
+    def launch(self, **kwargs: Any) -> None:
+        self.launch_kwargs = kwargs
+
+
+def test_ponto_de_entrada_oficial_inicia_na_porta_7860(monkeypatch) -> None:
+    demo = FakeDemo()
+    monkeypatch.setattr(
+        main_module,
+        "get_settings",
+        lambda: Settings(ollama_api_key="chave-ficticia-de-teste"),
+    )
+    monkeypatch.setattr(main_module, "build_interface", lambda: demo)
+
+    main_module.main()
+
+    assert demo.launch_kwargs == {"server_name": "0.0.0.0", "server_port": 7860}
+
+
+def test_ponto_de_entrada_falha_com_mensagem_clara_sem_chave(monkeypatch) -> None:
+    monkeypatch.setattr(
+        main_module,
+        "get_settings",
+        lambda: Settings(ollama_api_key=""),
+    )
+    monkeypatch.setattr(
+        main_module,
+        "build_interface",
+        lambda: pytest.fail("A interface não deve ser construída sem credencial."),
+    )
+
+    with pytest.raises(RuntimeError, match="OLLAMA_API_KEY ausente"):
+        main_module.main()
 
 
 def test_envio_atualiza_chat_e_preserva_id_da_sessao() -> None:
