@@ -159,6 +159,8 @@ venv.bak/
 
 # Local generated files
 tmp/
+artifacts/indexes/*
+!artifacts/indexes/.gitkeep
 
 # Spyder project settings
 .spyderproject

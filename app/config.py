@@ -10,15 +10,17 @@ load_dotenv()
 
 OLLAMA_HOST = "https://ollama.com"
 OLLAMA_MODEL = "gemma4:cloud"
+OLLAMA_EMBEDDING_MODEL = "nomic-embed-text"
 
 
 @dataclass(frozen=True)
 class Settings:
-    """Valores necessários para acessar a API do Ollama."""
+    """Valores necessários para acessar os modelos aprovados no Ollama Cloud."""
 
     ollama_api_key: str
     ollama_host: str = OLLAMA_HOST
     ollama_model: str = OLLAMA_MODEL
+    ollama_embedding_model: str = OLLAMA_EMBEDDING_MODEL
 
 
 def get_settings() -> Settings:

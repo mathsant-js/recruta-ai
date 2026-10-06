@@ -1,7 +1,24 @@
 # Recruta AI
 
-Chatbot profissional de apoio a recrutamento e RH desenvolvido para o CKP01 do segundo
-semestre da FIAP.
+Chatbot profissional de apoio a recrutamento e RH desenvolvido para os checkpoints do
+segundo semestre da FIAP. A branch `cp2` preserva a aplicação funcional do CKP01 e inicia
+a evolução para o pipeline RAG do CKP02.
+
+## Estado do CKP02
+
+A fase 0 (baseline e organização) estabelece a estrutura inicial sem executar nem simular
+resultados do RAG:
+
+- o contrato público `app.retriever.buscar()` isola os futuros detalhes de ChromaDB;
+- `DocumentoRecuperado` define conteúdo, score e metadata necessária para citações;
+- os modelos permitidos ficam centralizados em `app.config`: `gemma4:cloud` para geração e
+  `nomic-embed-text` para embeddings;
+- `notebooks/CKP02_DocMind_RAG.ipynb` é um notebook fino, baseado nos módulos Python;
+- `data/raw/` receberá as fontes reais e `artifacts/indexes/` manterá índices locais fora do Git.
+
+Enquanto a ingestão da fase 2 não for executada, `buscar()` falha explicitamente com
+`RecuperadorNaoConfiguradoError`. Isso impede que a ausência de um índice seja confundida
+com uma busca real sem resultados.
 
 ## Integrantes
 
