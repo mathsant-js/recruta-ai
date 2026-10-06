@@ -6,15 +6,19 @@ a evolução para o pipeline RAG do CKP02.
 
 ## Estado do CKP02
 
-A fase 0 (baseline e organização) estabelece a estrutura inicial sem executar nem simular
-resultados do RAG:
+As fases 0 e 1 estão concluídas. O baseline preserva a aplicação do CKP01 e a curadoria
+documental fornece cinco PDFs reais e complementares para o RAG, sem executar nem simular
+resultados de ingestão, recuperação ou avaliação:
 
 - o contrato público `app.retriever.buscar()` isola os futuros detalhes de ChromaDB;
 - `DocumentoRecuperado` define conteúdo, score e metadata necessária para citações;
 - os modelos permitidos ficam centralizados em `app.config`: `gemma4:cloud` para geração e
   `nomic-embed-text` para embeddings;
 - `notebooks/CKP02_DocMind_RAG.ipynb` é um notebook fino, baseado nos módulos Python;
-- `data/raw/` receberá as fontes reais e `artifacts/indexes/` manterá índices locais fora do Git.
+- `data/raw/` contém as cinco fontes oficiais ou institucionais preservadas integralmente;
+- `data/manifest.json` registra origem, autoria, categoria, direitos, hash e justificativa;
+- `docs/curadoria_fontes_cp2.md` documenta a revisão de aplicabilidade e limitações;
+- `artifacts/indexes/` manterá índices locais fora do Git.
 
 Enquanto a ingestão da fase 2 não for executada, `buscar()` falha explicitamente com
 `RecuperadorNaoConfiguradoError`. Isso impede que a ausência de um índice seja confundida
