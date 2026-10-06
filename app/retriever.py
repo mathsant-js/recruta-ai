@@ -44,6 +44,19 @@ class DocumentoRecuperado:
         if self.pagina is not None and self.pagina < 1:
             raise ValueError("A página deve ser positiva quando informada.")
 
+    def as_dict(self) -> dict[str, Any]:
+        """Serializa uma evidencia sem perder os campos do contrato publico."""
+
+        return {
+            "conteudo": self.conteudo,
+            "score": self.score,
+            "titulo": self.titulo,
+            "fonte": self.fonte,
+            "pagina": self.pagina,
+            "categoria": self.categoria,
+            "chunk_id": self.chunk_id,
+        }
+
 
 class RecuperadorNaoConfiguradoError(RuntimeError):
     """Indica que a fase de ingestão ainda não conectou um índice ao contrato."""

@@ -71,7 +71,7 @@ def test_chain_usa_conversation_chain_e_limite_de_1200_tokens() -> None:
 def test_llm_cloud_tem_contador_local_sem_realizar_chamada() -> None:
     llm = create_chat_llm(Settings(ollama_api_key="chave-ficticia-de-teste"))
 
-    assert llm.model == "gemma4:cloud"
+    assert llm.model == "gemma4:31b"
     assert llm.get_num_tokens("Teste simples de contagem local.") > 0
 
 

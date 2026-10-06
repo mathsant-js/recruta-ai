@@ -38,7 +38,7 @@ def test_artefatos_sao_gerados_sem_fabricar_resultados(tmp_path: Path) -> None:
 
     assert "taxa_recuperacao" in (tmp_path / "resultados.csv").read_text()
     assert "2/8" in (tmp_path / "tabela_comparativa.md").read_text()
-    assert '"modelo": "gemma4:cloud"' in (tmp_path / "metadados.json").read_text()
+    assert '"modelo": "gemma4:31b"' in (tmp_path / "metadados.json").read_text()
 
 
 def test_experimento_executa_as_cinco_janelas_com_saida_validada() -> None:

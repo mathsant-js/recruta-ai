@@ -6,23 +6,68 @@ a evolução para o pipeline RAG do CKP02.
 
 ## Estado do CKP02
 
-As fases 0 e 1 estão concluídas. O baseline preserva a aplicação do CKP01 e a curadoria
-documental fornece cinco PDFs reais e complementares para o RAG, sem executar nem simular
-resultados de ingestão, recuperação ou avaliação:
+As fases 0, 1 e 2 estão concluídas. A fase 2 foi executada com embeddings locais reais,
+depois que o endpoint cloud recusou o modelo obrigatório com `401`. O projeto não apresenta
+chamadas simuladas como execução real. O baseline preserva a aplicação do CKP01 e a curadoria
+documental fornece cinco PDFs reais e complementares para o RAG:
 
 - o contrato público `app.retriever.buscar()` isola os futuros detalhes de ChromaDB;
 - `DocumentoRecuperado` define conteúdo, score e metadata necessária para citações;
-- os modelos permitidos ficam centralizados em `app.config`: `gemma4:cloud` para geração e
-  `nomic-embed-text` para embeddings;
+- os modelos e endpoints ficam centralizados em `app.config`: `gemma4:31b` na Ollama Cloud
+  para geração e `nomic-embed-text` no Ollama local para embeddings;
 - `notebooks/CKP02_DocMind_RAG.ipynb` é um notebook fino, baseado nos módulos Python;
 - `data/raw/` contém as cinco fontes oficiais ou institucionais preservadas integralmente;
 - `data/manifest.json` registra origem, autoria, categoria, direitos, hash e justificativa;
 - `docs/curadoria_fontes_cp2.md` documenta a revisão de aplicabilidade e limitações;
-- `artifacts/indexes/` manterá índices locais fora do Git.
+- `app/document_loader.py` valida manifesto, hashes, duplicidade e texto extraível;
+- `app/chunking.py` implementa literalmente o `RecursiveCharacterTextSplitter` exigido;
+- `app/embeddings.py` configura e valida `embed_query()` e `embed_documents()` reais;
+- `app/vector_store.py` persiste e consulta a coleção Chroma `recruta_ai_256`;
+- `app/ingestion.py` executa a fase inteira e grava sua evidência auditável;
+- `artifacts/indexes/` mantém índices locais fora do Git.
 
-Enquanto a ingestão da fase 2 não for executada, `buscar()` falha explicitamente com
+Enquanto a ingestão da fase 2 não for conectada ao fluxo end-to-end da fase 3, `buscar()` falha explicitamente com
 `RecuperadorNaoConfiguradoError`. Isso impede que a ausência de um índice seja confundida
 com uma busca real sem resultados.
+
+## Fase 2 — ingestão e embeddings
+
+A primeira configuração usa `chunk_size=256`, `chunk_overlap=32` (12,5%) e os separadores
+obrigatórios `['\n\n', '\n', '. ', ' ', '']`. Cada chunk recebe um identificador estável,
+página, fonte, categoria e parâmetros de divisão. O índice usa distância cosseno e a coleção
+`recruta_ai_256`; os embeddings são enviados em lotes de 64 para evitar um único payload muito
+grande.
+
+Para carregar a base, validar os dois métodos de embedding, indexar e realizar a busca real:
+
+```bash
+python -m app.ingestion
+```
+
+O comando usa somente `nomic-embed-text` no Ollama local e não repassa a chave cloud ao cliente
+de embeddings. O texto dos documentos permanece no computador durante a vetorização. A saída registra dimensão,
+quantidade de páginas e chunks, tempo, pergunta de smoke test e os cinco resultados em
+`artifacts/ingestion/fase2.json`. O banco vetorial fica em
+`artifacts/indexes/granular_256/` e não é versionado; ele deve ser reconstruído no ambiente de
+avaliação. Falhas de credencial, serviço, vetor vazio ou dimensão inconsistente produzem erro
+explícito.
+
+Na tentativa cloud de **06/10/2026**, a chave autenticou a API e listou os modelos permitidos,
+mas `nomic-embed-text` não estava no catálogo acessível pela conta e o endpoint `/api/embed`
+respondeu `401 unauthorized`. Nenhum PDF foi enviado nessa tentativa. Por decisão explícita do
+grupo, a execução passou a usar o mesmo modelo localmente; essa adaptação deve ser informada ao
+professor, pois diverge do requisito literal de embeddings via Cloud.
+
+A execução local real de **06/10/2026** carregou 305 páginas, gerou e indexou 2.866 chunks e
+confirmou vetores de 768 dimensões em 3.509,076 segundos. A coleção persistente contém os 2.866
+registros. A busca aberta retornou cinco trechos, incluindo evidências da ANPD sobre guarda,
+destino e transparência de currículos. Uma busca adicional com filtro `category=privacidade`
+recuperou três chunks do documento `DOC-02`, incluindo a fase pré-contratual e consentimento em
+plataformas de recrutamento. A evidência completa está em `artifacts/ingestion/fase2.json`.
+
+Para adicionar um documento, coloque um PDF, TXT ou Markdown real em `data/raw/`, acrescente
+ao `data/manifest.json` toda a metadata e o SHA-256 corretos, execute os testes e reconstrua o
+índice. Arquivos vazios, corrompidos, duplicados ou com hash divergente são recusados.
 
 ## Integrantes
 
@@ -108,7 +153,8 @@ O comando oficial para iniciar a aplicação é:
 python -m app.main
 ```
 
-O projeto usa exclusivamente o modelo `gemma4:cloud` pela API cloud do Ollama.
+O projeto usa `gemma4:31b` pela API cloud do Ollama para geração e
+`nomic-embed-text` no Ollama local para recuperação semântica.
 As versões de Gradio e Pydantic estão fixadas em uma combinação compatível para que
 a instalação reproduzível mantenha a validação em Pydantic v2.
 
@@ -135,7 +181,7 @@ O projeto mantém dois fluxos separados:
    `AnaliseRecrutamento`. Uma falha de parsing permite uma única correção; a segunda falha
    vira um erro de domínio compreensível.
 
-Ambas usam exclusivamente `gemma4:cloud`. Templates, schema, memória, regras de negócio,
+Ambas as chains generativas usam `gemma4:31b` na Cloud. Templates, schema, memória, regras de negócio,
 experimento e interface ficam em módulos separados dentro de `app/`.
 
 ## Chat com memória
@@ -306,7 +352,7 @@ substitui os artefatos no diretório de saída escolhido.
 |---|---|
 | Projeto Python local e comando oficial | Pacote `app`, executado por `python -m app.main`. |
 | Interface Gradio | Chat, envio, limpeza, análise JSON e aviso em `http://localhost:7860`. |
-| Modelo e configuração segura | Somente `gemma4:cloud`; chave carregada do `.env`, nunca hardcoded. |
+| Modelo e configuração segura | `gemma4:31b` na Cloud; chave carregada do `.env`, nunca hardcoded. Embeddings locais sem chave. |
 | Duas chains | `ConversationChain` com memória e pipeline LCEL estruturado. |
 | Memória gerenciada | Limite aproximado de 1.200 tokens, isolamento e limpeza por sessão. |
 | Pydantic v2 | `AnaliseRecrutamento` tipado, restrito e integrado ao parser. |
