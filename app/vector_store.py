@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import re
+from pathlib import Path
 from typing import Any
 
 from langchain_chroma import Chroma
@@ -15,6 +15,14 @@ from app.retriever import DocumentoRecuperado, FiltroMetadata
 
 ROOT = Path(__file__).parents[1]
 DEFAULT_INDEX_DIR = ROOT / "artifacts" / "indexes" / GRANULAR_256.name
+
+
+def index_directory(config: ChunkingConfig) -> Path:
+    """Resolve o diretório persistente sem acoplar consumidores à fase de avaliação."""
+
+    if config == GRANULAR_256:
+        return DEFAULT_INDEX_DIR
+    return ROOT / "artifacts" / "indexes" / "evaluation" / config.name
 
 
 def collection_name(config: ChunkingConfig) -> str:

@@ -25,8 +25,9 @@ def test_backend_padrao_expoe_erro_claro_sem_indice(monkeypatch) -> None:
     embeddings = ModuleType("app.embeddings")
     embeddings.create_embeddings = lambda: object()  # type: ignore[attr-defined]
     vector_store = ModuleType("app.vector_store")
+    vector_store.index_directory = lambda _: object()  # type: ignore[attr-defined]
     vector_store.abrir_indice = (  # type: ignore[attr-defined]
-        lambda _: (_ for _ in ()).throw(FileNotFoundError("índice ausente"))
+        lambda *args, **kwargs: (_ for _ in ()).throw(FileNotFoundError("índice ausente"))
     )
     vector_store.buscar_contexto_no_indice = lambda *args: []  # type: ignore[attr-defined]
     monkeypatch.setitem(sys.modules, "app.embeddings", embeddings)

@@ -76,10 +76,19 @@ def _backend_padrao(
     global _backend_busca
     try:
         # Imports locais evitam ciclo e acesso ao disco durante importações e testes.
+        from app.chunking import FINAL_RAG_CONFIG
         from app.embeddings import create_embeddings
-        from app.vector_store import abrir_indice, buscar_contexto_no_indice
+        from app.vector_store import (
+            abrir_indice,
+            buscar_contexto_no_indice,
+            index_directory,
+        )
 
-        store = abrir_indice(create_embeddings())
+        store = abrir_indice(
+            create_embeddings(),
+            config=FINAL_RAG_CONFIG,
+            persist_directory=index_directory(FINAL_RAG_CONFIG),
+        )
     except (FileNotFoundError, OSError) as exc:
         raise RecuperadorNaoConfiguradoError(
             "O índice documental do CKP02 não está disponível. "

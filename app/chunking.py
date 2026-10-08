@@ -31,6 +31,8 @@ class ChunkingConfig:
 GRANULAR_256 = ChunkingConfig("granular_256", 256, 32)
 BALANCED_512 = ChunkingConfig("equilibrada_512", 512, 64)
 WIDE_1024 = ChunkingConfig("ampla_1024", 1024, 128)
+# Escolha quantitativa da fase 4 (faithfulness médio de 0,714).
+FINAL_RAG_CONFIG = BALANCED_512
 
 
 def gerar_chunks(

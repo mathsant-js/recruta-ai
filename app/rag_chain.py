@@ -32,6 +32,7 @@ class RespostaRAG:
     pergunta: str
     resposta: str
     fontes: tuple[DocumentoRecuperado, ...]
+    contextos_recuperados: tuple[DocumentoRecuperado, ...] = ()
 
     @property
     def texto_formatado(self) -> str:
@@ -53,6 +54,9 @@ class RespostaRAG:
             "answer": self.resposta,
             "formatted_answer": self.texto_formatado,
             "sources": [fonte.as_dict() for fonte in self.fontes],
+            "retrieved_contexts": [
+                contexto.as_dict() for contexto in self.contextos_recuperados
+            ],
         }
 
 
@@ -139,11 +143,16 @@ class RAGService:
         if not resposta:
             raise RuntimeError("O modelo retornou uma resposta vazia.")
         if INSUFFICIENT_EVIDENCE_MESSAGE in resposta:
-            return RespostaRAG(pergunta, INSUFFICIENT_EVIDENCE_MESSAGE, ())
+            return RespostaRAG(
+                pergunta,
+                INSUFFICIENT_EVIDENCE_MESSAGE,
+                (),
+                elegiveis,
+            )
 
         fontes = _fontes_citadas(resposta, elegiveis)
         if not fontes:
             raise CitacaoInvalidaError(
                 "A resposta fundamentada não citou nenhum chunk recuperado."
             )
-        return RespostaRAG(pergunta, resposta, fontes)
+        return RespostaRAG(pergunta, resposta, fontes, elegiveis)

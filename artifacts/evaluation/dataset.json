@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "review_note": "Perguntas e respostas de referência redigidas por leitura humana das fontes; não são respostas sintéticas aceitas automaticamente.",
+  "items": [
+    {
+      "id": "Q01",
+      "question": "Qual é o prazo mínimo de inscrição indicado para o processo seletivo?",
+      "reference_answer": "O período de inscrições deve permanecer aberto por no mínimo cinco dias úteis.",
+      "expected_document_ids": ["DOC-04"],
+      "category": "processo_seletivo",
+      "answerable": true
+    },
+    {
+      "id": "Q02",
+      "question": "Em quais situações um processo seletivo pode ser cancelado por ausência ou inadequação de candidatos?",
+      "reference_answer": "O processo pode ser cancelado quando não houver candidatos inscritos, quando ninguém comparecer às etapas ou quando os participantes não apresentarem perfil compatível com a vaga.",
+      "expected_document_ids": ["DOC-04"],
+      "category": "processo_seletivo",
+      "answerable": true
+    },
+    {
+      "id": "Q03",
+      "question": "Quais informações devem constar no formulário de demanda de recrutamento e seleção?",
+      "reference_answer": "A demanda deve registrar a identificação da unidade solicitante e da vaga, justificativa, perfil e requisitos, atividades, quantidade de postos, condições de trabalho, etapas e responsáveis pelo processo.",
+      "expected_document_ids": ["DOC-01"],
+      "category": "planejamento",
+      "answerable": true
+    },
+    {
+      "id": "Q04",
+      "question": "Quais práticas ajudam a estruturar uma entrevista por competências?",
+      "reference_answer": "É preciso definir previamente as competências e os comportamentos esperados, aplicar perguntas baseadas em situações ou experiências observáveis, manter critérios comuns entre candidatos e registrar evidências para a decisão humana.",
+      "expected_document_ids": ["DOC-04"],
+      "category": "entrevista_por_competencias",
+      "answerable": true
+    },
+    {
+      "id": "Q05",
+      "question": "Quais princípios devem orientar um processo de recrutamento justo?",
+      "reference_answer": "O recrutamento justo deve respeitar direitos humanos e normas trabalhistas, ser transparente, impedir cobrança indevida de custos aos trabalhadores, prevenir discriminação e assegurar acesso a mecanismos de reparação.",
+      "expected_document_ids": ["DOC-03"],
+      "category": "recrutamento_justo",
+      "answerable": true
+    },
+    {
+      "id": "Q06",
+      "question": "Quais cuidados de privacidade devem ser adotados na coleta e guarda de currículos?",
+      "reference_answer": "Devem ser coletados somente dados necessários e pertinentes, com transparência sobre finalidade, base legal, prazo de retenção, compartilhamentos e direitos do titular; a guarda precisa ter prazo definido, segurança e descarte adequado.",
+      "expected_document_ids": ["DOC-02"],
+      "category": "privacidade",
+      "answerable": true
+    },
+    {
+      "id": "Q07",
+      "question": "Por que critérios vagos de 'perfil cultural' podem criar risco discriminatório e como reduzi-lo?",
+      "reference_answer": "Critérios vagos podem reproduzir estereótipos e excluir grupos sem relação com o trabalho. O risco diminui com requisitos objetivos ligados às atividades, critérios transparentes e padronizados, diversidade, monitoramento de impactos e revisão humana.",
+      "expected_document_ids": ["DOC-02", "DOC-05"],
+      "category": "diversidade_e_nao_discriminacao",
+      "answerable": true
+    },
+    {
+      "id": "Q08",
+      "question": "Qual é a alíquota de imposto de renda aplicável ao salário de um candidato contratado em janeiro de 2030?",
+      "reference_answer": "A base documental não contém a tabela tributária de 2030; a pergunta deve ser recusada ou encaminhada a uma fonte fiscal atualizada.",
+      "expected_document_ids": [],
+      "category": "fora_da_base",
+      "answerable": false
+    }
+  ]
+}

@@ -6,7 +6,7 @@ a evolução para o pipeline RAG do CKP02.
 
 ## Estado do CKP02
 
-As fases 0, 1, 2 e 3 estão concluídas. A fase 2 foi executada com embeddings locais reais,
+As fases 0, 1, 2, 3 e 4 estão concluídas. A fase 2 foi executada com embeddings locais reais,
 depois que o endpoint cloud recusou o modelo obrigatório com `401`. O projeto não apresenta
 chamadas simuladas como execução real. O baseline preserva a aplicação do CKP01 e a curadoria
 documental fornece cinco PDFs reais e complementares para o RAG:
@@ -28,6 +28,7 @@ documental fornece cinco PDFs reais e complementares para o RAG:
 - `app/rag_chain.py` executa retrieve → generate, trata evidência insuficiente e valida
   os IDs citados pelo modelo;
 - `app/phase3.py` reproduz as cinco perguntas reais e grava respostas e fontes;
+- `app/evaluation.py` compara 256/32 e 512/64 com oito perguntas e RAGAS real;
 - `artifacts/indexes/` mantém índices locais fora do Git.
 
 `buscar()` abre o índice de forma tardia na primeira consulta, sem efeitos colaterais no
@@ -95,7 +96,41 @@ python -m app.phase3
 A execução final de **08/10/2026** respondeu as cinco perguntas com fontes existentes,
 usando `gemma4:cloud`, `nomic-embed-text`, `top_k=5` e temperatura zero. Levou 12,005
 segundos. Perguntas, respostas, latências, chunks, scores, páginas e URLs estão em
-`artifacts/rag/fase3.json`. As métricas RAGAS permanecem para a fase 4.
+`artifacts/rag/fase3.json`.
+
+## Fase 4 — comparação de chunking e RAGAS
+
+A avaliação usa oito perguntas revisadas por leitura humana: sete respondíveis e uma
+deliberadamente fora da base. Ela cobre perguntas objetivas, interpretativas, privacidade,
+risco discriminatório e combinação de documentos. As mesmas perguntas, documentos, prompt,
+`gemma4:cloud`, temperatura zero, `top_k=5` e expansão por um vizinho foram mantidos nas duas
+configurações; variaram apenas `chunk_size` e overlap.
+
+Execução real de **08/10/2026**:
+
+| Configuração | Chunks | Faithfulness | Answer relevancy | Recall de fontes | Recusa fora da base |
+|---|---:|---:|---:|---:|---:|
+| 256 / 32 | 2.866 | 0,643 | 0,623 | 1,000 | 100% |
+| 512 / 64 | 1.500 | **0,714** | **0,630** | 0,929 | 100% |
+
+As médias RAGAS consideram as sete perguntas respondíveis. A pergunta sem resposta permanece
+na tabela por pergunta e é avaliada separadamente pela taxa de recusa, porque uma recusa
+correta recebe zero nessas métricas e distorceria a qualidade das respostas fundamentadas.
+A configuração **512/64 venceu**, superou a meta de faithfulness 0,7 e passou a ser a
+configuração final do recuperador. A construção inicial desse índice levou 1.923,006 segundos;
+reexecuções o reabrem após validar a contagem de 1.500 chunks.
+
+Para reproduzir a avaliação completa:
+
+```bash
+python -m app.evaluation
+```
+
+O comando exige o Ollama local com `nomic-embed-text`, a chave cloud e conectividade. Os
+artefatos auditáveis ficam em `artifacts/evaluation/`: dataset, respostas/contextos, CSV por
+pergunta, resumo, configuração com hashes, relatório e gráfico. Os índices ficam ignorados
+pelo Git e devem ser reconstruídos quando ausentes. Como RAGAS usa o modelo como juiz, os
+valores podem variar entre execuções mesmo com temperatura zero.
 
 ## Integrantes
 

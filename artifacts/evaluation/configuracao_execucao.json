@@ -1,0 +1,40 @@
+{
+  "executed_at": "2026-10-08T19:53:42-03:00",
+  "real_execution": true,
+  "question_count": 8,
+  "chat_model": "gemma4:cloud",
+  "embedding_model": "nomic-embed-text",
+  "embedding_mode": "local",
+  "embedding_dimension": 768,
+  "temperature": 0,
+  "top_k": 5,
+  "neighbor_chunks": 1,
+  "minimum_score": 0.2,
+  "chunking_configs": [
+    {
+      "name": "granular_256",
+      "chunk_size": 256,
+      "chunk_overlap": 32
+    },
+    {
+      "name": "equilibrada_512",
+      "chunk_size": 512,
+      "chunk_overlap": 64
+    }
+  ],
+  "manifest_sha256": "3864a4c1cabef289a7b25bf8309fc4548aee3a754a798832803c87b499cb769e",
+  "rag_prompt_sha256": "1335ee7e622b02f23a20322349d54a696efa36f14013116451636e5acc760a6e",
+  "dependency_versions": {
+    "ragas": "0.2.15",
+    "langchain": "0.3.27",
+    "langchain-ollama": "0.3.10",
+    "langchain-chroma": "0.2.5",
+    "chromadb": "1.0.20"
+  },
+  "failures": [],
+  "limitations": [
+    "As métricas dependem de julgamentos do gemma4:cloud e podem variar em nova execução.",
+    "Embeddings locais são a adaptação documentada ao 401 do endpoint cloud.",
+    "Valores N/D são preservados e excluídos das médias; não são convertidos em zero."
+  ]
+}
