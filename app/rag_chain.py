@@ -12,6 +12,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 from app.chain import create_chat_llm
 from app.prompts import RAG_PROMPT
+from app.reranker import CrossEncoderReranker, expand_selected_neighbors
 from app.retriever import DocumentoRecuperado, FiltroMetadata, buscar
 
 INSUFFICIENT_EVIDENCE_MESSAGE = (
@@ -108,13 +109,19 @@ class RAGService:
         *,
         top_k: int = 5,
         minimum_score: float = 0.2,
+        reranker: CrossEncoderReranker | None = None,
+        candidate_k: int = 10,
     ) -> None:
         if top_k < 1:
             raise ValueError("top_k deve ser positivo.")
         self.llm = llm or create_chat_llm(temperature=0)
         self.search = search
         self.top_k = top_k
+        if candidate_k < top_k:
+            raise ValueError("candidate_k deve ser maior ou igual a top_k.")
+        self.candidate_k = candidate_k
         self.minimum_score = minimum_score
+        self.reranker = reranker
         self.chain = RAG_PROMPT | self.llm | StrOutputParser()
 
     def answer(
@@ -128,12 +135,20 @@ class RAGService:
         pergunta = question.strip()
         if not pergunta:
             raise ValueError("A pergunta não pode estar vazia.")
-        recuperados = tuple(self.search(pergunta, top_k=self.top_k, filtros=filters))
+        quantidade = self.candidate_k if self.reranker is not None else self.top_k
+        recuperados = tuple(self.search(pergunta, top_k=quantidade, filtros=filters))
         elegiveis = tuple(
             documento
             for documento in recuperados
             if documento.score >= self.minimum_score
         )
+        if self.reranker is not None:
+            selecionados = self.reranker.rerank(
+                pergunta, elegiveis, top_n=self.top_k
+            )
+            elegiveis = tuple(
+                expand_selected_neighbors(selecionados, elegiveis)
+            )
         if not elegiveis:
             return RespostaRAG(pergunta, INSUFFICIENT_EVIDENCE_MESSAGE, ())
 

@@ -6,7 +6,7 @@ a evolução para o pipeline RAG do CKP02.
 
 ## Estado do CKP02
 
-As fases 0, 1, 2, 3 e 4 estão concluídas. A fase 2 foi executada com embeddings locais reais,
+As fases 0, 1, 2, 3, 4 e 5 estão concluídas. A fase 2 foi executada com embeddings locais reais,
 depois que o endpoint cloud recusou o modelo obrigatório com `401`. O projeto não apresenta
 chamadas simuladas como execução real. O baseline preserva a aplicação do CKP01 e a curadoria
 documental fornece cinco PDFs reais e complementares para o RAG:
@@ -29,6 +29,10 @@ documental fornece cinco PDFs reais e complementares para o RAG:
   os IDs citados pelo modelo;
 - `app/phase3.py` reproduz as cinco perguntas reais e grava respostas e fontes;
 - `app/evaluation.py` compara 256/32 e 512/64 com oito perguntas e RAGAS real;
+- `app/reranker.py` reordena dez candidatos com o cross-encoder
+  `cross-encoder/ms-marco-MiniLM-L-6-v2` e entrega os cinco melhores ao gerador;
+- `app/phase5.py` compara busca base, filtro por metadata e reranking com execução real;
+- `app/main.py` integra o RAG, os filtros, o reranking e as fontes em Gradio;
 - `artifacts/indexes/` mantém índices locais fora do Git.
 
 `buscar()` abre o índice de forma tardia na primeira consulta, sem efeitos colaterais no
@@ -132,6 +136,43 @@ pergunta, resumo, configuração com hashes, relatório e gráfico. Os índices 
 pelo Git e devem ser reconstruídos quando ausentes. Como RAGAS usa o modelo como juiz, os
 valores podem variar entre execuções mesmo com temperatura zero.
 
+## Fase 5 — diferenciais
+
+A interface do CKP02 substitui o contexto conversacional do CKP01 pelo RAG. Ela permite
+escolher uma das cinco categorias reais do manifesto, ativar ou desativar o reranking,
+consultar a base e ver resposta e fontes citadas em áreas separadas. O RAG recupera dez
+candidatos quando o reranking está ativo, aplica o cross-encoder recomendado no enunciado,
+seleciona os cinco primeiros e reanexa seus vizinhos para não cortar afirmações antes de
+enviar o contexto ao `gemma4:cloud`.
+
+A comparação real de **08/10/2026**, após aquecimento do índice e do cross-encoder, usou as
+sete perguntas respondíveis do dataset:
+
+| Estratégia | Perguntas | Recall médio de fontes | Latência média |
+|---|---:|---:|---:|
+| Busca vetorial | 7 | 0,929 | 0,237 s |
+| Cross-encoder | 7 | **1,000** | 4,252 s |
+| Filtro por metadata | 6 aplicáveis | **1,000** | detalhada no CSV |
+
+O reranking recuperou o segundo documento esperado da pergunta combinada, mas acrescentou
+latência relevante em CPU. O filtro manteve recall 1,0 nos seis casos em que todas as fontes
+esperadas pertenciam à mesma categoria e removeu chunks de categorias alheias. Esses números
+medem recuperação, não substituem o faithfulness RAGAS da fase 4. Em um smoke test de geração
+sobre coleta e guarda de currículos, a busca vetorial respondeu com três chunks válidos,
+enquanto o cross-encoder em inglês selecionou contexto menos específico e o gerador recusou a
+resposta. Por isso, o reranking permanece experimental e desativado por padrão na interface;
+não se presume melhoria automática. IDs e tempos por pergunta estão em
+`artifacts/phase5/comparacao_recuperacao.csv`.
+
+Para reproduzir:
+
+```bash
+python -m app.phase5
+```
+
+Na primeira execução, `sentence-transformers` baixa o cross-encoder. O comando também exige
+o índice final e o Ollama local com `nomic-embed-text`, mas não chama o modelo gerador cloud.
+
 ## Integrantes
 
 | Nome completo | RM |
@@ -222,10 +263,9 @@ As versões de Gradio e Pydantic estão fixadas em uma combinação compatível 
 a instalação reproduzível mantenha a validação em Pydantic v2.
 
 Ao iniciar, acesse [http://localhost:7860](http://localhost:7860). A interface oferece
-chat com memória isolada por sessão, envio pelo botão ou pela tecla Enter, limpeza da
-conversa e da memória, e geração de uma análise estruturada exibida como JSON somente
-depois da validação Pydantic. O aviso permanente no rodapé reforça privacidade, uso
-responsável e revisão humana.
+pergunta ao RAG, filtro opcional por categoria, controle do cross-encoder, resposta
+fundamentada e fontes citadas separadamente. O envio funciona pelo botão ou pela tecla Enter,
+e o aviso permanente no rodapé reforça privacidade, uso responsável e revisão humana.
 
 Se a chave estiver ausente, o processo termina antes de criar a interface e mostra uma
 mensagem orientando a configurar `OLLAMA_API_KEY`. Em distribuições nas quais apenas

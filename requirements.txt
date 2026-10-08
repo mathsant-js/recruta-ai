@@ -15,4 +15,7 @@ pypdf==6.0.0
 notebook==7.4.5
 nbformat==5.10.4
 ragas==0.2.15
+datasets==3.2.0
+huggingface-hub==0.36.2
 pillow==11.3.0
+sentence-transformers==5.1.1
