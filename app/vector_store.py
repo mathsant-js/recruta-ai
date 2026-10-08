@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 from typing import Any
 
 from langchain_chroma import Chroma
@@ -98,3 +99,74 @@ def buscar_no_indice(
         )
         for documento, score in pares
     ]
+
+
+_CHUNK_SEQUENCIAL = re.compile(r"^(?P<documento>.+)-C(?P<numero>\d+)$")
+
+
+def buscar_contexto_no_indice(
+    store: Chroma,
+    consulta: str,
+    top_k: int,
+    filtros: FiltroMetadata | None = None,
+    *,
+    vizinhos: int = 1,
+) -> list[DocumentoRecuperado]:
+    """Recupera hits semânticos e chunks contíguos para recompor frases cortadas.
+
+    O splitter de 256 caracteres pode separar uma afirmação de sua conclusão. Os
+    vizinhos são lidos por ID, sem nova busca nem reranking, e preservam sua própria
+    metadata para que toda citação continue verificável.
+    """
+
+    if vizinhos < 0:
+        raise ValueError("vizinhos não pode ser negativo.")
+    principais = buscar_no_indice(store, consulta, top_k, filtros)
+    if not principais or vizinhos == 0:
+        return principais
+
+    ids_vizinhos: list[str] = []
+    score_origem: dict[str, float] = {}
+    for principal in principais:
+        correspondencia = _CHUNK_SEQUENCIAL.match(principal.chunk_id)
+        if correspondencia is None:
+            continue
+        numero = int(correspondencia.group("numero"))
+        largura = len(correspondencia.group("numero"))
+        for deslocamento in range(-vizinhos, vizinhos + 1):
+            candidato = numero + deslocamento
+            if candidato < 1:
+                continue
+            chunk_id = (
+                f"{correspondencia.group('documento')}-C{candidato:0{largura}d}"
+            )
+            if chunk_id not in score_origem:
+                ids_vizinhos.append(chunk_id)
+                score_origem[chunk_id] = principal.score
+
+    bruto = store.get(ids=ids_vizinhos, include=["documents", "metadatas"])
+    por_id = {
+        str(chunk_id): (str(conteudo), metadata)
+        for chunk_id, conteudo, metadata in zip(
+            bruto["ids"], bruto["documents"], bruto["metadatas"]
+        )
+        if conteudo is not None and metadata is not None
+    }
+    resultados: list[DocumentoRecuperado] = []
+    for chunk_id in ids_vizinhos:
+        item = por_id.get(chunk_id)
+        if item is None:
+            continue
+        conteudo, metadata = item
+        resultados.append(
+            DocumentoRecuperado(
+                conteudo=conteudo,
+                score=score_origem[chunk_id],
+                titulo=str(metadata["title"]),
+                fonte=str(metadata["source"]),
+                pagina=int(metadata["page"]) if metadata.get("page") else None,
+                categoria=str(metadata["category"]),
+                chunk_id=chunk_id,
+            )
+        )
+    return resultados

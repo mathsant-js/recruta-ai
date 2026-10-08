@@ -1,8 +1,7 @@
-"""Contrato público da camada de recuperação documental do CKP02.
+"""Contrato público e inicialização tardia da recuperação documental do CKP02.
 
-Nesta fase o módulo não abre conexões, não carrega documentos e não cria coleções no
-ChromaDB durante o import. A implementação concreta será conectada após a ingestão da
-base, mantendo este contrato estável para a interface e para o futuro agente do CKP03.
+O índice e o modelo de embeddings só são abertos na primeira busca. Assim, importar o
+módulo continua sem efeitos colaterais e a mesma função poderá virar uma tool no CKP03.
 """
 
 from collections.abc import Callable, Mapping, Sequence
@@ -59,7 +58,7 @@ class DocumentoRecuperado:
 
 
 class RecuperadorNaoConfiguradoError(RuntimeError):
-    """Indica que a fase de ingestão ainda não conectou um índice ao contrato."""
+    """Indica que o índice persistente não pôde ser conectado ao contrato."""
 
 
 BackendBusca: TypeAlias = Callable[
@@ -67,21 +66,45 @@ BackendBusca: TypeAlias = Callable[
 ]
 
 
-def _backend_nao_configurado(
+def _backend_padrao(
     consulta: str,
     top_k: int,
     filtros: FiltroMetadata | None,
 ) -> Sequence[DocumentoRecuperado]:
-    """Falha de forma explícita enquanto o índice da fase 2 não existe."""
+    """Abre o índice somente quando a primeira consulta realmente acontece."""
 
-    del consulta, top_k, filtros
-    raise RecuperadorNaoConfiguradoError(
-        "O índice documental do CKP02 ainda não foi construído. "
-        "Execute a fase de ingestão antes de realizar buscas."
-    )
+    global _backend_busca
+    try:
+        # Imports locais evitam ciclo e acesso ao disco durante importações e testes.
+        from app.embeddings import create_embeddings
+        from app.vector_store import abrir_indice, buscar_contexto_no_indice
+
+        store = abrir_indice(create_embeddings())
+    except (FileNotFoundError, OSError) as exc:
+        raise RecuperadorNaoConfiguradoError(
+            "O índice documental do CKP02 não está disponível. "
+            "Execute python -m app.ingestion antes de realizar buscas."
+        ) from exc
+
+    def backend_indice(
+        pergunta: str,
+        quantidade: int,
+        filtro: FiltroMetadata | None,
+    ) -> Sequence[DocumentoRecuperado]:
+        return buscar_contexto_no_indice(store, pergunta, quantidade, filtro)
+
+    _backend_busca = backend_indice
+    return backend_indice(consulta, top_k, filtros)
 
 
-_backend_busca: BackendBusca = _backend_nao_configurado
+_backend_busca: BackendBusca = _backend_padrao
+
+
+def restaurar_backend_padrao() -> None:
+    """Descarta a conexão em cache, útil após reconstruir o índice ou em testes."""
+
+    global _backend_busca
+    _backend_busca = _backend_padrao
 
 
 def configurar_backend_busca(backend: BackendBusca) -> None:

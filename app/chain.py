@@ -27,7 +27,11 @@ def _approximate_token_ids(text: str) -> list[int]:
     return list(range(estimated_count))
 
 
-def create_chat_llm(settings: Settings | None = None) -> ChatOllama:
+def create_chat_llm(
+    settings: Settings | None = None,
+    *,
+    temperature: float = 0.2,
+) -> ChatOllama:
     """Configura o modelo permitido para conversas via Ollama Cloud."""
 
     current_settings = settings or get_settings()
@@ -39,7 +43,7 @@ def create_chat_llm(settings: Settings | None = None) -> ChatOllama:
     return ChatOllama(
         model=current_settings.ollama_model,
         base_url=current_settings.ollama_host,
-        temperature=0.2,
+        temperature=temperature,
         custom_get_token_ids=_approximate_token_ids,
         client_kwargs={
             "headers": {

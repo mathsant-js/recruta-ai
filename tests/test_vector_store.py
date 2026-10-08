@@ -6,7 +6,7 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 
 from app.chunking import GRANULAR_256
-from app.vector_store import buscar_no_indice, criar_indice
+from app.vector_store import buscar_contexto_no_indice, buscar_no_indice, criar_indice
 
 
 class EmbeddingsDeterministicos(Embeddings):
@@ -69,3 +69,26 @@ def test_indexa_busca_filtra_e_adapta_contrato(tmp_path: Path) -> None:
     assert resultados[0].chunk_id == "TESTE-C0001"
     assert resultados[0].pagina == 1
     assert 0 <= resultados[0].score <= 1
+
+
+def test_busca_de_contexto_inclui_vizinho_com_citacao_propria(tmp_path: Path) -> None:
+    chunks = [
+        _chunk("TESTE-C0001", "Diretrizes de privacidade devem adotar uma abordagem", "privacidade"),
+        _chunk("TESTE-C0002", "estruturada e alinhada aos riscos.", "privacidade"),
+        _chunk("TESTE-C0003", "Assunto sem relação.", "privacidade"),
+    ]
+    store = criar_indice(
+        chunks,
+        EmbeddingsDeterministicos(),
+        persist_directory=tmp_path / "indice-vizinhos",
+    )
+
+    resultados = buscar_contexto_no_indice(
+        store,
+        "privacidade de dados",
+        top_k=1,
+        vizinhos=1,
+    )
+
+    assert [item.chunk_id for item in resultados] == ["TESTE-C0001", "TESTE-C0002"]
+    assert resultados[1].conteudo == "estruturada e alinhada aos riscos."

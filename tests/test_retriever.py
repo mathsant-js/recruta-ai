@@ -1,6 +1,8 @@
 """Testes determinísticos do contrato público de recuperação do CKP02."""
 
 import pytest
+from types import ModuleType
+import sys
 
 import app.retriever as retriever
 from app.retriever import DocumentoRecuperado, RecuperadorNaoConfiguradoError
@@ -16,7 +18,20 @@ def restaurar_backend() -> None:
 
 
 def test_importacao_nao_inicializa_indice() -> None:
-    with pytest.raises(RecuperadorNaoConfiguradoError, match="ainda não foi construído"):
+    assert retriever._backend_busca is retriever._backend_padrao
+
+
+def test_backend_padrao_expoe_erro_claro_sem_indice(monkeypatch) -> None:
+    embeddings = ModuleType("app.embeddings")
+    embeddings.create_embeddings = lambda: object()  # type: ignore[attr-defined]
+    vector_store = ModuleType("app.vector_store")
+    vector_store.abrir_indice = (  # type: ignore[attr-defined]
+        lambda _: (_ for _ in ()).throw(FileNotFoundError("índice ausente"))
+    )
+    vector_store.buscar_contexto_no_indice = lambda *args: []  # type: ignore[attr-defined]
+    monkeypatch.setitem(sys.modules, "app.embeddings", embeddings)
+    monkeypatch.setitem(sys.modules, "app.vector_store", vector_store)
+    with pytest.raises(RecuperadorNaoConfiguradoError, match="app.ingestion"):
         retriever.buscar("Como proteger dados de candidatos?")
 
 

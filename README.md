@@ -6,14 +6,14 @@ a evolução para o pipeline RAG do CKP02.
 
 ## Estado do CKP02
 
-As fases 0, 1 e 2 estão concluídas. A fase 2 foi executada com embeddings locais reais,
+As fases 0, 1, 2 e 3 estão concluídas. A fase 2 foi executada com embeddings locais reais,
 depois que o endpoint cloud recusou o modelo obrigatório com `401`. O projeto não apresenta
 chamadas simuladas como execução real. O baseline preserva a aplicação do CKP01 e a curadoria
 documental fornece cinco PDFs reais e complementares para o RAG:
 
 - o contrato público `app.retriever.buscar()` isola os futuros detalhes de ChromaDB;
 - `DocumentoRecuperado` define conteúdo, score e metadata necessária para citações;
-- os modelos e endpoints ficam centralizados em `app.config`: `gemma4:31b` na Ollama Cloud
+- os modelos e endpoints ficam centralizados em `app.config`: `gemma4:cloud` na Ollama Cloud
   para geração e `nomic-embed-text` no Ollama local para embeddings;
 - `notebooks/CKP02_DocMind_RAG.ipynb` é um notebook fino, baseado nos módulos Python;
 - `data/raw/` contém as cinco fontes oficiais ou institucionais preservadas integralmente;
@@ -22,13 +22,17 @@ documental fornece cinco PDFs reais e complementares para o RAG:
 - `app/document_loader.py` valida manifesto, hashes, duplicidade e texto extraível;
 - `app/chunking.py` implementa literalmente o `RecursiveCharacterTextSplitter` exigido;
 - `app/embeddings.py` configura e valida `embed_query()` e `embed_documents()` reais;
-- `app/vector_store.py` persiste e consulta a coleção Chroma `recruta_ai_256`;
+- `app/vector_store.py` persiste e consulta a coleção Chroma `recruta_ai_256`, com
+  expansão por chunks vizinhos para recompor frases cortadas;
 - `app/ingestion.py` executa a fase inteira e grava sua evidência auditável;
+- `app/rag_chain.py` executa retrieve → generate, trata evidência insuficiente e valida
+  os IDs citados pelo modelo;
+- `app/phase3.py` reproduz as cinco perguntas reais e grava respostas e fontes;
 - `artifacts/indexes/` mantém índices locais fora do Git.
 
-Enquanto a ingestão da fase 2 não for conectada ao fluxo end-to-end da fase 3, `buscar()` falha explicitamente com
-`RecuperadorNaoConfiguradoError`. Isso impede que a ausência de um índice seja confundida
-com uma busca real sem resultados.
+`buscar()` abre o índice de forma tardia na primeira consulta, sem efeitos colaterais no
+import. Se o índice não existir, falha explicitamente com
+`RecuperadorNaoConfiguradoError`, evitando confundir ausência do índice com busca vazia.
 
 ## Fase 2 — ingestão e embeddings
 
@@ -68,6 +72,30 @@ plataformas de recrutamento. A evidência completa está em `artifacts/ingestion
 Para adicionar um documento, coloque um PDF, TXT ou Markdown real em `data/raw/`, acrescente
 ao `data/manifest.json` toda a metadata e o SHA-256 corretos, execute os testes e reconstrua o
 índice. Arquivos vazios, corrompidos, duplicados ou com hash divergente são recusados.
+
+## Fase 3 — pipeline end-to-end
+
+O fluxo completo usa `buscar()` para recuperar cinco hits semânticos e acrescenta um
+chunk anterior e um posterior de cada hit. Essa expansão preserva os IDs e metadados
+originais e recompõe afirmações cortadas pela configuração granular de 256 caracteres.
+O contexto segue para o `gemma4:cloud` com `temperature=0`; instruções encontradas nos
+documentos são tratadas como dados não confiáveis.
+
+O modelo deve citar IDs recuperados. `RAGService` valida citações individuais e agrupadas,
+rejeita IDs inexistentes e monta a seção de fontes com título, página e URL diretamente
+da metadata do Chroma. Quando não há evidência com score mínimo de `0,2`, a resposta
+declara insuficiência sem inventar conteúdo.
+
+Para reproduzir as cinco perguntas reais:
+
+```bash
+python -m app.phase3
+```
+
+A execução final de **08/10/2026** respondeu as cinco perguntas com fontes existentes,
+usando `gemma4:cloud`, `nomic-embed-text`, `top_k=5` e temperatura zero. Levou 12,005
+segundos. Perguntas, respostas, latências, chunks, scores, páginas e URLs estão em
+`artifacts/rag/fase3.json`. As métricas RAGAS permanecem para a fase 4.
 
 ## Integrantes
 
@@ -153,7 +181,7 @@ O comando oficial para iniciar a aplicação é:
 python -m app.main
 ```
 
-O projeto usa `gemma4:31b` pela API cloud do Ollama para geração e
+O projeto usa `gemma4:cloud` pela API cloud do Ollama para geração e
 `nomic-embed-text` no Ollama local para recuperação semântica.
 As versões de Gradio e Pydantic estão fixadas em uma combinação compatível para que
 a instalação reproduzível mantenha a validação em Pydantic v2.
@@ -181,7 +209,7 @@ O projeto mantém dois fluxos separados:
    `AnaliseRecrutamento`. Uma falha de parsing permite uma única correção; a segunda falha
    vira um erro de domínio compreensível.
 
-Ambas as chains generativas usam `gemma4:31b` na Cloud. Templates, schema, memória, regras de negócio,
+As chains generativas usam `gemma4:cloud` na Cloud. Templates, schema, memória, regras de negócio,
 experimento e interface ficam em módulos separados dentro de `app/`.
 
 ## Chat com memória
@@ -352,7 +380,7 @@ substitui os artefatos no diretório de saída escolhido.
 |---|---|
 | Projeto Python local e comando oficial | Pacote `app`, executado por `python -m app.main`. |
 | Interface Gradio | Chat, envio, limpeza, análise JSON e aviso em `http://localhost:7860`. |
-| Modelo e configuração segura | `gemma4:31b` na Cloud; chave carregada do `.env`, nunca hardcoded. Embeddings locais sem chave. |
+| Modelo e configuração segura | `gemma4:cloud` na Cloud; chave carregada do `.env`, nunca hardcoded. Embeddings locais sem chave. |
 | Duas chains | `ConversationChain` com memória e pipeline LCEL estruturado. |
 | Memória gerenciada | Limite aproximado de 1.200 tokens, isolamento e limpeza por sessão. |
 | Pydantic v2 | `AnaliseRecrutamento` tipado, restrito e integrado ao parser. |

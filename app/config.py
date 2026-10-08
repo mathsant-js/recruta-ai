@@ -10,7 +10,7 @@ load_dotenv()
 OLLAMA_CHAT_HOST = "https://ollama.com"
 OLLAMA_EMBEDDING_HOST = "http://localhost:11434"
 OLLAMA_HOST = OLLAMA_CHAT_HOST
-OLLAMA_MODEL = "gemma4:31b"
+OLLAMA_MODEL = "gemma4:cloud"
 OLLAMA_EMBEDDING_MODEL = "nomic-embed-text"
 
 
