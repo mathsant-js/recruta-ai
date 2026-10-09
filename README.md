@@ -6,7 +6,7 @@ a evolução para o pipeline RAG do CKP02.
 
 ## Estado do CKP02
 
-As fases 0, 1, 2, 3, 4 e 5 estão concluídas. A fase 2 foi executada com embeddings locais reais,
+As fases 0 a 6 estão concluídas. A fase 2 foi executada com embeddings locais reais,
 depois que o endpoint cloud recusou o modelo obrigatório com `401`. O projeto não apresenta
 chamadas simuladas como execução real. O baseline preserva a aplicação do CKP01 e a curadoria
 documental fornece cinco PDFs reais e complementares para o RAG:
@@ -35,9 +35,28 @@ documental fornece cinco PDFs reais e complementares para o RAG:
 - `app/main.py` integra o RAG, os filtros, o reranking e as fontes em Gradio;
 - `artifacts/indexes/` mantém índices locais fora do Git.
 
+O notebook final foi executado do início ao fim em **08/10/2026** e está versionado com
+outputs. Ele valida os documentos e hashes, apresenta as evidências reais das fases 2 e 3,
+exibe as métricas RAGAS das duas configurações e resume os diferenciais. A suíte determinística
+final contém 69 testes aprovados.
+
 `buscar()` abre o índice de forma tardia na primeira consulta, sem efeitos colaterais no
 import. Se o índice não existir, falha explicitamente com
 `RecuperadorNaoConfiguradoError`, evitando confundir ausência do índice com busca vazia.
+
+## Base de conhecimento
+
+| ID | Fonte | Categoria | Páginas | Origem |
+|---|---|---|---:|---|
+| DOC-01 | Manual de Gestão de Pessoas — Enap | Recrutamento e seleção | 86 | [Repositório Enap](https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab) |
+| DOC-02 | Proteção de Dados no Contexto Laboral — CNPD/ANPD | Privacidade | 95 | [Grupos de Trabalho da ANPD](https://www.gov.br/anpd/pt-br/cnpd/grupos-de-trabalho) |
+| DOC-03 | Princípios para o Recrutamento Justo — OIT | Recrutamento justo | 38 | [Publicação da OIT](https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao) |
+| DOC-04 | Manual de Boas Práticas da SEPLAG Niterói | Seleção por competências | 46 | [SEPLAG Niterói](https://seplag.niteroi.rj.gov.br/) |
+| DOC-05 | Pesquisa Diversidade Aprendiz — OIT | Diversidade e inclusão | 42 | [Publicação da OIT](https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo) |
+
+O manifesto `data/manifest.json` registra autoria, data, tipo, categoria, URL de download,
+direitos, tamanho, páginas e SHA-256. Os arquivos são preservados integralmente e não contêm
+currículos nem dados pessoais de candidatos reais.
 
 ## Fase 2 — ingestão e embeddings
 
@@ -272,6 +291,42 @@ mensagem orientando a configurar `OLLAMA_API_KEY`. Em distribuições nas quais 
 `python3` existe fora do ambiente virtual, ative o ambiente virtual para usar o comando
 oficial `python -m app.main`.
 
+### Notebook executado
+
+Abra `notebooks/CKP02_DocMind_RAG.ipynb` a partir da raiz do repositório. O arquivo entregue
+já contém os outputs do `Run All`. Para revalidar sem refazer chamadas externas:
+
+```bash
+jupyter nbconvert --to notebook --execute \
+  notebooks/CKP02_DocMind_RAG.ipynb \
+  --output CKP02_DocMind_RAG.ipynb --output-dir notebooks
+```
+
+As células leem e verificam as evidências reais preservadas. A reconstrução completa, que
+exige o Ollama local, a credencial cloud e conectividade, usa nesta ordem:
+
+```bash
+python -m app.ingestion
+python -m app.phase3
+python -m app.evaluation
+python -m app.phase5
+```
+
+### Como adicionar documentos
+
+1. Coloque um PDF, TXT ou Markdown real em `data/raw/`, sem dados pessoais desnecessários.
+2. Acrescente uma entrada em `data/manifest.json` com ID único, título, organização, autoria,
+   datas, tipo, categoria, idioma, URLs, caminho local, direitos e justificativa.
+3. Calcule e registre `sha256`, `file_size_bytes` e, para PDF, `page_count`.
+4. Execute `python -m pytest -q tests/test_manifest.py tests/test_loader.py` para validar a
+   fonte antes da indexação.
+5. Remova ou arquive os índices locais antigos e execute `python -m app.ingestion`; para
+   reconstruir e comparar todas as configurações, execute `python -m app.evaluation`.
+
+Os índices em `artifacts/indexes/` são derivados, grandes e ignorados pelo Git. A entrega
+mantém os documentos, manifesto e artefatos de avaliação necessários para reconstruí-los e
+auditar a escolha final.
+
 ## Arquitetura das duas chains
 
 O projeto mantém dois fluxos separados:
@@ -478,3 +533,18 @@ substitui os artefatos no diretório de saída escolhido.
   atributos sensíveis, nem produzir diagnósticos psicológicos.
 - O uso depende de disponibilidade, latência e credencial válida do Ollama Cloud. Os tempos do
   context rot representam uma única execução e não constituem benchmark.
+- A conta usada na fase 2 não tinha acesso cloud ao `nomic-embed-text`; por isso, o mesmo
+  modelo obrigatório foi executado no Ollama local. Essa divergência do requisito literal está
+  explícita e deve ser informada ao professor.
+- O RAGAS usa um modelo como juiz. Mesmo com temperatura zero, uma nova avaliação pode variar;
+  por isso, dataset, respostas, contextos, versões, hashes e métricas por pergunta foram
+  preservados em `artifacts/evaluation/`.
+
+## Preparação para o CKP03
+
+O CKP03 pode encapsular `app.retriever.buscar()` como tool sem conhecer ChromaDB, loaders ou
+embeddings. O retorno tipado `DocumentoRecuperado` já inclui conteúdo, score, título, URL,
+página, categoria e ID do chunk. A inicialização tardia evita efeitos colaterais no import, e
+os filtros de metadata podem ser encaminhados pelo agente. Antes dessa integração, convém
+manter a validação de citações e a regra de insuficiência de evidência como barreiras
+obrigatórias, em vez de permitir que o agente trate ausência de contexto como resposta livre.
