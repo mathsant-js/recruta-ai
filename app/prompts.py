@@ -10,6 +10,7 @@ ACTIVE_SYSTEM_PROMPT_VERSION = "v3"
 ACTIVE_CHAT_HUMAN_PROMPT_VERSION = "v1"
 ACTIVE_STRUCTURED_HUMAN_PROMPT_VERSION = "v1"
 ACTIVE_STRUCTURED_RETRY_PROMPT_VERSION = "v1"
+ACTIVE_RAG_PROMPT_VERSION = "v1"
 
 SUPPORTED_CASES = (
     "levantamento e revisão de vagas",
@@ -48,6 +49,8 @@ STRUCTURED_ANALYSIS_HUMAN_PROMPT = _load_prompt(
 STRUCTURED_RETRY_HUMAN_PROMPT = _load_prompt(
     f"structured_retry_human_{ACTIVE_STRUCTURED_RETRY_PROMPT_VERSION}.md"
 )
+RAG_SYSTEM_PROMPT = _load_prompt(f"rag_system_{ACTIVE_RAG_PROMPT_VERSION}.md")
+RAG_HUMAN_PROMPT = _load_prompt(f"rag_human_{ACTIVE_RAG_PROMPT_VERSION}.md")
 
 
 def build_chat_prompt() -> ChatPromptTemplate:
@@ -83,6 +86,15 @@ def build_structured_retry_prompt() -> ChatPromptTemplate:
     )
 
 
+def build_rag_prompt() -> ChatPromptTemplate:
+    """Separa regras confiáveis do contexto documental não confiável."""
+
+    return ChatPromptTemplate.from_messages(
+        [("system", RAG_SYSTEM_PROMPT), ("human", RAG_HUMAN_PROMPT)]
+    )
+
+
 CHAT_PROMPT = build_chat_prompt()
 STRUCTURED_ANALYSIS_PROMPT = build_structured_analysis_prompt()
 STRUCTURED_RETRY_PROMPT = build_structured_retry_prompt()
+RAG_PROMPT = build_rag_prompt()

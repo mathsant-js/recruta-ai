@@ -1,0 +1,192 @@
+{
+  "executed_at": "2026-10-08T18:58:08-03:00",
+  "chat_model": "gemma4:cloud",
+  "embedding_model": "nomic-embed-text",
+  "temperature": 0,
+  "top_k": 5,
+  "minimum_score": 0.2,
+  "question_count": 5,
+  "results": [
+    {
+      "question": "Qual é o prazo mínimo de inscrição indicado para o processo seletivo?",
+      "answer": "O prazo mínimo indicado para a inscrição dos candidatos no processo seletivo é de 10 (dez) dias úteis [DOC-04-C0118].",
+      "formatted_answer": "O prazo mínimo indicado para a inscrição dos candidatos no processo seletivo é de 10 (dez) dias úteis [DOC-04-C0118].\n\nFontes:\n- [DOC-04-C0118, p. 14] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/",
+      "sources": [
+        {
+          "conteudo": "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+          "score": 0.8047403693199158,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 14,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0118"
+        }
+      ],
+      "elapsed_seconds": 5.778
+    },
+    {
+      "question": "Em quais situações um processo seletivo pode ser cancelado por ausência ou inadequação de candidatos?",
+      "answer": "Os documentos fornecidos não mencionam situações em que o processo seletivo seja \"cancelado\". No entanto, informam que o prazo de inscrição (que deve ser de no mínimo 10 dias úteis) poderá ser prorrogado em circunstâncias como a ausência de candidatos inscritos ou quando nenhum candidato atender aos requisitos mínimos obrigatórios do cargo [DOC-04-C0118], [DOC-04-C0119].",
+      "formatted_answer": "Os documentos fornecidos não mencionam situações em que o processo seletivo seja \"cancelado\". No entanto, informam que o prazo de inscrição (que deve ser de no mínimo 10 dias úteis) poderá ser prorrogado em circunstâncias como a ausência de candidatos inscritos ou quando nenhum candidato atender aos requisitos mínimos obrigatórios do cargo [DOC-04-C0118], [DOC-04-C0119].\n\nFontes:\n- [DOC-04-C0118, p. 14] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0119, p. 14] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/",
+      "sources": [
+        {
+          "conteudo": "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+          "score": 0.8112608194351196,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 14,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0118"
+        },
+        {
+          "conteudo": "como: ausência de candidatos inscritos; quando nenhum candidato atender aos\nrequisitos mínimos obrigatórios do cargo; necessidades internas da SEPLAG ou do\nsetor demandante da vaga, dentre outras. Este prazo de inscrição deverá ser",
+          "score": 0.8112608194351196,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 14,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0119"
+        }
+      ],
+      "elapsed_seconds": 1.279
+    },
+    {
+      "question": "Quais informações devem constar no formulário de demanda de recrutamento e seleção?",
+      "answer": "O formulário padrão de demanda de recrutamento e seleção deve conter o detalhamento dos cargos a serem providos e a data limite para a homologação do resultado [DOC-01-C0061], [DOC-01-C0062].",
+      "formatted_answer": "O formulário padrão de demanda de recrutamento e seleção deve conter o detalhamento dos cargos a serem providos e a data limite para a homologação do resultado [DOC-01-C0061], [DOC-01-C0062].\n\nFontes:\n- [DOC-01-C0061, p. 12] Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas — https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab\n- [DOC-01-C0062, p. 12] Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas — https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+      "sources": [
+        {
+          "conteudo": "12\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n1.1 Solicitar o recrutamento e seleção.\n1.1.1. Descrição:\nÉ a preparação do documento formal contendo\no detalhamento da demanda do recrutamento",
+          "score": 0.8058225512504578,
+          "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+          "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+          "pagina": 12,
+          "categoria": "recrutamento_e_selecao",
+          "chunk_id": "DOC-01-C0061"
+        },
+        {
+          "conteudo": "e seleção, em formulário padrão contendo todo\ndetalhamento dos cargos a serem providos e a data\nlimite para homologação do resultado.\n1.1.2. Ator(es) da atividade:\na. Unidade organizacional requisitante.\n1.1.3. Tarefas:",
+          "score": 0.8058225512504578,
+          "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+          "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+          "pagina": 12,
+          "categoria": "recrutamento_e_selecao",
+          "chunk_id": "DOC-01-C0062"
+        }
+      ],
+      "elapsed_seconds": 0.92
+    },
+    {
+      "question": "Quais práticas ajudam a estruturar uma entrevista por competências?",
+      "answer": "Para estruturar uma entrevista por competências, as seguintes práticas são recomendadas:\n\n*   **Clareza na Definição:** A equipe responsável pela gestão do processo de recrutamento e seleção deve possuir clareza sobre a competência que será avaliada, sua definição e a resposta esperada do candidato [DOC-04-C0201].\n*   **Objetivo da Estrutura:** A definição da competência é fundamental para assegurar o sucesso da entrevista e para que a equipe obtenha as informações necessárias para a tomada de decisão [DOC-04-C0204].\n*   **Foco da Avaliação:** A entrevista deve ser utilizada para identificar capacidades técnicas e comportamentais para a vaga, baseando-se nas definições presentes nas descrições do cargo [DOC-04-C0206].\n*   **Exemplos de Questões:** Podem ser adotadas perguntas que solicitem relatos de experiências passadas, como:\n    *   Relatar uma entrega que dependia do time e como a orientação foi feita para alcançá-la [DOC-04-C0199].\n    *   Como o candidato lidaria com um colaborador infeliz em suas atividades [DOC-04-C0199].",
+      "formatted_answer": "Para estruturar uma entrevista por competências, as seguintes práticas são recomendadas:\n\n*   **Clareza na Definição:** A equipe responsável pela gestão do processo de recrutamento e seleção deve possuir clareza sobre a competência que será avaliada, sua definição e a resposta esperada do candidato [DOC-04-C0201].\n*   **Objetivo da Estrutura:** A definição da competência é fundamental para assegurar o sucesso da entrevista e para que a equipe obtenha as informações necessárias para a tomada de decisão [DOC-04-C0204].\n*   **Foco da Avaliação:** A entrevista deve ser utilizada para identificar capacidades técnicas e comportamentais para a vaga, baseando-se nas definições presentes nas descrições do cargo [DOC-04-C0206].\n*   **Exemplos de Questões:** Podem ser adotadas perguntas que solicitem relatos de experiências passadas, como:\n    *   Relatar uma entrega que dependia do time e como a orientação foi feita para alcançá-la [DOC-04-C0199].\n    *   Como o candidato lidaria com um colaborador infeliz em suas atividades [DOC-04-C0199].\n\nFontes:\n- [DOC-04-C0201, p. 24] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0204, p. 24] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0206, p. 25] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0199, p. 24] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/",
+      "sources": [
+        {
+          "conteudo": "seleção do novo cargo deve ter clareza quanto a competência avaliada bem como a\ndefinição desta competência e o que se espera como resposta do candidato.\nAs perguntas de entrevista por competência não apenas destacam o conhecimento,",
+          "score": 0.8145631551742554,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 24,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0201"
+        },
+        {
+          "conteudo": "competência é fundamental para garantir que a entrevista seja bem-sucedida e que a\nequipe responsável por gerir o processo de recrutamento e seleção do novo cargo\nobtenha as informações necessárias para a tomada de decisão.\n24",
+          "score": 0.8136651515960693,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 24,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0204"
+        },
+        {
+          "conteudo": "Sendo assim, a entrevista de seleção é uma etapa que permite identificar as\ncapacidades comportamentais e técnicas para a vaga em questão, conforme\nas definições contidas nas descrições do cargo.\nTRABALHO EM EQUIPE",
+          "score": 0.8136651515960693,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 25,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0206"
+        },
+        {
+          "conteudo": "Conte uma entrega que dependia do seu time e como você os orientou para\nalcançá-la.\nComo você lidaria com um colaborador que está infeliz em suas atividades?\nA título de exemplo, a seguir temos sugestões de questões que podem ser adotadas",
+          "score": 0.8145631551742554,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 24,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0199"
+        }
+      ],
+      "elapsed_seconds": 1.836
+    },
+    {
+      "question": "Quais princípios devem orientar um processo seletivo público?",
+      "answer": "Com base nos documentos fornecidos, os princípios e orientações que devem nortear o processo seletivo incluem:\n\n*   **Objetividade e Qualidade:** Deve haver a intenção de desempenhar as funções confiadas com os mais elevados padrões de qualidade e objetividade [DOC-04-C0337].\n*   **Transparência:** É importante informar toda a equipe sobre o processo de recrutamento para promover a transparência e evitar a propagação de rumores [DOC-04-C0123].\n*   **Conformidade Metodológica:** Compromisso com o cumprimento das metodologias definidas pelo governo para a realização do processo seletivo [DOC-04-C0337, DOC-04-C0338].\n*   **Prevenção de Conflitos de Interesses e Nepotismo:** O processo deve evitar situações de conflito de interesses, como candidatos com laços familiares (até segundo grau) com atores relevantes do processo, envolvimento direto do candidato nas fases de concepção ou implementação, ou candidatos que respondam direta ou indiretamente a atores relevantes [DOC-04-C0103, DOC-04-C0104]. Além disso, deve-se evitar o nepotismo, caracterizado pelo uso de posição de poder para favorecer parentes (cônjuge, companheiro ou parentes em linha reta ou colateral, por consanguinidade ou afinidade, até o terceiro grau) [DOC-04-C0105].",
+      "formatted_answer": "Com base nos documentos fornecidos, os princípios e orientações que devem nortear o processo seletivo incluem:\n\n*   **Objetividade e Qualidade:** Deve haver a intenção de desempenhar as funções confiadas com os mais elevados padrões de qualidade e objetividade [DOC-04-C0337].\n*   **Transparência:** É importante informar toda a equipe sobre o processo de recrutamento para promover a transparência e evitar a propagação de rumores [DOC-04-C0123].\n*   **Conformidade Metodológica:** Compromisso com o cumprimento das metodologias definidas pelo governo para a realização do processo seletivo [DOC-04-C0337, DOC-04-C0338].\n*   **Prevenção de Conflitos de Interesses e Nepotismo:** O processo deve evitar situações de conflito de interesses, como candidatos com laços familiares (até segundo grau) com atores relevantes do processo, envolvimento direto do candidato nas fases de concepção ou implementação, ou candidatos que respondam direta ou indiretamente a atores relevantes [DOC-04-C0103, DOC-04-C0104]. Além disso, deve-se evitar o nepotismo, caracterizado pelo uso de posição de poder para favorecer parentes (cônjuge, companheiro ou parentes em linha reta ou colateral, por consanguinidade ou afinidade, até o terceiro grau) [DOC-04-C0105].\n\nFontes:\n- [DOC-04-C0337, p. 43] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0123, p. 14] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0338, p. 43] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0103, p. 12] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0104, p. 12] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0105, p. 12] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/",
+      "sources": [
+        {
+          "conteudo": "ou necessidade de justificativa. \\ Declaro por este meio a intenção de desempenhar as\nfunções que me foram confiadas com os mais elevados padrões de objetividade e\nqualidade. Comprometo-me a cumprir as metodologias definidas pelo governo",
+          "score": 0.8445576429367065,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 43,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0337"
+        },
+        {
+          "conteudo": "A equipe de Comunicação da SEPLAG ficará responsável por elaborar o design\npadronizado do material para divulgação da vaga.\nIMPORTANTE: Informe toda a equipe sobre o processo de\nrecrutamento para promover a transparência e evitar rumores!\nInscrições",
+          "score": 0.8063679337501526,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 14,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0123"
+        },
+        {
+          "conteudo": "para a realização do processo seletivo.\nNome completo:",
+          "score": 0.8445576429367065,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 43,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0338"
+        },
+        {
+          "conteudo": "para si ou para terceiros.\nSão casos de conflito de interesses:\nUm candidato com laços familiares (até o segundo grau de parentesco) com\natores relevantes de um processo seletivo;\nUm candidato com envolvimento direto em qualquer uma das fases do processo",
+          "score": 0.8079272508621216,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 12,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0103"
+        },
+        {
+          "conteudo": "seletivo, em suas etapas de concepção ou implementação.\nUm candidato que trabalhe para algum dos atores relevantes do processo\nseletivo, respondendo a ele direta ou indiretamente.\nNepotismo ocorre quando um agente público usa de sua posição de poder",
+          "score": 0.8079272508621216,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 12,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0104"
+        },
+        {
+          "conteudo": "para nomear, contratar ou favorecer um ou mais parentes. Para fins de\nnepotismo, considera-se como familiar o cônjuge, companheiro ou parente\nem linha reta ou colateral, por consanguinidade ou afinidade, até o terceiro\ngrau (BRASIL, 2021).",
+          "score": 0.8079272508621216,
+          "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+          "fonte": "https://seplag.niteroi.rj.gov.br/",
+          "pagina": 12,
+          "categoria": "selecao_por_competencias",
+          "chunk_id": "DOC-04-C0105"
+        }
+      ],
+      "elapsed_seconds": 2.191
+    }
+  ],
+  "elapsed_seconds": 12.005,
+  "limitations": [
+    "As respostas refletem uma execução real e podem variar em nova chamada.",
+    "A validação garante que toda citação corresponda a um chunk recuperado.",
+    "A qualidade semântica será medida com RAGAS somente na fase 4."
+  ]
+}

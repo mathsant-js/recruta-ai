@@ -1,0 +1,10 @@
+{
+  "executed_at": "2026-10-08T20:17:42.721859-03:00",
+  "real_execution": true,
+  "questions": 7,
+  "cross_encoder": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "baseline_top_k": 5,
+  "reranking_candidates": 10,
+  "reranking_top_n": 5,
+  "comparison_metric": "recall de documentos esperados e latência"
+}

@@ -1,0 +1,69 @@
+{
+  "executed_at": "2026-10-06T20:05:34-03:00",
+  "embedding_model": "nomic-embed-text",
+  "embedding_host": "http://localhost:11434",
+  "execution_mode": "local_embeddings",
+  "embedding_dimension": 768,
+  "chunking": {
+    "name": "granular_256",
+    "chunk_size": 256,
+    "chunk_overlap": 32
+  },
+  "loaded_pages": 305,
+  "indexed_chunks": 2866,
+  "collection": "recruta_ai_256",
+  "query": "Como deve ser feita a protecao de dados pessoais de candidatos?",
+  "results": [
+    {
+      "conteudo": "fornecendo as mesmas perguntas ou tarefas a todos os candidatos. Isso facilita a\ncomparação entre eles.\nClassifique os candidatos com base em seus desempenhos na avaliação de\nconhecimento, levando em consideração outros fatores relevantes do processo de",
+      "score": 0.7917017936706543,
+      "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+      "fonte": "https://seplag.niteroi.rj.gov.br/",
+      "pagina": 18,
+      "categoria": "selecao_por_competencias",
+      "chunk_id": "DOC-04-C0152"
+    },
+    {
+      "conteudo": "do candidato. Solicitar aos candidatos que confiram\nas páginas da prova, verificando problemas de\nimpressão e sequência de páginas. Neste momento\ntambém é necessário lembrar o candidato sobre\na necessidade de transcrição da frase impressa na",
+      "score": 0.7906200885772705,
+      "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+      "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+      "pagina": 49,
+      "categoria": "recrutamento_e_selecao",
+      "chunk_id": "DOC-01-C0309"
+    },
+    {
+      "conteudo": "falecimento). Os dados pessoais do trabalhador permanecem sob a guarda do antigo empregador\nou contratante por determinados prazos. Após o fim do prazo de guarda, os dados são eliminados",
+      "score": 0.7870672941207886,
+      "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+      "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+      "pagina": 11,
+      "categoria": "privacidade",
+      "chunk_id": "DOC-02-C0122"
+    },
+    {
+      "conteudo": "introdução\nlevar uma empresa a selecionar um candidato ou\ncandidata a uma vaga de base. Essas informações\nrequereram uma coleta de dados primários\ndiretamente junto às empresas, porque não são\nquestões para as quais foram encontradas",
+      "score": 0.7826236486434937,
+      "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+      "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+      "pagina": 8,
+      "categoria": "diversidade_e_inclusao",
+      "chunk_id": "DOC-05-C0063"
+    },
+    {
+      "conteudo": "contratação, a falta de transparência sobre o destino do currículo é um problema, pois o\ndado pode ser mantido ou repassado a terceiros (como empresas de RH) sem o\nconhecimento do candidato. O dever de transparência exige que se formalize um",
+      "score": 0.7816827893257141,
+      "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+      "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+      "pagina": 92,
+      "categoria": "privacidade",
+      "chunk_id": "DOC-02-C1081"
+    }
+  ],
+  "elapsed_seconds": 3509.076,
+  "limitations": [
+    "A dimensao e os resultados refletem uma unica execucao real.",
+    "O indice local e ignorado pelo Git e deve ser reconstruido no ambiente de avaliacao.",
+    "Embeddings locais sao uma adaptacao ao 401 recebido pelo endpoint cloud."
+  ]
+}

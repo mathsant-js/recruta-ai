@@ -1,0 +1,1493 @@
+[
+  {
+    "id": "Q01",
+    "question": "Qual é o prazo mínimo de inscrição indicado para o processo seletivo?",
+    "reference_answer": "O período de inscrições deve permanecer aberto por no mínimo cinco dias úteis.",
+    "expected_document_ids": [
+      "DOC-04"
+    ],
+    "category": "processo_seletivo",
+    "answerable": true,
+    "answer": "O processo seletivo deve prever um período mínimo de 10 (dez) dias úteis para a inscrição dos candidatos [DOC-04-C0118].",
+    "formatted_answer": "O processo seletivo deve prever um período mínimo de 10 (dez) dias úteis para a inscrição dos candidatos [DOC-04-C0118].\n\nFontes:\n- [DOC-04-C0118, p. 14] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/",
+    "contexts": [
+      "ou necessidade de justificativa. \\ Declaro por este meio a intenção de desempenhar as\nfunções que me foram confiadas com os mais elevados padrões de objetividade e\nqualidade. Comprometo-me a cumprir as metodologias definidas pelo governo",
+      "para a realização do processo seletivo.\nNome completo:",
+      "Assinatura:\nData: ____/_____/______\n43\nDisponível em: https://shre.ink/manuaissubexec\nou escaneie o QR Code ao lado.",
+      "seja considerada uma taxa de desistência média de 30% a 50% em cada uma das\netapas do processo seletivo (lembre-se de que as fases iniciais concentram as\ntaxas de desistência mais elevadas).\n13",
+      "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+      "como: ausência de candidatos inscritos; quando nenhum candidato atender aos\nrequisitos mínimos obrigatórios do cargo; necessidades internas da SEPLAG ou do\nsetor demandante da vaga, dentre outras. Este prazo de inscrição deverá ser",
+      "para si ou para terceiros.\nSão casos de conflito de interesses:\nUm candidato com laços familiares (até o segundo grau de parentesco) com\natores relevantes de um processo seletivo;\nUm candidato com envolvimento direto em qualquer uma das fases do processo",
+      "seletivo, em suas etapas de concepção ou implementação.\nUm candidato que trabalhe para algum dos atores relevantes do processo\nseletivo, respondendo a ele direta ou indiretamente.\nNepotismo ocorre quando um agente público usa de sua posição de poder",
+      "para nomear, contratar ou favorecer um ou mais parentes. Para fins de\nnepotismo, considera-se como familiar o cônjuge, companheiro ou parente\nem linha reta ou colateral, por consanguinidade ou afinidade, até o terceiro\ngrau (BRASIL, 2021).",
+      "imediata o interesse pela vaga e, em seguida, formalize a candidatura. É fundamental destacar\nque a candidatura requer competências alinhadas com o perfil da vaga disponível. Portanto,",
+      "não há restrições para que os servidores internos expressem interesse em participar de outros\nprocessos seletivos da SEPLAG. Em caso de aprovação no processo seletivo, é importante que",
+      "o servidor mantenha-se disponível para o momento de troca de conhecimentos.\nRecrutamento e Seleção\nDICA! A avaliação de desempenho é um instrumento gerencial dinâmico que, no serviço",
+      "3.2 Descrição do Cargo....................................................................................................\n3.3 Conflito de Interesses................................................................................................",
+      "4.1 A divulgação do processo seletivo.......................................................................\n4.2 Inscrições........................................................................................................................",
+      "4.3 Análise Curricular........................................................................................................\n4.4 Avaliação de Conhecimentos................................................................................"
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "ou necessidade de justificativa. \\ Declaro por este meio a intenção de desempenhar as\nfunções que me foram confiadas com os mais elevados padrões de objetividade e\nqualidade. Comprometo-me a cumprir as metodologias definidas pelo governo",
+        "score": 0.8499154448509216,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 43,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0337"
+      },
+      {
+        "conteudo": "para a realização do processo seletivo.\nNome completo:",
+        "score": 0.8499154448509216,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 43,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0338"
+      },
+      {
+        "conteudo": "Assinatura:\nData: ____/_____/______\n43\nDisponível em: https://shre.ink/manuaissubexec\nou escaneie o QR Code ao lado.",
+        "score": 0.8499154448509216,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 43,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0339"
+      },
+      {
+        "conteudo": "seja considerada uma taxa de desistência média de 30% a 50% em cada uma das\netapas do processo seletivo (lembre-se de que as fases iniciais concentram as\ntaxas de desistência mais elevadas).\n13",
+        "score": 0.8047403693199158,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 13,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0117"
+      },
+      {
+        "conteudo": "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+        "score": 0.8047403693199158,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 14,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0118"
+      },
+      {
+        "conteudo": "como: ausência de candidatos inscritos; quando nenhum candidato atender aos\nrequisitos mínimos obrigatórios do cargo; necessidades internas da SEPLAG ou do\nsetor demandante da vaga, dentre outras. Este prazo de inscrição deverá ser",
+        "score": 0.8047403693199158,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 14,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0119"
+      },
+      {
+        "conteudo": "para si ou para terceiros.\nSão casos de conflito de interesses:\nUm candidato com laços familiares (até o segundo grau de parentesco) com\natores relevantes de um processo seletivo;\nUm candidato com envolvimento direto em qualquer uma das fases do processo",
+        "score": 0.795121967792511,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 12,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0103"
+      },
+      {
+        "conteudo": "seletivo, em suas etapas de concepção ou implementação.\nUm candidato que trabalhe para algum dos atores relevantes do processo\nseletivo, respondendo a ele direta ou indiretamente.\nNepotismo ocorre quando um agente público usa de sua posição de poder",
+        "score": 0.795121967792511,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 12,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0104"
+      },
+      {
+        "conteudo": "para nomear, contratar ou favorecer um ou mais parentes. Para fins de\nnepotismo, considera-se como familiar o cônjuge, companheiro ou parente\nem linha reta ou colateral, por consanguinidade ou afinidade, até o terceiro\ngrau (BRASIL, 2021).",
+        "score": 0.795121967792511,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 12,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0105"
+      },
+      {
+        "conteudo": "imediata o interesse pela vaga e, em seguida, formalize a candidatura. É fundamental destacar\nque a candidatura requer competências alinhadas com o perfil da vaga disponível. Portanto,",
+        "score": 0.7913578748703003,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 6,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0041"
+      },
+      {
+        "conteudo": "não há restrições para que os servidores internos expressem interesse em participar de outros\nprocessos seletivos da SEPLAG. Em caso de aprovação no processo seletivo, é importante que",
+        "score": 0.7913578748703003,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 6,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0042"
+      },
+      {
+        "conteudo": "o servidor mantenha-se disponível para o momento de troca de conhecimentos.\nRecrutamento e Seleção\nDICA! A avaliação de desempenho é um instrumento gerencial dinâmico que, no serviço",
+        "score": 0.7913578748703003,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 6,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0043"
+      },
+      {
+        "conteudo": "3.2 Descrição do Cargo....................................................................................................\n3.3 Conflito de Interesses................................................................................................",
+        "score": 0.7884610891342163,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 4,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0015"
+      },
+      {
+        "conteudo": "4.1 A divulgação do processo seletivo.......................................................................\n4.2 Inscrições........................................................................................................................",
+        "score": 0.7884610891342163,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 4,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0016"
+      },
+      {
+        "conteudo": "4.3 Análise Curricular........................................................................................................\n4.4 Avaliação de Conhecimentos................................................................................",
+        "score": 0.7884610891342163,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 4,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0017"
+      }
+    ],
+    "cited_chunks": [
+      {
+        "conteudo": "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+        "score": 0.8047403693199158,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 14,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0118"
+      }
+    ],
+    "retrieved_document_ids": [
+      "DOC-04"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 0.7894906189994799
+  },
+  {
+    "id": "Q02",
+    "question": "Em quais situações um processo seletivo pode ser cancelado por ausência ou inadequação de candidatos?",
+    "reference_answer": "O processo pode ser cancelado quando não houver candidatos inscritos, quando ninguém comparecer às etapas ou quando os participantes não apresentarem perfil compatível com a vaga.",
+    "expected_document_ids": [
+      "DOC-04"
+    ],
+    "category": "processo_seletivo",
+    "answerable": true,
+    "answer": "Os documentos fornecidos não mencionam situações de cancelamento do processo seletivo por ausência ou inadequação de candidatos. Eles indicam, porém, que o prazo de inscrição (que deve ser de no mínimo 10 dias úteis) poderá ser prorrogado em circunstâncias como a ausência de candidatos inscritos ou quando nenhum candidato atender aos requisitos mínimos obrigatórios do cargo [DOC-04-C0118], [DOC-04-C0119].",
+    "formatted_answer": "Os documentos fornecidos não mencionam situações de cancelamento do processo seletivo por ausência ou inadequação de candidatos. Eles indicam, porém, que o prazo de inscrição (que deve ser de no mínimo 10 dias úteis) poderá ser prorrogado em circunstâncias como a ausência de candidatos inscritos ou quando nenhum candidato atender aos requisitos mínimos obrigatórios do cargo [DOC-04-C0118], [DOC-04-C0119].\n\nFontes:\n- [DOC-04-C0118, p. 14] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0119, p. 14] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/",
+    "contexts": [
+      "deverão ser analisados e mensurados. Para tanto, sugere-se a elaboração e utilização\nde uma matriz com pesos e critérios pré-estabelecidos. Abaixo segue um exemplo de\ncomo elaborar esta matriz.\nATENÇÃO!",
+      "ATENÇÃO!\nÉ importante informar aos candidatos caso haja alguma suspensão\ntemporária do processo seletivo para que os mesmos não criem\nexpectativas ou se frustrem pela ausência de feedback e acabem por\nduvidar da credibilidade do processo e da SEPLAG.",
+      "Análise dos Formulários e Currículos\n(etapa classificatória e eliminatória)\n15",
+      "Desejamos grande sucesso em sua jornada profissional.\nBoa sorte!\nModelo 1\nModelo 2\n20",
+      "Olá [nome do candidato (a)], tudo bem?\nAcompanhando sua participação no processo seletivo até aqui, entendemos que a\noportunidade para [inserir o nome da vaga], neste momento, não é a melhor",
+      "opção para potencializar sua trajetória. Assim, você não foi aprovada(o) na etapa\nde [inserir a descrição da atividade a ser entregue ou entrevista].\nSe você chegou até aqui, é porque tem grandes habilidades e motivações.",
+      "Conflito de Interesses\nO Manual de Seleção por Competências para o Setor Público (2019) indica que evitar\nconflitos de interesses é indispensável para garantir a impessoalidade e a credibilidade",
+      "de uma seleção, e estabelece que um conflito de interesses surge sempre que uma das\npartes envolvidas em uma seleção tem acesso a informações sobre o processo de\navaliação dos candidatos e se serve dessa posição para obter benefícios indevidos",
+      "para si ou para terceiros.\nSão casos de conflito de interesses:\nUm candidato com laços familiares (até o segundo grau de parentesco) com\natores relevantes de um processo seletivo;\nUm candidato com envolvimento direto em qualquer uma das fases do processo",
+      "seja considerada uma taxa de desistência média de 30% a 50% em cada uma das\netapas do processo seletivo (lembre-se de que as fases iniciais concentram as\ntaxas de desistência mais elevadas).\n13",
+      "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+      "como: ausência de candidatos inscritos; quando nenhum candidato atender aos\nrequisitos mínimos obrigatórios do cargo; necessidades internas da SEPLAG ou do\nsetor demandante da vaga, dentre outras. Este prazo de inscrição deverá ser",
+      "De 5 a 6 pontos REGULAR\nAtende as habilidades ou exigências do\nquesito. Desenvolve o referido quesito\nde maneira plena.\nDe 7 a 8 pontos BOM\nSupera as expectativas de atendimento\nquanto as habilidades ou exigências do\nquesito.\nDe 9 a 10 pontos MUITO BOM\n18",
+      "Um dos principais erros cometidos durante processos seletivos é não dar um\nfeedback ao candidato(a), demonstrando falta de empatia e transparência das\ninformações. É importante fornecer um feedback aos candidatos que não forem",
+      "classificados para as próximas etapas do processo seletivo, pois a ausência de\nfeedback pode ser desmotivadora e diminuir as chances do(a) candidato(a) não\nselecionado(a) de se candidatar novamente a outras vagas que talvez sejam mais"
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "deverão ser analisados e mensurados. Para tanto, sugere-se a elaboração e utilização\nde uma matriz com pesos e critérios pré-estabelecidos. Abaixo segue um exemplo de\ncomo elaborar esta matriz.\nATENÇÃO!",
+        "score": 0.8307239413261414,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 15,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0131"
+      },
+      {
+        "conteudo": "ATENÇÃO!\nÉ importante informar aos candidatos caso haja alguma suspensão\ntemporária do processo seletivo para que os mesmos não criem\nexpectativas ou se frustrem pela ausência de feedback e acabem por\nduvidar da credibilidade do processo e da SEPLAG.",
+        "score": 0.8307239413261414,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 15,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0132"
+      },
+      {
+        "conteudo": "Análise dos Formulários e Currículos\n(etapa classificatória e eliminatória)\n15",
+        "score": 0.8307239413261414,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 15,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0133"
+      },
+      {
+        "conteudo": "Desejamos grande sucesso em sua jornada profissional.\nBoa sorte!\nModelo 1\nModelo 2\n20",
+        "score": 0.8293408155441284,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 20,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0169"
+      },
+      {
+        "conteudo": "Olá [nome do candidato (a)], tudo bem?\nAcompanhando sua participação no processo seletivo até aqui, entendemos que a\noportunidade para [inserir o nome da vaga], neste momento, não é a melhor",
+        "score": 0.8293408155441284,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 21,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0170"
+      },
+      {
+        "conteudo": "opção para potencializar sua trajetória. Assim, você não foi aprovada(o) na etapa\nde [inserir a descrição da atividade a ser entregue ou entrevista].\nSe você chegou até aqui, é porque tem grandes habilidades e motivações.",
+        "score": 0.8293408155441284,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 21,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0171"
+      },
+      {
+        "conteudo": "Conflito de Interesses\nO Manual de Seleção por Competências para o Setor Público (2019) indica que evitar\nconflitos de interesses é indispensável para garantir a impessoalidade e a credibilidade",
+        "score": 0.8143975734710693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 12,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0101"
+      },
+      {
+        "conteudo": "de uma seleção, e estabelece que um conflito de interesses surge sempre que uma das\npartes envolvidas em uma seleção tem acesso a informações sobre o processo de\navaliação dos candidatos e se serve dessa posição para obter benefícios indevidos",
+        "score": 0.8143975734710693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 12,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0102"
+      },
+      {
+        "conteudo": "para si ou para terceiros.\nSão casos de conflito de interesses:\nUm candidato com laços familiares (até o segundo grau de parentesco) com\natores relevantes de um processo seletivo;\nUm candidato com envolvimento direto em qualquer uma das fases do processo",
+        "score": 0.8143975734710693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 12,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0103"
+      },
+      {
+        "conteudo": "seja considerada uma taxa de desistência média de 30% a 50% em cada uma das\netapas do processo seletivo (lembre-se de que as fases iniciais concentram as\ntaxas de desistência mais elevadas).\n13",
+        "score": 0.8112608194351196,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 13,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0117"
+      },
+      {
+        "conteudo": "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+        "score": 0.8112608194351196,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 14,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0118"
+      },
+      {
+        "conteudo": "como: ausência de candidatos inscritos; quando nenhum candidato atender aos\nrequisitos mínimos obrigatórios do cargo; necessidades internas da SEPLAG ou do\nsetor demandante da vaga, dentre outras. Este prazo de inscrição deverá ser",
+        "score": 0.8112608194351196,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 14,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0119"
+      },
+      {
+        "conteudo": "De 5 a 6 pontos REGULAR\nAtende as habilidades ou exigências do\nquesito. Desenvolve o referido quesito\nde maneira plena.\nDe 7 a 8 pontos BOM\nSupera as expectativas de atendimento\nquanto as habilidades ou exigências do\nquesito.\nDe 9 a 10 pontos MUITO BOM\n18",
+        "score": 0.8048352599143982,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 18,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0156"
+      },
+      {
+        "conteudo": "Um dos principais erros cometidos durante processos seletivos é não dar um\nfeedback ao candidato(a), demonstrando falta de empatia e transparência das\ninformações. É importante fornecer um feedback aos candidatos que não forem",
+        "score": 0.8048352599143982,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 19,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0157"
+      },
+      {
+        "conteudo": "classificados para as próximas etapas do processo seletivo, pois a ausência de\nfeedback pode ser desmotivadora e diminuir as chances do(a) candidato(a) não\nselecionado(a) de se candidatar novamente a outras vagas que talvez sejam mais",
+        "score": 0.8048352599143982,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 19,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0158"
+      }
+    ],
+    "cited_chunks": [
+      {
+        "conteudo": "O processo seletivo deverá contemplar um período mínimo de 10 (dez) dias úteis para\ninscrição dos candidatos.\nLembramos que o prazo poderá ser prorrogado diante de algumas circunstâncias, tais",
+        "score": 0.8112608194351196,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 14,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0118"
+      },
+      {
+        "conteudo": "como: ausência de candidatos inscritos; quando nenhum candidato atender aos\nrequisitos mínimos obrigatórios do cargo; necessidades internas da SEPLAG ou do\nsetor demandante da vaga, dentre outras. Este prazo de inscrição deverá ser",
+        "score": 0.8112608194351196,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 14,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0119"
+      }
+    ],
+    "retrieved_document_ids": [
+      "DOC-04"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 1.1094080330003635
+  },
+  {
+    "id": "Q03",
+    "question": "Quais informações devem constar no formulário de demanda de recrutamento e seleção?",
+    "reference_answer": "A demanda deve registrar a identificação da unidade solicitante e da vaga, justificativa, perfil e requisitos, atividades, quantidade de postos, condições de trabalho, etapas e responsáveis pelo processo.",
+    "expected_document_ids": [
+      "DOC-01"
+    ],
+    "category": "planejamento",
+    "answerable": true,
+    "answer": "O formulário padrão de demanda de recrutamento e seleção deve conter o detalhamento dos cargos a serem providos e a data limite para a homologação do resultado [DOC-01-C0061], [DOC-01-C0062].",
+    "formatted_answer": "O formulário padrão de demanda de recrutamento e seleção deve conter o detalhamento dos cargos a serem providos e a data limite para a homologação do resultado [DOC-01-C0061], [DOC-01-C0062].\n\nFontes:\n- [DOC-01-C0061, p. 12] Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas — https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab\n- [DOC-01-C0062, p. 12] Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas — https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+    "contexts": [
+      "11\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\nCapítulo I – Planejar o recrutamento e seleção.\na) Descrição:",
+      "a) Descrição:\nÉ o conjunto de atividades que precedem o recrutamento e seleção. Envolve a preparação para o recrutamento e\nseleção consistindo na identificação e organização das ações necessárias ao atendimento da demanda recebida do",
+      "órgão supervisor da carreira, contemplando cronograma, equipamentos necessários, custos, tempo, contratações etc.\nb) Canal de relacionamento:\n• Não se aplica.\nc) Diagrama do Processo de Trabalho:\nFigura 04 – Planejar recrutamento e seleção.",
+      "• propostas de cronograma.\nb. anexar normativos referente ao cargo/carreira\nque está sendo solicitado; e\nc. anexar o documento de autorização do\nrecrutamento e seleção, expedida pelo órgão\nsolicitante.\n1.1.4. Documentação de entrada:",
+      "1.1.4. Documentação de entrada:\na. Portaria de autorização do recrutamento e\nseleção.\n1.1.5. Documentação de saída:\na. Formulário de recrutamento e seleção.\n1.2 Analisar demanda de recrutamento e seleção.\n1.2.1. Descrição:",
+      "1.2.1. Descrição:\nAnalisar e entender o perfil desejado, expectativa\nde custos e prazos, observando as competências e\nprospectando formas de atuação.\n1.2.2. Ator(es) da atividade:\nUnidade organizacional de recrutamento e seleção.\n1.2.3. Tarefas:",
+      "concurso.\nd. Definir proposta técnica orçamentária.\ne. Elaborar minutar Termo de Execução\nDescentralizada (TED).\nf. Efetuar ambas as assinaturas no Termo de\nExecução Descentralizada (TED) ou Contrato.\ng. Publicar o extrato no Diário Oficial, informando",
+      "o número da Nota de Crédito.\nh. Registrar no Siafi e obter o número da Nota\nde Crédito.\ni. Enviar a proposta da contratação ao\ndemandante.\n1.5.4 Documentação de entrada:\na. Portaria da comissão de recrutamento e\nseleção.",
+      "seleção.\nb. Nota da avaliação do recrutamento e seleção;",
+      "16\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n1.5.5 Documentação de saída:\na. Termo de Execução Descentralizada (TED); ou\nb. Contrato;\nc. Extrato do Termo de Execução Descentralizada\n(TED) publicado no DOU.",
+      "12\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n1.1 Solicitar o recrutamento e seleção.\n1.1.1. Descrição:\nÉ a preparação do documento formal contendo\no detalhamento da demanda do recrutamento",
+      "e seleção, em formulário padrão contendo todo\ndetalhamento dos cargos a serem providos e a data\nlimite para homologação do resultado.\n1.1.2. Ator(es) da atividade:\na. Unidade organizacional requisitante.\n1.1.3. Tarefas:"
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "11\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\nCapítulo I – Planejar o recrutamento e seleção.\na) Descrição:",
+        "score": 0.8532464504241943,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 11,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0058"
+      },
+      {
+        "conteudo": "a) Descrição:\nÉ o conjunto de atividades que precedem o recrutamento e seleção. Envolve a preparação para o recrutamento e\nseleção consistindo na identificação e organização das ações necessárias ao atendimento da demanda recebida do",
+        "score": 0.8532464504241943,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 11,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0059"
+      },
+      {
+        "conteudo": "órgão supervisor da carreira, contemplando cronograma, equipamentos necessários, custos, tempo, contratações etc.\nb) Canal de relacionamento:\n• Não se aplica.\nc) Diagrama do Processo de Trabalho:\nFigura 04 – Planejar recrutamento e seleção.",
+        "score": 0.8532464504241943,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 11,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0060"
+      },
+      {
+        "conteudo": "• propostas de cronograma.\nb. anexar normativos referente ao cargo/carreira\nque está sendo solicitado; e\nc. anexar o documento de autorização do\nrecrutamento e seleção, expedida pelo órgão\nsolicitante.\n1.1.4. Documentação de entrada:",
+        "score": 0.8409954309463501,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 12,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0064"
+      },
+      {
+        "conteudo": "1.1.4. Documentação de entrada:\na. Portaria de autorização do recrutamento e\nseleção.\n1.1.5. Documentação de saída:\na. Formulário de recrutamento e seleção.\n1.2 Analisar demanda de recrutamento e seleção.\n1.2.1. Descrição:",
+        "score": 0.8409954309463501,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 12,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0065"
+      },
+      {
+        "conteudo": "1.2.1. Descrição:\nAnalisar e entender o perfil desejado, expectativa\nde custos e prazos, observando as competências e\nprospectando formas de atuação.\n1.2.2. Ator(es) da atividade:\nUnidade organizacional de recrutamento e seleção.\n1.2.3. Tarefas:",
+        "score": 0.8409954309463501,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 12,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0066"
+      },
+      {
+        "conteudo": "concurso.\nd. Definir proposta técnica orçamentária.\ne. Elaborar minutar Termo de Execução\nDescentralizada (TED).\nf. Efetuar ambas as assinaturas no Termo de\nExecução Descentralizada (TED) ou Contrato.\ng. Publicar o extrato no Diário Oficial, informando",
+        "score": 0.8234460949897766,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 15,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0086"
+      },
+      {
+        "conteudo": "o número da Nota de Crédito.\nh. Registrar no Siafi e obter o número da Nota\nde Crédito.\ni. Enviar a proposta da contratação ao\ndemandante.\n1.5.4 Documentação de entrada:\na. Portaria da comissão de recrutamento e\nseleção.",
+        "score": 0.8234460949897766,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 15,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0087"
+      },
+      {
+        "conteudo": "seleção.\nb. Nota da avaliação do recrutamento e seleção;",
+        "score": 0.8234460949897766,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 15,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0088"
+      },
+      {
+        "conteudo": "16\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n1.5.5 Documentação de saída:\na. Termo de Execução Descentralizada (TED); ou\nb. Contrato;\nc. Extrato do Termo de Execução Descentralizada\n(TED) publicado no DOU.",
+        "score": 0.8075538873672485,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 16,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0089"
+      },
+      {
+        "conteudo": "12\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n1.1 Solicitar o recrutamento e seleção.\n1.1.1. Descrição:\nÉ a preparação do documento formal contendo\no detalhamento da demanda do recrutamento",
+        "score": 0.8058225512504578,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 12,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0061"
+      },
+      {
+        "conteudo": "e seleção, em formulário padrão contendo todo\ndetalhamento dos cargos a serem providos e a data\nlimite para homologação do resultado.\n1.1.2. Ator(es) da atividade:\na. Unidade organizacional requisitante.\n1.1.3. Tarefas:",
+        "score": 0.8058225512504578,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 12,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0062"
+      }
+    ],
+    "cited_chunks": [
+      {
+        "conteudo": "12\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n1.1 Solicitar o recrutamento e seleção.\n1.1.1. Descrição:\nÉ a preparação do documento formal contendo\no detalhamento da demanda do recrutamento",
+        "score": 0.8058225512504578,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 12,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0061"
+      },
+      {
+        "conteudo": "e seleção, em formulário padrão contendo todo\ndetalhamento dos cargos a serem providos e a data\nlimite para homologação do resultado.\n1.1.2. Ator(es) da atividade:\na. Unidade organizacional requisitante.\n1.1.3. Tarefas:",
+        "score": 0.8058225512504578,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 12,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0062"
+      }
+    ],
+    "retrieved_document_ids": [
+      "DOC-01"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 0.8170775360013067
+  },
+  {
+    "id": "Q04",
+    "question": "Quais práticas ajudam a estruturar uma entrevista por competências?",
+    "reference_answer": "É preciso definir previamente as competências e os comportamentos esperados, aplicar perguntas baseadas em situações ou experiências observáveis, manter critérios comuns entre candidatos e registrar evidências para a decisão humana.",
+    "expected_document_ids": [
+      "DOC-04"
+    ],
+    "category": "entrevista_por_competencias",
+    "answerable": true,
+    "answer": "Para estruturar uma entrevista por competências, as seguintes práticas são recomendadas:\n\n*   **Clareza na Gestão:** A equipe responsável pela gestão do processo de recrutamento e seleção deve possuir clareza sobre a competência que está sendo avaliada, sua definição e qual a resposta esperada do candidato [DOC-04-C0201].\n*   **Objetivo da Estrutura:** A definição da competência é fundamental para assegurar o sucesso da entrevista e para que a equipe obtenha as informações necessárias para a tomada de decisão [DOC-04-C0204].\n*   **Foco da Avaliação:** A entrevista deve ser utilizada para identificar as capacidades técnicas e comportamentais para a vaga, baseando-se nas definições presentes nas descrições do cargo [DOC-04-C0206].\n*   **Abordagem:** A entrevista de seleção deve ser conduzida como uma conversa profissional, promovendo a troca de informações entre a equipe demandante e o candidato [DOC-04-C0205].",
+    "formatted_answer": "Para estruturar uma entrevista por competências, as seguintes práticas são recomendadas:\n\n*   **Clareza na Gestão:** A equipe responsável pela gestão do processo de recrutamento e seleção deve possuir clareza sobre a competência que está sendo avaliada, sua definição e qual a resposta esperada do candidato [DOC-04-C0201].\n*   **Objetivo da Estrutura:** A definição da competência é fundamental para assegurar o sucesso da entrevista e para que a equipe obtenha as informações necessárias para a tomada de decisão [DOC-04-C0204].\n*   **Foco da Avaliação:** A entrevista deve ser utilizada para identificar as capacidades técnicas e comportamentais para a vaga, baseando-se nas definições presentes nas descrições do cargo [DOC-04-C0206].\n*   **Abordagem:** A entrevista de seleção deve ser conduzida como uma conversa profissional, promovendo a troca de informações entre a equipe demandante e o candidato [DOC-04-C0205].\n\nFontes:\n- [DOC-04-C0201, p. 24] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0204, p. 24] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0206, p. 25] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/\n- [DOC-04-C0205, p. 25] Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG — https://seplag.niteroi.rj.gov.br/",
+    "contexts": [
+      "ENTREVISTADA: Priscila Zoghbi\nPhd em Direito do Trabalho na Universidade de São Paulo\n\nAs declarações aqui registradas refletem exclusivamente a percepção dos entrevistados e não devem ser\ninterpretadas como posicionamento institucional.",
+      "Sumário executivo da visão da entrevistada:",
+      "GT1 - Proteção de Dados no Contexto Laboral 91",
+      "momento delicado, pois as pessoas candidatas\npossuem um currículo com o nome de ba�smo,\nmas a voz e a aparência já não correspondem a\nesse nome, então elas têm vergonha da própria\nimagem, o que poderia “bloqueá-las” e fazer com",
+      "que desis�ssem de ir à entrevista. Uma das\npessoas entrevistadas comentou que chegou a\nconversar com um candidato que desis�ra da\nentrevista porque achava que sua voz estava\nmuito feminina para o nome X (preferiu-se não",
+      "divulgar o nome aqui). Por essa mesma razão,\nhouve quem mencionasse, mais de uma vez, que\na situação é um pouco mais confortável quando a\npessoa faz o processo de transição estando\nempregada e que, na maior parte dos casos, ela",
+      "Conte uma entrega que dependia do seu time e como você os orientou para\nalcançá-la.\nComo você lidaria com um colaborador que está infeliz em suas atividades?\nA título de exemplo, a seguir temos sugestões de questões que podem ser adotadas",
+      "em entrevistas estruturadas por competências, conforme disposto no Manual de\nSeleção por Competências para o Setor Público (2019). É importante salientar que, ao\nelaborar as questões, a equipe responsável por gerir o processo de recrutamento e",
+      "seleção do novo cargo deve ter clareza quanto a competência avaliada bem como a\ndefinição desta competência e o que se espera como resposta do candidato.\nAs perguntas de entrevista por competência não apenas destacam o conhecimento,",
+      "competência é fundamental para garantir que a entrevista seja bem-sucedida e que a\nequipe responsável por gerir o processo de recrutamento e seleção do novo cargo\nobtenha as informações necessárias para a tomada de decisão.\n24",
+      "Dentro da etapa de entrevistas podemos observar competências a serem avaliadas,\ntais como:\nDICA! A entrevista de seleção é uma conversa profissional, na qual ocorre uma\nimportante troca de informações entre o candidato e a equipe demandante.",
+      "Sendo assim, a entrevista de seleção é uma etapa que permite identificar as\ncapacidades comportamentais e técnicas para a vaga em questão, conforme\nas definições contidas nas descrições do cargo.\nTRABALHO EM EQUIPE",
+      "“oferecimento de lanche” foi assinalada por 11,53%, e\n“pagamento de passagens” por 7,21%.\nÉ possível que respondentes tenham tomado como base\na situação atual de pandemia, já que a possibilidade de\nentrevistas online passou a vigorar do ano de 2020 para",
+      "cá. O fato é que todos e todas que responderam\nassinalaram alguma opção de facilitação para a realização\nda entrevista — quem não oferece a opção da entrevista\nonline ao menos paga as passagens ou lanche.",
+      "Quanto aos pontos mais valorizados, analogamente, se\nforem somadas as porcentagens das opções “muito\nimportante” e “importante” assinaladas por respondentes\npara as mesmas categorias, a questão revela que quase"
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "ENTREVISTADA: Priscila Zoghbi\nPhd em Direito do Trabalho na Universidade de São Paulo\n\nAs declarações aqui registradas refletem exclusivamente a percepção dos entrevistados e não devem ser\ninterpretadas como posicionamento institucional.",
+        "score": 0.8221443891525269,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 90,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C1050"
+      },
+      {
+        "conteudo": "Sumário executivo da visão da entrevistada:",
+        "score": 0.8221443891525269,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 90,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C1051"
+      },
+      {
+        "conteudo": "GT1 - Proteção de Dados no Contexto Laboral 91",
+        "score": 0.8221443891525269,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 91,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C1052"
+      },
+      {
+        "conteudo": "momento delicado, pois as pessoas candidatas\npossuem um currículo com o nome de ba�smo,\nmas a voz e a aparência já não correspondem a\nesse nome, então elas têm vergonha da própria\nimagem, o que poderia “bloqueá-las” e fazer com",
+        "score": 0.8155311942100525,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 33,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0400"
+      },
+      {
+        "conteudo": "que desis�ssem de ir à entrevista. Uma das\npessoas entrevistadas comentou que chegou a\nconversar com um candidato que desis�ra da\nentrevista porque achava que sua voz estava\nmuito feminina para o nome X (preferiu-se não",
+        "score": 0.8155311942100525,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 33,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0401"
+      },
+      {
+        "conteudo": "divulgar o nome aqui). Por essa mesma razão,\nhouve quem mencionasse, mais de uma vez, que\na situação é um pouco mais confortável quando a\npessoa faz o processo de transição estando\nempregada e que, na maior parte dos casos, ela",
+        "score": 0.8155311942100525,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 33,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0402"
+      },
+      {
+        "conteudo": "Conte uma entrega que dependia do seu time e como você os orientou para\nalcançá-la.\nComo você lidaria com um colaborador que está infeliz em suas atividades?\nA título de exemplo, a seguir temos sugestões de questões que podem ser adotadas",
+        "score": 0.8145631551742554,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 24,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0199"
+      },
+      {
+        "conteudo": "em entrevistas estruturadas por competências, conforme disposto no Manual de\nSeleção por Competências para o Setor Público (2019). É importante salientar que, ao\nelaborar as questões, a equipe responsável por gerir o processo de recrutamento e",
+        "score": 0.8145631551742554,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 24,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0200"
+      },
+      {
+        "conteudo": "seleção do novo cargo deve ter clareza quanto a competência avaliada bem como a\ndefinição desta competência e o que se espera como resposta do candidato.\nAs perguntas de entrevista por competência não apenas destacam o conhecimento,",
+        "score": 0.8145631551742554,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 24,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0201"
+      },
+      {
+        "conteudo": "competência é fundamental para garantir que a entrevista seja bem-sucedida e que a\nequipe responsável por gerir o processo de recrutamento e seleção do novo cargo\nobtenha as informações necessárias para a tomada de decisão.\n24",
+        "score": 0.8136651515960693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 24,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0204"
+      },
+      {
+        "conteudo": "Dentro da etapa de entrevistas podemos observar competências a serem avaliadas,\ntais como:\nDICA! A entrevista de seleção é uma conversa profissional, na qual ocorre uma\nimportante troca de informações entre o candidato e a equipe demandante.",
+        "score": 0.8136651515960693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 25,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0205"
+      },
+      {
+        "conteudo": "Sendo assim, a entrevista de seleção é uma etapa que permite identificar as\ncapacidades comportamentais e técnicas para a vaga em questão, conforme\nas definições contidas nas descrições do cargo.\nTRABALHO EM EQUIPE",
+        "score": 0.8136651515960693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 25,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0206"
+      },
+      {
+        "conteudo": "“oferecimento de lanche” foi assinalada por 11,53%, e\n“pagamento de passagens” por 7,21%.\nÉ possível que respondentes tenham tomado como base\na situação atual de pandemia, já que a possibilidade de\nentrevistas online passou a vigorar do ano de 2020 para",
+        "score": 0.8128232359886169,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 20,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0202"
+      },
+      {
+        "conteudo": "cá. O fato é que todos e todas que responderam\nassinalaram alguma opção de facilitação para a realização\nda entrevista — quem não oferece a opção da entrevista\nonline ao menos paga as passagens ou lanche.",
+        "score": 0.8128232359886169,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 20,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0203"
+      },
+      {
+        "conteudo": "Quanto aos pontos mais valorizados, analogamente, se\nforem somadas as porcentagens das opções “muito\nimportante” e “importante” assinaladas por respondentes\npara as mesmas categorias, a questão revela que quase",
+        "score": 0.8128232359886169,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 20,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0204"
+      }
+    ],
+    "cited_chunks": [
+      {
+        "conteudo": "seleção do novo cargo deve ter clareza quanto a competência avaliada bem como a\ndefinição desta competência e o que se espera como resposta do candidato.\nAs perguntas de entrevista por competência não apenas destacam o conhecimento,",
+        "score": 0.8145631551742554,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 24,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0201"
+      },
+      {
+        "conteudo": "competência é fundamental para garantir que a entrevista seja bem-sucedida e que a\nequipe responsável por gerir o processo de recrutamento e seleção do novo cargo\nobtenha as informações necessárias para a tomada de decisão.\n24",
+        "score": 0.8136651515960693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 24,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0204"
+      },
+      {
+        "conteudo": "Sendo assim, a entrevista de seleção é uma etapa que permite identificar as\ncapacidades comportamentais e técnicas para a vaga em questão, conforme\nas definições contidas nas descrições do cargo.\nTRABALHO EM EQUIPE",
+        "score": 0.8136651515960693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 25,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0206"
+      },
+      {
+        "conteudo": "Dentro da etapa de entrevistas podemos observar competências a serem avaliadas,\ntais como:\nDICA! A entrevista de seleção é uma conversa profissional, na qual ocorre uma\nimportante troca de informações entre o candidato e a equipe demandante.",
+        "score": 0.8136651515960693,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 25,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0205"
+      }
+    ],
+    "retrieved_document_ids": [
+      "DOC-02",
+      "DOC-04",
+      "DOC-05"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 1.2721537810011796
+  },
+  {
+    "id": "Q05",
+    "question": "Quais princípios devem orientar um processo de recrutamento justo?",
+    "reference_answer": "O recrutamento justo deve respeitar direitos humanos e normas trabalhistas, ser transparente, impedir cobrança indevida de custos aos trabalhadores, prevenir discriminação e assegurar acesso a mecanismos de reparação.",
+    "expected_document_ids": [
+      "DOC-03"
+    ],
+    "category": "recrutamento_justo",
+    "answerable": true,
+    "answer": "Com base nos documentos fornecidos, os princípios e linhas orientadoras para o recrutamento justo da OIT visam apoiar a própria organização, parlamentos nacionais, parceiros sociais e outras organizações na promoção e garantia de um recrutamento justo [DOC-03-C0037].\n\nEsses princípios são fundamentados principalmente em instrumentos relacionados e normas internacionais do trabalho da OIT [DOC-03-C0038]. No contexto de processos de recrutamento, os documentos destacam a importância de:\n\n*   **Cobertura legal e política:** Abranger todos os aspetos do processo de recrutamento [DOC-03-C0267].\n*   **Eficiência, transparência e proteção:** Promover a proteção dos trabalhadores no processo, incluindo o reconhecimento mútuo de qualificações e competências [DOC-03-C0267, DOC-03-C0268].\n*   **Aplicação da lei:** Garantir a aplicação efetiva da lei [DOC-03-C0268].\n*   **Sensibilização contra práticas abusivas:** Implementar medidas para combater recrutamentos fraudulentos e abusivos, tais como:\n    *   Manutenção de sites governamentais com informações sobre legislação, regulamentação e políticas de recrutamento justo [DOC-03-C0130, DOC-03-C0131];\n    *   Publicação de guias \"como fazer\" sobre recrutamento justo [DOC-03-C0131];\n    *   Uso de anúncios de serviço público em rádio e televisão [DOC-03-C0131];\n    *   Realização de webinars ou outros esforços de mobilização [DOC-03-C0132];\n    *   Incentivo à mobilização de trabalhadores por parte de recrutadores, empregadores, grupos da sociedade civil e organizações de trabalhadores [DOC-03-C0132].",
+    "formatted_answer": "Com base nos documentos fornecidos, os princípios e linhas orientadoras para o recrutamento justo da OIT visam apoiar a própria organização, parlamentos nacionais, parceiros sociais e outras organizações na promoção e garantia de um recrutamento justo [DOC-03-C0037].\n\nEsses princípios são fundamentados principalmente em instrumentos relacionados e normas internacionais do trabalho da OIT [DOC-03-C0038]. No contexto de processos de recrutamento, os documentos destacam a importância de:\n\n*   **Cobertura legal e política:** Abranger todos os aspetos do processo de recrutamento [DOC-03-C0267].\n*   **Eficiência, transparência e proteção:** Promover a proteção dos trabalhadores no processo, incluindo o reconhecimento mútuo de qualificações e competências [DOC-03-C0267, DOC-03-C0268].\n*   **Aplicação da lei:** Garantir a aplicação efetiva da lei [DOC-03-C0268].\n*   **Sensibilização contra práticas abusivas:** Implementar medidas para combater recrutamentos fraudulentos e abusivos, tais como:\n    *   Manutenção de sites governamentais com informações sobre legislação, regulamentação e políticas de recrutamento justo [DOC-03-C0130, DOC-03-C0131];\n    *   Publicação de guias \"como fazer\" sobre recrutamento justo [DOC-03-C0131];\n    *   Uso de anúncios de serviço público em rádio e televisão [DOC-03-C0131];\n    *   Realização de webinars ou outros esforços de mobilização [DOC-03-C0132];\n    *   Incentivo à mobilização de trabalhadores por parte de recrutadores, empregadores, grupos da sociedade civil e organizações de trabalhadores [DOC-03-C0132].\n\nFontes:\n- [DOC-03-C0037, p. 11] Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados — https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao\n- [DOC-03-C0038, p. 11] Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados — https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao\n- [DOC-03-C0267, p. 33] Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados — https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao\n- [DOC-03-C0268, p. 33] Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados — https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao\n- [DOC-03-C0130, p. 18] Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados — https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao\n- [DOC-03-C0131, p. 18] Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados — https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao\n- [DOC-03-C0132, p. 18] Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados — https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+    "contexts": [
+      "recrutamento abusivas e fraudulentas. São exemplo de algumas das possíveis\nmedidas de sensibilização as seguintes:\n(a) desenvolvimento e manutenção de sites governamentais contendo\ninformações relevantes sobre políticas, legislação, regulamentação e",
+      "processos de recrutamento justos;\n(b) desenvolvimento, distribuição e/ou publicação online de guias «como fazer»\nsobre recrutamento justo;\n(c) anúncios de serviço público na rádio e/ou televisão;",
+      "(d) seminários online (webinars) ou outros esforços de mobilização;\n(e) incentivar a mobilização junto dos trabalhadores por empregadores,\norganizações de trabalhadores, recrutadores de mão de obra e grupos da\nsociedade civil;",
+      "Princípios gerais e linhas orientadoras para\no recrutamento justo 1\nI. Âmbito dos princípios gerais\ne linhas orientadoras\nO objetivo destes princípios gerais e linhas orientadoras não vinculativos",
+      "da OIT para o recrutamento justo (doravante «princípios e linhas\norientadoras») é apoiar a OIT e outras organizações, parlamentos nacionais\ne parceiros sociais na sua ação, atual e futura, tendo em vista a promoção\ne a garantia de um recrutamento justo.",
+      "Estes princípios e linhas orientadoras provêem de várias fontes. As\nprincipais fontes são as normas internacionais do trabalho e instrumentos\nda OIT relacionados. Foram também consultadas outras fontes e exemplos",
+      "2. Necessidades do mercado\nde trabalho e trabalho digno\nDeclaração da OIT relativa aos Princípios e Direitos Fundamentais no\nTrabalho; R204 (par. 15, alínea e)\n3. Cobertura da legislação e\npolíticas relevantes relacionadas\ncom todos os aspetos do",
+      "com todos os aspetos do\nprocesso de recrutamento\nC88, C181, P29 (Art.o 2.o, alínea c), subalínea i)); Princípio de Daca 3;\nIniciativa para o recrutamento justo da OIT\n4. Promoção da eficiência,\ntransparência e proteção dos\ntrabalhadores no processo",
+      "trabalhadores no processo\nde recrutamento, tais como\no reconhecimento mútuo de\ncompetências e qualificações\nC88, C181, R157 (Par. 62), R169, C143 (Art.o 14.o, alínea b)\n5. Aplicação efetiva da lei C81, C129, C150, C181; P29 e R203; C97 (Art.o 3.o)",
+      "5\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\nI. Apresentação\nTrata-se o presente manual de um documento referencial que congrega os principais",
+      "aspectos do processo de recrutamento e seleção, desde o planejamento até o\nencerramento do recrutamento e seleção, por meio da modelagem dos processos\nde trabalho que permeiam as unidades que integram a cadeia de valor integrada do",
+      "macroprocesso Gestão de Pessoas.\nAssim, além do contexto em que se insere em cada um dos processos de trabalho e\no desenho de cada processo, serão apresentadas descrições, referencias legais, atores",
+      "Princípios gerais e linhas\norientadoras para o\nrecrutamento justo\nDefinição de comissões\nde recrutamento e custos relacionados\n©OIT",
+      "Princípios gerais e linhas\norientadoras para o\nrecrutamento justo\nDefinição de comissões\nde recrutamento e custos relacionados\nOrganização Internacional do Trabalho, Genebra"
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "recrutamento abusivas e fraudulentas. São exemplo de algumas das possíveis\nmedidas de sensibilização as seguintes:\n(a) desenvolvimento e manutenção de sites governamentais contendo\ninformações relevantes sobre políticas, legislação, regulamentação e",
+        "score": 0.8443049788475037,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 18,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0130"
+      },
+      {
+        "conteudo": "processos de recrutamento justos;\n(b) desenvolvimento, distribuição e/ou publicação online de guias «como fazer»\nsobre recrutamento justo;\n(c) anúncios de serviço público na rádio e/ou televisão;",
+        "score": 0.8443049788475037,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 18,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0131"
+      },
+      {
+        "conteudo": "(d) seminários online (webinars) ou outros esforços de mobilização;\n(e) incentivar a mobilização junto dos trabalhadores por empregadores,\norganizações de trabalhadores, recrutadores de mão de obra e grupos da\nsociedade civil;",
+        "score": 0.8443049788475037,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 18,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0132"
+      },
+      {
+        "conteudo": "Princípios gerais e linhas orientadoras para\no recrutamento justo 1\nI. Âmbito dos princípios gerais\ne linhas orientadoras\nO objetivo destes princípios gerais e linhas orientadoras não vinculativos",
+        "score": 0.8240422010421753,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 11,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0036"
+      },
+      {
+        "conteudo": "da OIT para o recrutamento justo (doravante «princípios e linhas\norientadoras») é apoiar a OIT e outras organizações, parlamentos nacionais\ne parceiros sociais na sua ação, atual e futura, tendo em vista a promoção\ne a garantia de um recrutamento justo.",
+        "score": 0.8240422010421753,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 11,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0037"
+      },
+      {
+        "conteudo": "Estes princípios e linhas orientadoras provêem de várias fontes. As\nprincipais fontes são as normas internacionais do trabalho e instrumentos\nda OIT relacionados. Foram também consultadas outras fontes e exemplos",
+        "score": 0.8240422010421753,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 11,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0038"
+      },
+      {
+        "conteudo": "2. Necessidades do mercado\nde trabalho e trabalho digno\nDeclaração da OIT relativa aos Princípios e Direitos Fundamentais no\nTrabalho; R204 (par. 15, alínea e)\n3. Cobertura da legislação e\npolíticas relevantes relacionadas\ncom todos os aspetos do",
+        "score": 0.8229197859764099,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 33,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0266"
+      },
+      {
+        "conteudo": "com todos os aspetos do\nprocesso de recrutamento\nC88, C181, P29 (Art.o 2.o, alínea c), subalínea i)); Princípio de Daca 3;\nIniciativa para o recrutamento justo da OIT\n4. Promoção da eficiência,\ntransparência e proteção dos\ntrabalhadores no processo",
+        "score": 0.8229197859764099,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 33,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0267"
+      },
+      {
+        "conteudo": "trabalhadores no processo\nde recrutamento, tais como\no reconhecimento mútuo de\ncompetências e qualificações\nC88, C181, R157 (Par. 62), R169, C143 (Art.o 14.o, alínea b)\n5. Aplicação efetiva da lei C81, C129, C150, C181; P29 e R203; C97 (Art.o 3.o)",
+        "score": 0.8229197859764099,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 33,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0268"
+      },
+      {
+        "conteudo": "5\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\nI. Apresentação\nTrata-se o presente manual de um documento referencial que congrega os principais",
+        "score": 0.8109450936317444,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 5,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0014"
+      },
+      {
+        "conteudo": "aspectos do processo de recrutamento e seleção, desde o planejamento até o\nencerramento do recrutamento e seleção, por meio da modelagem dos processos\nde trabalho que permeiam as unidades que integram a cadeia de valor integrada do",
+        "score": 0.8109450936317444,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 5,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0015"
+      },
+      {
+        "conteudo": "macroprocesso Gestão de Pessoas.\nAssim, além do contexto em que se insere em cada um dos processos de trabalho e\no desenho de cada processo, serão apresentadas descrições, referencias legais, atores",
+        "score": 0.8109450936317444,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 5,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0016"
+      },
+      {
+        "conteudo": "Princípios gerais e linhas\norientadoras para o\nrecrutamento justo\nDefinição de comissões\nde recrutamento e custos relacionados\n©OIT",
+        "score": 0.8060804605484009,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 1,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0001"
+      },
+      {
+        "conteudo": "Princípios gerais e linhas\norientadoras para o\nrecrutamento justo\nDefinição de comissões\nde recrutamento e custos relacionados\nOrganização Internacional do Trabalho, Genebra",
+        "score": 0.8060804605484009,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 3,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0002"
+      }
+    ],
+    "cited_chunks": [
+      {
+        "conteudo": "da OIT para o recrutamento justo (doravante «princípios e linhas\norientadoras») é apoiar a OIT e outras organizações, parlamentos nacionais\ne parceiros sociais na sua ação, atual e futura, tendo em vista a promoção\ne a garantia de um recrutamento justo.",
+        "score": 0.8240422010421753,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 11,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0037"
+      },
+      {
+        "conteudo": "Estes princípios e linhas orientadoras provêem de várias fontes. As\nprincipais fontes são as normas internacionais do trabalho e instrumentos\nda OIT relacionados. Foram também consultadas outras fontes e exemplos",
+        "score": 0.8240422010421753,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 11,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0038"
+      },
+      {
+        "conteudo": "com todos os aspetos do\nprocesso de recrutamento\nC88, C181, P29 (Art.o 2.o, alínea c), subalínea i)); Princípio de Daca 3;\nIniciativa para o recrutamento justo da OIT\n4. Promoção da eficiência,\ntransparência e proteção dos\ntrabalhadores no processo",
+        "score": 0.8229197859764099,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 33,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0267"
+      },
+      {
+        "conteudo": "trabalhadores no processo\nde recrutamento, tais como\no reconhecimento mútuo de\ncompetências e qualificações\nC88, C181, R157 (Par. 62), R169, C143 (Art.o 14.o, alínea b)\n5. Aplicação efetiva da lei C81, C129, C150, C181; P29 e R203; C97 (Art.o 3.o)",
+        "score": 0.8229197859764099,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 33,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0268"
+      },
+      {
+        "conteudo": "recrutamento abusivas e fraudulentas. São exemplo de algumas das possíveis\nmedidas de sensibilização as seguintes:\n(a) desenvolvimento e manutenção de sites governamentais contendo\ninformações relevantes sobre políticas, legislação, regulamentação e",
+        "score": 0.8443049788475037,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 18,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0130"
+      },
+      {
+        "conteudo": "processos de recrutamento justos;\n(b) desenvolvimento, distribuição e/ou publicação online de guias «como fazer»\nsobre recrutamento justo;\n(c) anúncios de serviço público na rádio e/ou televisão;",
+        "score": 0.8443049788475037,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 18,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0131"
+      },
+      {
+        "conteudo": "(d) seminários online (webinars) ou outros esforços de mobilização;\n(e) incentivar a mobilização junto dos trabalhadores por empregadores,\norganizações de trabalhadores, recrutadores de mão de obra e grupos da\nsociedade civil;",
+        "score": 0.8443049788475037,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 18,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0132"
+      }
+    ],
+    "retrieved_document_ids": [
+      "DOC-01",
+      "DOC-03"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 1.7799487160009448
+  },
+  {
+    "id": "Q06",
+    "question": "Quais cuidados de privacidade devem ser adotados na coleta e guarda de currículos?",
+    "reference_answer": "Devem ser coletados somente dados necessários e pertinentes, com transparência sobre finalidade, base legal, prazo de retenção, compartilhamentos e direitos do titular; a guarda precisa ter prazo definido, segurança e descarte adequado.",
+    "expected_document_ids": [
+      "DOC-02"
+    ],
+    "category": "privacidade",
+    "answerable": true,
+    "answer": "Não encontrei sustentação adequada nos documentos recuperados. Reformule a pergunta ou adicione uma fonte apropriada à base.",
+    "formatted_answer": "Não encontrei sustentação adequada nos documentos recuperados. Reformule a pergunta ou adicione uma fonte apropriada à base.",
+    "contexts": [
+      "procedimento\ne de conduta\na) Observa e cumpre normas de\nprocedimentos no desempenho\ndas atribuições do cargo e de\nconduta de acordo com os\nprincípios da Administração\nPública;\nde 0 a 5\npontos\nb) É assíduo e atua com esmero\nno cumprimento das atividades",
+      "no cumprimento das atividades\ndelegadas, seguindo os preceitos\nmorais e éticos no exercício do\ncargo;\nde 0 a 5\npontos\nc) Demonstra cuidado na guarda\nde documentos e informações\ninstitucionais, como também na\nconservação de bens sob sua\nresponsabilidade;",
+      "responsabilidade;\nde 0 a 5\npontos\nd) Demonstra cordialidade,\ndisponibilidade e atenção,\nrespeitando a diversidade e as\ndiferenças individuais sem\nqualquer espécie de preconceito\nou distinção para com outrem.\nde 0 a 5\npontos\nAnexo I",
+      "• Consenso sobre a Abordagem: Ficou claro que o tema é relevante e prioritário para a\nANPD, embora não esteja na agenda imediata do biênio em curso.\n• Temas Prioritários Mencionados para o Guia: Minimização de dados, finalidade,",
+      "transparência (avisos de privacidade), bases legais (com foco nos equívocos no uso do\nconsentimento), direitos dos titulares e o papel da negociação coletiva como instrumento\ncomplementar de regulamentação setorial.",
+      "Encerramento: A reunião foi encerrada de forma colaborativa, com os representantes da ANPD\nse colocando à disposição para o debate contínuo e parabenizando a iniciativa do GT1.",
+      "necessidade do tratamento e a inexistência de meios menos invasivos para o\natingimento da finalidade pretendida , reforçando a obrigação de escolha da\nalternativa que melhor concilie eficiência operacional e proteção dos direitos dos\ntrabalhadores.",
+      "• Transparência e Consentimento no Contexto Laboral:\na. Avisos de privacidade específicos: recomenda-se a elaboração de avisos de\nprivacidade direcionados ao público interno, estruturados de forma",
+      "segmentada e com linguagem clara e acessível, evitando excesso de\ntecnicidade. Sempre que possível, deve -se adotar formatos em camadas\n(layered notices), que facilitem a compreensão progressiva das informações,",
+      "garantir a autodeterminação informativa e a efetividade dos direitos dos titulares.\nNa mesma linha, Tatiana Bhering Roxo aponta que a adoção de instrumentos formais, como",
+      "avisos de privacidade, não tem sido suficiente para assegurar a efetividade da proteção de dados\nno ambiente laboral, especialmente quando estruturados de forma genérica ou padronizada.",
+      "Um exemplo recorrente diz respeito à utilização de avisos de privacidade genéricos, como\n“fins administrativos e operacionais”, incapazes de traduzir as reais finalidades do tratamento de",
+      "2) Contribuições das Coordenações da ANPD:\n• CGTP (Pesquisa – Albert): Foram destacados dois eixos prioritários para pesquisa:\n- Ferramentas de IA no RH: Riscos de viés discriminatório e opacidade em algoritmos",
+      "usados para recrutamento, seleção e gestão de pessoas.\n- Ferramentas de monitoramento: Especialmente as baseadas em geolocalização, com\nriscos à privacidade, inferência indevida sobre estado de saúde ou filiação sindical, e uso\nsecundário dos dados.",
+      "secundário dos dados.\n CGN (Normatização – Rodrigo): Foram apontadas lacunas e desafios regulatórios a\nserem explorados:\n- Aplicação de bases legais (execução de contrato, legítimo interesse) no contexto laboral."
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "procedimento\ne de conduta\na) Observa e cumpre normas de\nprocedimentos no desempenho\ndas atribuições do cargo e de\nconduta de acordo com os\nprincípios da Administração\nPública;\nde 0 a 5\npontos\nb) É assíduo e atua com esmero\nno cumprimento das atividades",
+        "score": 0.7959728240966797,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 39,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0312"
+      },
+      {
+        "conteudo": "no cumprimento das atividades\ndelegadas, seguindo os preceitos\nmorais e éticos no exercício do\ncargo;\nde 0 a 5\npontos\nc) Demonstra cuidado na guarda\nde documentos e informações\ninstitucionais, como também na\nconservação de bens sob sua\nresponsabilidade;",
+        "score": 0.7959728240966797,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 39,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0313"
+      },
+      {
+        "conteudo": "responsabilidade;\nde 0 a 5\npontos\nd) Demonstra cordialidade,\ndisponibilidade e atenção,\nrespeitando a diversidade e as\ndiferenças individuais sem\nqualquer espécie de preconceito\nou distinção para com outrem.\nde 0 a 5\npontos\nAnexo I",
+        "score": 0.7959728240966797,
+        "titulo": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+        "fonte": "https://seplag.niteroi.rj.gov.br/",
+        "pagina": 39,
+        "categoria": "selecao_por_competencias",
+        "chunk_id": "DOC-04-C0314"
+      },
+      {
+        "conteudo": "• Consenso sobre a Abordagem: Ficou claro que o tema é relevante e prioritário para a\nANPD, embora não esteja na agenda imediata do biênio em curso.\n• Temas Prioritários Mencionados para o Guia: Minimização de dados, finalidade,",
+        "score": 0.7821691632270813,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 72,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0835"
+      },
+      {
+        "conteudo": "transparência (avisos de privacidade), bases legais (com foco nos equívocos no uso do\nconsentimento), direitos dos titulares e o papel da negociação coletiva como instrumento\ncomplementar de regulamentação setorial.",
+        "score": 0.7821691632270813,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 72,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0836"
+      },
+      {
+        "conteudo": "Encerramento: A reunião foi encerrada de forma colaborativa, com os representantes da ANPD\nse colocando à disposição para o debate contínuo e parabenizando a iniciativa do GT1.",
+        "score": 0.7821691632270813,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 72,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0837"
+      },
+      {
+        "conteudo": "necessidade do tratamento e a inexistência de meios menos invasivos para o\natingimento da finalidade pretendida , reforçando a obrigação de escolha da\nalternativa que melhor concilie eficiência operacional e proteção dos direitos dos\ntrabalhadores.",
+        "score": 0.7820424437522888,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 41,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0571"
+      },
+      {
+        "conteudo": "• Transparência e Consentimento no Contexto Laboral:\na. Avisos de privacidade específicos: recomenda-se a elaboração de avisos de\nprivacidade direcionados ao público interno, estruturados de forma",
+        "score": 0.7820424437522888,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 41,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0572"
+      },
+      {
+        "conteudo": "segmentada e com linguagem clara e acessível, evitando excesso de\ntecnicidade. Sempre que possível, deve -se adotar formatos em camadas\n(layered notices), que facilitem a compreensão progressiva das informações,",
+        "score": 0.7820424437522888,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 41,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0573"
+      },
+      {
+        "conteudo": "garantir a autodeterminação informativa e a efetividade dos direitos dos titulares.\nNa mesma linha, Tatiana Bhering Roxo aponta que a adoção de instrumentos formais, como",
+        "score": 0.7755810618400574,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 18,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0227"
+      },
+      {
+        "conteudo": "avisos de privacidade, não tem sido suficiente para assegurar a efetividade da proteção de dados\nno ambiente laboral, especialmente quando estruturados de forma genérica ou padronizada.",
+        "score": 0.7755810618400574,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 18,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0228"
+      },
+      {
+        "conteudo": "Um exemplo recorrente diz respeito à utilização de avisos de privacidade genéricos, como\n“fins administrativos e operacionais”, incapazes de traduzir as reais finalidades do tratamento de",
+        "score": 0.7755810618400574,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 18,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0229"
+      },
+      {
+        "conteudo": "2) Contribuições das Coordenações da ANPD:\n• CGTP (Pesquisa – Albert): Foram destacados dois eixos prioritários para pesquisa:\n- Ferramentas de IA no RH: Riscos de viés discriminatório e opacidade em algoritmos",
+        "score": 0.7737947106361389,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 66,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0767"
+      },
+      {
+        "conteudo": "usados para recrutamento, seleção e gestão de pessoas.\n- Ferramentas de monitoramento: Especialmente as baseadas em geolocalização, com\nriscos à privacidade, inferência indevida sobre estado de saúde ou filiação sindical, e uso\nsecundário dos dados.",
+        "score": 0.7737947106361389,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 66,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0768"
+      },
+      {
+        "conteudo": "secundário dos dados.\n CGN (Normatização – Rodrigo): Foram apontadas lacunas e desafios regulatórios a\nserem explorados:\n- Aplicação de bases legais (execução de contrato, legítimo interesse) no contexto laboral.",
+        "score": 0.7737947106361389,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 66,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0769"
+      }
+    ],
+    "cited_chunks": [],
+    "retrieved_document_ids": [
+      "DOC-02",
+      "DOC-04"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 0.8866381699990598
+  },
+  {
+    "id": "Q07",
+    "question": "Por que critérios vagos de 'perfil cultural' podem criar risco discriminatório e como reduzi-lo?",
+    "reference_answer": "Critérios vagos podem reproduzir estereótipos e excluir grupos sem relação com o trabalho. O risco diminui com requisitos objetivos ligados às atividades, critérios transparentes e padronizados, diversidade, monitoramento de impactos e revisão humana.",
+    "expected_document_ids": [
+      "DOC-02",
+      "DOC-05"
+    ],
+    "category": "diversidade_e_nao_discriminacao",
+    "answerable": true,
+    "answer": "Não encontrei sustentação adequada nos documentos recuperados. Reformule a pergunta ou adicione uma fonte apropriada à base.",
+    "formatted_answer": "Não encontrei sustentação adequada nos documentos recuperados. Reformule a pergunta ou adicione uma fonte apropriada à base.",
+    "contexts": [
+      "para ferramentas digitais de gestão algorítmica.",
+      "8. Capacitação e Campanhas Educativas\nEntendimento: A mudança cultural passa por treinamento obrigatório e recorrente , nos\nmoldes das NRs (ex.: NR-1, NR-5).\nRecomendações:",
+      "Recomendações:\n• Exigir periodicidade, carga horária e conteúdo mínimo em campanhas educativas sobre\nproteção de dados.\n• Adaptar a linguagem ao público -alvo (ex.: previdência privada vs. agência de\npublicidade).\n• Medir a efetividade da compreensão.",
+      "assimetrias informacionais e para a efetivação dos direitos do s trabalhadores\nenquanto titulares de dados. A recorrência de práticas como coleta excessiva de\ndados, uso inadequado de bases legais, monitoramento desproporcional e baixa",
+      "transparência evidencia que a insuficiência de cultura organizacional e de capacitação\ntécnica constitui fator estruturante de risco nas relações de trabalho mediadas por\ndados e tecnologias. Nesse sentido, a promoção de uma cultura de proteção de dados",
+      "mostra-se indispensável para a aplicação efetiva dos princípios da finalidade,\nnecessidade, proporcionalidade e transparência previstos na LGPD.",
+      "apontou que a empresa realizou um processo\nforma�vo de oito meses antes da implementação\nde ações de diversidade e inclusão.\nUma das pessoas entrevistadas chegou a\nmencionar a alta rota�vidade desses segmentos\nnas empresas, a despeito dos programas de",
+      "inclusão, como uma consequência de um\nambiente ainda não preparado para a recepção\nde pessoas que fazem parte de grupos\nmarginalizados:\nAcredito que essa rota �vidade se dê por\ndesconforto ou desalinhamento cultural (...). Já entram",
+      "numa posição inferior , por falta de habilidade\ntécnica, e têm um desenvolvimento, na régua da\nempresa, muito mais lento... Das experiências que\n�vemos, notamos que elas têm uma coisa em comum, a\nbaixa autoes �ma: “não consigo, então tchau... ”, “não",
+      "conseguimos trazer um negro para a vaga.\nTivemos uma candidata trans para um estágio de\nrelacionamento, no primeiro ano de faculdade,\ncargo amplo. Quando chegou, nos empolgamos,\navançamos no processo, mas, no ﬁnal, notamos",
+      "que, se não fosse por ela ser trans, não teria\nchegado até lá, porque o português era ruim, ela\nnão �nha muita clareza, e isso pega mal aqui.\nConversamos e concluímos que não\ndiscriminamos, mas não podemos contratar só",
+      "porque é trans... Então não deu para contratar,\n�vemos três outros candidatos para a mesma\nvaga, os outros eram muito mais preparados, e,\npoxa, eu quero fazer diferença e ser parte da\nsolução, mas a concorrência é muito desleal,",
+      "• impactos dessas práticas sobre o trabalho e sobre os trabalhadores, inclusive em termos\nde organização e desempenho.\nA incorporação dessas tecnologias amplia a capacidade de gestão e eficiência, mas também",
+      "introduz riscos relevantes, especialmente relacionados à falta de clareza sobre como decisões são\nproduzidas e aos efeitos indiretos que podem gerar sobre os trabalhadores.\nEntre os principais riscos associados a esse cenário, destacam-se:",
+      "• opacidade decisória, dificultando a compreensão dos critérios utilizados;\n• reforço de padrões e vieses existentes, a partir de dados históricos;\n• impactos indiretos sobre trabalhadores, muitas vezes não evidentes de forma imediata."
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "para ferramentas digitais de gestão algorítmica.",
+        "score": 0.7480277419090271,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 90,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C1045"
+      },
+      {
+        "conteudo": "8. Capacitação e Campanhas Educativas\nEntendimento: A mudança cultural passa por treinamento obrigatório e recorrente , nos\nmoldes das NRs (ex.: NR-1, NR-5).\nRecomendações:",
+        "score": 0.7480277419090271,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 90,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C1046"
+      },
+      {
+        "conteudo": "Recomendações:\n• Exigir periodicidade, carga horária e conteúdo mínimo em campanhas educativas sobre\nproteção de dados.\n• Adaptar a linguagem ao público -alvo (ex.: previdência privada vs. agência de\npublicidade).\n• Medir a efetividade da compreensão.",
+        "score": 0.7480277419090271,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 90,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C1047"
+      },
+      {
+        "conteudo": "assimetrias informacionais e para a efetivação dos direitos do s trabalhadores\nenquanto titulares de dados. A recorrência de práticas como coleta excessiva de\ndados, uso inadequado de bases legais, monitoramento desproporcional e baixa",
+        "score": 0.7287407517433167,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 45,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0633"
+      },
+      {
+        "conteudo": "transparência evidencia que a insuficiência de cultura organizacional e de capacitação\ntécnica constitui fator estruturante de risco nas relações de trabalho mediadas por\ndados e tecnologias. Nesse sentido, a promoção de uma cultura de proteção de dados",
+        "score": 0.7287407517433167,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 45,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0634"
+      },
+      {
+        "conteudo": "mostra-se indispensável para a aplicação efetiva dos princípios da finalidade,\nnecessidade, proporcionalidade e transparência previstos na LGPD.",
+        "score": 0.7287407517433167,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 45,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0635"
+      },
+      {
+        "conteudo": "apontou que a empresa realizou um processo\nforma�vo de oito meses antes da implementação\nde ações de diversidade e inclusão.\nUma das pessoas entrevistadas chegou a\nmencionar a alta rota�vidade desses segmentos\nnas empresas, a despeito dos programas de",
+        "score": 0.711396336555481,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 28,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0311"
+      },
+      {
+        "conteudo": "inclusão, como uma consequência de um\nambiente ainda não preparado para a recepção\nde pessoas que fazem parte de grupos\nmarginalizados:\nAcredito que essa rota �vidade se dê por\ndesconforto ou desalinhamento cultural (...). Já entram",
+        "score": 0.711396336555481,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 28,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0312"
+      },
+      {
+        "conteudo": "numa posição inferior , por falta de habilidade\ntécnica, e têm um desenvolvimento, na régua da\nempresa, muito mais lento... Das experiências que\n�vemos, notamos que elas têm uma coisa em comum, a\nbaixa autoes �ma: “não consigo, então tchau... ”, “não",
+        "score": 0.711396336555481,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 28,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0313"
+      },
+      {
+        "conteudo": "conseguimos trazer um negro para a vaga.\nTivemos uma candidata trans para um estágio de\nrelacionamento, no primeiro ano de faculdade,\ncargo amplo. Quando chegou, nos empolgamos,\navançamos no processo, mas, no ﬁnal, notamos",
+        "score": 0.7111600637435913,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 32,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0379"
+      },
+      {
+        "conteudo": "que, se não fosse por ela ser trans, não teria\nchegado até lá, porque o português era ruim, ela\nnão �nha muita clareza, e isso pega mal aqui.\nConversamos e concluímos que não\ndiscriminamos, mas não podemos contratar só",
+        "score": 0.7111600637435913,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 32,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0380"
+      },
+      {
+        "conteudo": "porque é trans... Então não deu para contratar,\n�vemos três outros candidatos para a mesma\nvaga, os outros eram muito mais preparados, e,\npoxa, eu quero fazer diferença e ser parte da\nsolução, mas a concorrência é muito desleal,",
+        "score": 0.7111600637435913,
+        "titulo": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+        "fonte": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+        "pagina": 32,
+        "categoria": "diversidade_e_inclusao",
+        "chunk_id": "DOC-05-C0381"
+      },
+      {
+        "conteudo": "• impactos dessas práticas sobre o trabalho e sobre os trabalhadores, inclusive em termos\nde organização e desempenho.\nA incorporação dessas tecnologias amplia a capacidade de gestão e eficiência, mas também",
+        "score": 0.7047895193099976,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 32,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0447"
+      },
+      {
+        "conteudo": "introduz riscos relevantes, especialmente relacionados à falta de clareza sobre como decisões são\nproduzidas e aos efeitos indiretos que podem gerar sobre os trabalhadores.\nEntre os principais riscos associados a esse cenário, destacam-se:",
+        "score": 0.7047895193099976,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 32,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0448"
+      },
+      {
+        "conteudo": "• opacidade decisória, dificultando a compreensão dos critérios utilizados;\n• reforço de padrões e vieses existentes, a partir de dados históricos;\n• impactos indiretos sobre trabalhadores, muitas vezes não evidentes de forma imediata.",
+        "score": 0.7047895193099976,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 32,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0449"
+      }
+    ],
+    "cited_chunks": [],
+    "retrieved_document_ids": [
+      "DOC-02",
+      "DOC-05"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 0.9207933099987713
+  },
+  {
+    "id": "Q08",
+    "question": "Qual é a alíquota de imposto de renda aplicável ao salário de um candidato contratado em janeiro de 2030?",
+    "reference_answer": "A base documental não contém a tabela tributária de 2030; a pergunta deve ser recusada ou encaminhada a uma fonte fiscal atualizada.",
+    "expected_document_ids": [],
+    "category": "fora_da_base",
+    "answerable": false,
+    "answer": "Não encontrei sustentação adequada nos documentos recuperados. Reformule a pergunta ou adicione uma fonte apropriada à base.",
+    "formatted_answer": "Não encontrei sustentação adequada nos documentos recuperados. Reformule a pergunta ou adicione uma fonte apropriada à base.",
+    "contexts": [
+      "49\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\nque vai pedir ao candidato para acompanhá-lo até o\nposto de execução, onde será tomada a medida cabível\npara aquela situação. Diante da impossibilidade",
+      "do candidato apresentar outro documento de\nidentificação em conformidade com o edital, deve-\nse informar ao candidato sobre a impossibilidade\nde realização da prova. Importante ressaltar que\no candidato não assine a lista de presença nem o",
+      "cartão-respostas.\n4.12.2 Ator (es) da atividade:\na. Unidade organizacional de recrutamento e\nseleção.\nb. Colaboradores (fiscal da sala).\n4.12.3 Tarefas:\na. verificar a irregularidade perguntando a ele\nse possui outro documento que esteja de",
+      "A irregularidade também poderá surgir quando\nnão cumprido o edital regulador em relação ao uso\nde objetos estranhos ao processo, como: relógios,\ncelulares, calculadoras, bonés, cabelos longos soltos,\npontos de contato com o ambiente externo. Portanto,",
+      "cabe ao fiscal de sala verificar essas irregularidades\nno primeiro contato com o candidato.\nEste momento também contempla a conferência dos\ndados dos candidatos em lista de presença e cartão\nde respostas.\n4.10.2 Ator (es) da atividade:",
+      "4.10.2 Ator (es) da atividade:\na. Unidade organizacional de recrutamento e\nseleção.\nb. Colaboradores (fiscal da sala).\n4.10.3 Tarefas:\na. Verificar conformidade do documento de\nidentificação apresentado;\nb. Conferir dados do candidato.",
+      "48\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n4.10.5 Documentação de saída:\na. Lista de presença.\n4.11 Providenciar as correções irregulares do\ncandidato.\n4.11.1 Descrição:",
+      "candidato.\n4.11.1 Descrição:\nNo caso de o candidato apresentar documento de\nidentificação em inconformidade com os previstos\nno edital regulador, o fiscal deverá solicitar ao\ncandidato que apresente outro documento, válido,",
+      "em conformidade com o edital regulador.\nQualquer irregularidade ocorrida durante a realização\nda prova deverá ser registrada pelo itinerante em ata\nde prova (ocorrências - verso da lista de presença).\nEm caso de equívoco nos dados do candidato, o",
+      "de consentimento separados, porém genéricos e cumulativos (várias finalidades\nem um único termo), ou confundem acordo de confidencialidade com\nconsentimento.\nEntendimento de Selma: \" A empresa está em pior conformidade com essa cláusula de",
+      "consentimento no contrato do que se não tivesse nada.\" O documento errado agrava o risco,\npois cria uma falsa sensação de segurança e não resiste a qualquer fiscalização ou\nquestionamento judicial.",
+      "GT1 - Proteção de Dados no Contexto Laboral 83",
+      "DEFINIÇÃO DE COMISSÕES DE RECRUTAMENTO\nE CUSTOS RELACIONADOS\nI. Âmbito\n1. A definição de comissões de recrutamento e custos relacionados\né fixada pelas normas internacionais do trabalho e deve ser lida",
+      "em conjunto com os princípios gerais e linhas orientadoras para\no recrutamento justo da OIT. Como tal, reconhece o princípio\nde que não deve ser imposto aos trabalhadores, direta ou\nindiretamente, no todo ou em parte, o pagamento de honorários",
+      "ou custos relacionados com o recrutamento.\n2. A definição baseia-se nos resultados da investigação comparativa\nglobal da OIT que analisou a legislação e políticas nacionais\ndos diferentes Estados-membros, os códigos voluntários"
+    ],
+    "retrieved_chunks": [
+      {
+        "conteudo": "49\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\nque vai pedir ao candidato para acompanhá-lo até o\nposto de execução, onde será tomada a medida cabível\npara aquela situação. Diante da impossibilidade",
+        "score": 0.7594263553619385,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 49,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0303"
+      },
+      {
+        "conteudo": "do candidato apresentar outro documento de\nidentificação em conformidade com o edital, deve-\nse informar ao candidato sobre a impossibilidade\nde realização da prova. Importante ressaltar que\no candidato não assine a lista de presença nem o",
+        "score": 0.7594263553619385,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 49,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0304"
+      },
+      {
+        "conteudo": "cartão-respostas.\n4.12.2 Ator (es) da atividade:\na. Unidade organizacional de recrutamento e\nseleção.\nb. Colaboradores (fiscal da sala).\n4.12.3 Tarefas:\na. verificar a irregularidade perguntando a ele\nse possui outro documento que esteja de",
+        "score": 0.7594263553619385,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 49,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0305"
+      },
+      {
+        "conteudo": "A irregularidade também poderá surgir quando\nnão cumprido o edital regulador em relação ao uso\nde objetos estranhos ao processo, como: relógios,\ncelulares, calculadoras, bonés, cabelos longos soltos,\npontos de contato com o ambiente externo. Portanto,",
+        "score": 0.7428436279296875,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 47,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0292"
+      },
+      {
+        "conteudo": "cabe ao fiscal de sala verificar essas irregularidades\nno primeiro contato com o candidato.\nEste momento também contempla a conferência dos\ndados dos candidatos em lista de presença e cartão\nde respostas.\n4.10.2 Ator (es) da atividade:",
+        "score": 0.7428436279296875,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 47,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0293"
+      },
+      {
+        "conteudo": "4.10.2 Ator (es) da atividade:\na. Unidade organizacional de recrutamento e\nseleção.\nb. Colaboradores (fiscal da sala).\n4.10.3 Tarefas:\na. Verificar conformidade do documento de\nidentificação apresentado;\nb. Conferir dados do candidato.",
+        "score": 0.7428436279296875,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 47,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0294"
+      },
+      {
+        "conteudo": "48\nManual de Gestão de Pessoas – Módulo II - Gerenciar Recrutamento e Seleção de Pessoas\n4.10.5 Documentação de saída:\na. Lista de presença.\n4.11 Providenciar as correções irregulares do\ncandidato.\n4.11.1 Descrição:",
+        "score": 0.7382165789604187,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 48,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0296"
+      },
+      {
+        "conteudo": "candidato.\n4.11.1 Descrição:\nNo caso de o candidato apresentar documento de\nidentificação em inconformidade com os previstos\nno edital regulador, o fiscal deverá solicitar ao\ncandidato que apresente outro documento, válido,",
+        "score": 0.7382165789604187,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 48,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0297"
+      },
+      {
+        "conteudo": "em conformidade com o edital regulador.\nQualquer irregularidade ocorrida durante a realização\nda prova deverá ser registrada pelo itinerante em ata\nde prova (ocorrências - verso da lista de presença).\nEm caso de equívoco nos dados do candidato, o",
+        "score": 0.7382165789604187,
+        "titulo": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+        "fonte": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+        "pagina": 48,
+        "categoria": "recrutamento_e_selecao",
+        "chunk_id": "DOC-01-C0298"
+      },
+      {
+        "conteudo": "de consentimento separados, porém genéricos e cumulativos (várias finalidades\nem um único termo), ou confundem acordo de confidencialidade com\nconsentimento.\nEntendimento de Selma: \" A empresa está em pior conformidade com essa cláusula de",
+        "score": 0.7366015315055847,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 82,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0961"
+      },
+      {
+        "conteudo": "consentimento no contrato do que se não tivesse nada.\" O documento errado agrava o risco,\npois cria uma falsa sensação de segurança e não resiste a qualquer fiscalização ou\nquestionamento judicial.",
+        "score": 0.7366015315055847,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 82,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0962"
+      },
+      {
+        "conteudo": "GT1 - Proteção de Dados no Contexto Laboral 83",
+        "score": 0.7366015315055847,
+        "titulo": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+        "fonte": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-protecao-de-dados-no-contexto-laboral",
+        "pagina": 83,
+        "categoria": "privacidade",
+        "chunk_id": "DOC-02-C0963"
+      },
+      {
+        "conteudo": "DEFINIÇÃO DE COMISSÕES DE RECRUTAMENTO\nE CUSTOS RELACIONADOS\nI. Âmbito\n1. A definição de comissões de recrutamento e custos relacionados\né fixada pelas normas internacionais do trabalho e deve ser lida",
+        "score": 0.7329373359680176,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 29,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0213"
+      },
+      {
+        "conteudo": "em conjunto com os princípios gerais e linhas orientadoras para\no recrutamento justo da OIT. Como tal, reconhece o princípio\nde que não deve ser imposto aos trabalhadores, direta ou\nindiretamente, no todo ou em parte, o pagamento de honorários",
+        "score": 0.7329373359680176,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 29,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0214"
+      },
+      {
+        "conteudo": "ou custos relacionados com o recrutamento.\n2. A definição baseia-se nos resultados da investigação comparativa\nglobal da OIT que analisou a legislação e políticas nacionais\ndos diferentes Estados-membros, os códigos voluntários",
+        "score": 0.7329373359680176,
+        "titulo": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+        "fonte": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+        "pagina": 29,
+        "categoria": "recrutamento_justo",
+        "chunk_id": "DOC-03-C0215"
+      }
+    ],
+    "cited_chunks": [],
+    "retrieved_document_ids": [
+      "DOC-01",
+      "DOC-02",
+      "DOC-03"
+    ],
+    "expected_source_recall": 1.0,
+    "answer_latency_seconds": 0.8343574139998964
+  }
+]

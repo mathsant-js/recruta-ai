@@ -1,7 +1,196 @@
 # Recruta AI
 
-Chatbot profissional de apoio a recrutamento e RH desenvolvido para o CKP01 do segundo
-semestre da FIAP.
+Chatbot profissional de apoio a recrutamento e RH desenvolvido para os checkpoints do
+segundo semestre da FIAP. A branch `cp2` preserva a aplicação funcional do CKP01 e inicia
+a evolução para o pipeline RAG do CKP02.
+
+## Estado do CKP02
+
+As fases 0 a 6 estão concluídas. A fase 2 foi executada com embeddings locais reais,
+depois que o endpoint cloud recusou o modelo obrigatório com `401`. O projeto não apresenta
+chamadas simuladas como execução real. O baseline preserva a aplicação do CKP01 e a curadoria
+documental fornece cinco PDFs reais e complementares para o RAG:
+
+- o contrato público `app.retriever.buscar()` isola os futuros detalhes de ChromaDB;
+- `DocumentoRecuperado` define conteúdo, score e metadata necessária para citações;
+- os modelos e endpoints ficam centralizados em `app.config`: `gemma4:cloud` na Ollama Cloud
+  para geração e `nomic-embed-text` no Ollama local para embeddings;
+- `notebooks/CKP02_DocMind_RAG.ipynb` é um notebook fino, baseado nos módulos Python;
+- `data/raw/` contém as cinco fontes oficiais ou institucionais preservadas integralmente;
+- `data/manifest.json` registra origem, autoria, categoria, direitos, hash e justificativa;
+- `docs/curadoria_fontes_cp2.md` documenta a revisão de aplicabilidade e limitações;
+- `app/document_loader.py` valida manifesto, hashes, duplicidade e texto extraível;
+- `app/chunking.py` implementa literalmente o `RecursiveCharacterTextSplitter` exigido;
+- `app/embeddings.py` configura e valida `embed_query()` e `embed_documents()` reais;
+- `app/vector_store.py` persiste e consulta a coleção Chroma `recruta_ai_256`, com
+  expansão por chunks vizinhos para recompor frases cortadas;
+- `app/ingestion.py` executa a fase inteira e grava sua evidência auditável;
+- `app/rag_chain.py` executa retrieve → generate, trata evidência insuficiente e valida
+  os IDs citados pelo modelo;
+- `app/phase3.py` reproduz as cinco perguntas reais e grava respostas e fontes;
+- `app/evaluation.py` compara 256/32 e 512/64 com oito perguntas e RAGAS real;
+- `app/reranker.py` reordena dez candidatos com o cross-encoder
+  `cross-encoder/ms-marco-MiniLM-L-6-v2` e entrega os cinco melhores ao gerador;
+- `app/phase5.py` compara busca base, filtro por metadata e reranking com execução real;
+- `app/main.py` integra o RAG, os filtros, o reranking e as fontes em Gradio;
+- `artifacts/indexes/` mantém índices locais fora do Git.
+
+O notebook final foi executado do início ao fim em **08/10/2026** e está versionado com
+outputs. Ele valida os documentos e hashes, apresenta as evidências reais das fases 2 e 3,
+exibe as métricas RAGAS das duas configurações e resume os diferenciais. A suíte determinística
+final contém 69 testes aprovados.
+
+`buscar()` abre o índice de forma tardia na primeira consulta, sem efeitos colaterais no
+import. Se o índice não existir, falha explicitamente com
+`RecuperadorNaoConfiguradoError`, evitando confundir ausência do índice com busca vazia.
+
+## Base de conhecimento
+
+| ID | Fonte | Categoria | Páginas | Origem |
+|---|---|---|---:|---|
+| DOC-01 | Manual de Gestão de Pessoas — Enap | Recrutamento e seleção | 86 | [Repositório Enap](https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab) |
+| DOC-02 | Proteção de Dados no Contexto Laboral — CNPD/ANPD | Privacidade | 95 | [Grupos de Trabalho da ANPD](https://www.gov.br/anpd/pt-br/cnpd/grupos-de-trabalho) |
+| DOC-03 | Princípios para o Recrutamento Justo — OIT | Recrutamento justo | 38 | [Publicação da OIT](https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao) |
+| DOC-04 | Manual de Boas Práticas da SEPLAG Niterói | Seleção por competências | 46 | [SEPLAG Niterói](https://seplag.niteroi.rj.gov.br/) |
+| DOC-05 | Pesquisa Diversidade Aprendiz — OIT | Diversidade e inclusão | 42 | [Publicação da OIT](https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo) |
+
+O manifesto `data/manifest.json` registra autoria, data, tipo, categoria, URL de download,
+direitos, tamanho, páginas e SHA-256. Os arquivos são preservados integralmente e não contêm
+currículos nem dados pessoais de candidatos reais.
+
+## Fase 2 — ingestão e embeddings
+
+A primeira configuração usa `chunk_size=256`, `chunk_overlap=32` (12,5%) e os separadores
+obrigatórios `['\n\n', '\n', '. ', ' ', '']`. Cada chunk recebe um identificador estável,
+página, fonte, categoria e parâmetros de divisão. O índice usa distância cosseno e a coleção
+`recruta_ai_256`; os embeddings são enviados em lotes de 64 para evitar um único payload muito
+grande.
+
+Para carregar a base, validar os dois métodos de embedding, indexar e realizar a busca real:
+
+```bash
+python -m app.ingestion
+```
+
+O comando usa somente `nomic-embed-text` no Ollama local e não repassa a chave cloud ao cliente
+de embeddings. O texto dos documentos permanece no computador durante a vetorização. A saída registra dimensão,
+quantidade de páginas e chunks, tempo, pergunta de smoke test e os cinco resultados em
+`artifacts/ingestion/fase2.json`. O banco vetorial fica em
+`artifacts/indexes/granular_256/` e não é versionado; ele deve ser reconstruído no ambiente de
+avaliação. Falhas de credencial, serviço, vetor vazio ou dimensão inconsistente produzem erro
+explícito.
+
+Na tentativa cloud de **06/10/2026**, a chave autenticou a API e listou os modelos permitidos,
+mas `nomic-embed-text` não estava no catálogo acessível pela conta e o endpoint `/api/embed`
+respondeu `401 unauthorized`. Nenhum PDF foi enviado nessa tentativa. Por decisão explícita do
+grupo, a execução passou a usar o mesmo modelo localmente; essa adaptação deve ser informada ao
+professor, pois diverge do requisito literal de embeddings via Cloud.
+
+A execução local real de **06/10/2026** carregou 305 páginas, gerou e indexou 2.866 chunks e
+confirmou vetores de 768 dimensões em 3.509,076 segundos. A coleção persistente contém os 2.866
+registros. A busca aberta retornou cinco trechos, incluindo evidências da ANPD sobre guarda,
+destino e transparência de currículos. Uma busca adicional com filtro `category=privacidade`
+recuperou três chunks do documento `DOC-02`, incluindo a fase pré-contratual e consentimento em
+plataformas de recrutamento. A evidência completa está em `artifacts/ingestion/fase2.json`.
+
+Para adicionar um documento, coloque um PDF, TXT ou Markdown real em `data/raw/`, acrescente
+ao `data/manifest.json` toda a metadata e o SHA-256 corretos, execute os testes e reconstrua o
+índice. Arquivos vazios, corrompidos, duplicados ou com hash divergente são recusados.
+
+## Fase 3 — pipeline end-to-end
+
+O fluxo completo usa `buscar()` para recuperar cinco hits semânticos e acrescenta um
+chunk anterior e um posterior de cada hit. Essa expansão preserva os IDs e metadados
+originais e recompõe afirmações cortadas pela configuração granular de 256 caracteres.
+O contexto segue para o `gemma4:cloud` com `temperature=0`; instruções encontradas nos
+documentos são tratadas como dados não confiáveis.
+
+O modelo deve citar IDs recuperados. `RAGService` valida citações individuais e agrupadas,
+rejeita IDs inexistentes e monta a seção de fontes com título, página e URL diretamente
+da metadata do Chroma. Quando não há evidência com score mínimo de `0,2`, a resposta
+declara insuficiência sem inventar conteúdo.
+
+Para reproduzir as cinco perguntas reais:
+
+```bash
+python -m app.phase3
+```
+
+A execução final de **08/10/2026** respondeu as cinco perguntas com fontes existentes,
+usando `gemma4:cloud`, `nomic-embed-text`, `top_k=5` e temperatura zero. Levou 12,005
+segundos. Perguntas, respostas, latências, chunks, scores, páginas e URLs estão em
+`artifacts/rag/fase3.json`.
+
+## Fase 4 — comparação de chunking e RAGAS
+
+A avaliação usa oito perguntas revisadas por leitura humana: sete respondíveis e uma
+deliberadamente fora da base. Ela cobre perguntas objetivas, interpretativas, privacidade,
+risco discriminatório e combinação de documentos. As mesmas perguntas, documentos, prompt,
+`gemma4:cloud`, temperatura zero, `top_k=5` e expansão por um vizinho foram mantidos nas duas
+configurações; variaram apenas `chunk_size` e overlap.
+
+Execução real de **08/10/2026**:
+
+| Configuração | Chunks | Faithfulness | Answer relevancy | Recall de fontes | Recusa fora da base |
+|---|---:|---:|---:|---:|---:|
+| 256 / 32 | 2.866 | 0,643 | 0,623 | 1,000 | 100% |
+| 512 / 64 | 1.500 | **0,714** | **0,630** | 0,929 | 100% |
+
+As médias RAGAS consideram as sete perguntas respondíveis. A pergunta sem resposta permanece
+na tabela por pergunta e é avaliada separadamente pela taxa de recusa, porque uma recusa
+correta recebe zero nessas métricas e distorceria a qualidade das respostas fundamentadas.
+A configuração **512/64 venceu**, superou a meta de faithfulness 0,7 e passou a ser a
+configuração final do recuperador. A construção inicial desse índice levou 1.923,006 segundos;
+reexecuções o reabrem após validar a contagem de 1.500 chunks.
+
+Para reproduzir a avaliação completa:
+
+```bash
+python -m app.evaluation
+```
+
+O comando exige o Ollama local com `nomic-embed-text`, a chave cloud e conectividade. Os
+artefatos auditáveis ficam em `artifacts/evaluation/`: dataset, respostas/contextos, CSV por
+pergunta, resumo, configuração com hashes, relatório e gráfico. Os índices ficam ignorados
+pelo Git e devem ser reconstruídos quando ausentes. Como RAGAS usa o modelo como juiz, os
+valores podem variar entre execuções mesmo com temperatura zero.
+
+## Fase 5 — diferenciais
+
+A interface do CKP02 substitui o contexto conversacional do CKP01 pelo RAG. Ela permite
+escolher uma das cinco categorias reais do manifesto, ativar ou desativar o reranking,
+consultar a base e ver resposta e fontes citadas em áreas separadas. O RAG recupera dez
+candidatos quando o reranking está ativo, aplica o cross-encoder recomendado no enunciado,
+seleciona os cinco primeiros e reanexa seus vizinhos para não cortar afirmações antes de
+enviar o contexto ao `gemma4:cloud`.
+
+A comparação real de **08/10/2026**, após aquecimento do índice e do cross-encoder, usou as
+sete perguntas respondíveis do dataset:
+
+| Estratégia | Perguntas | Recall médio de fontes | Latência média |
+|---|---:|---:|---:|
+| Busca vetorial | 7 | 0,929 | 0,237 s |
+| Cross-encoder | 7 | **1,000** | 4,252 s |
+| Filtro por metadata | 6 aplicáveis | **1,000** | detalhada no CSV |
+
+O reranking recuperou o segundo documento esperado da pergunta combinada, mas acrescentou
+latência relevante em CPU. O filtro manteve recall 1,0 nos seis casos em que todas as fontes
+esperadas pertenciam à mesma categoria e removeu chunks de categorias alheias. Esses números
+medem recuperação, não substituem o faithfulness RAGAS da fase 4. Em um smoke test de geração
+sobre coleta e guarda de currículos, a busca vetorial respondeu com três chunks válidos,
+enquanto o cross-encoder em inglês selecionou contexto menos específico e o gerador recusou a
+resposta. Por isso, o reranking permanece experimental e desativado por padrão na interface;
+não se presume melhoria automática. IDs e tempos por pergunta estão em
+`artifacts/phase5/comparacao_recuperacao.csv`.
+
+Para reproduzir:
+
+```bash
+python -m app.phase5
+```
+
+Na primeira execução, `sentence-transformers` baixa o cross-encoder. O comando também exige
+o índice final e o Ollama local com `nomic-embed-text`, mas não chama o modelo gerador cloud.
 
 ## Integrantes
 
@@ -87,20 +276,56 @@ O comando oficial para iniciar a aplicação é:
 python -m app.main
 ```
 
-O projeto usa exclusivamente o modelo `gemma4:cloud` pela API cloud do Ollama.
+O projeto usa `gemma4:cloud` pela API cloud do Ollama para geração e
+`nomic-embed-text` no Ollama local para recuperação semântica.
 As versões de Gradio e Pydantic estão fixadas em uma combinação compatível para que
 a instalação reproduzível mantenha a validação em Pydantic v2.
 
 Ao iniciar, acesse [http://localhost:7860](http://localhost:7860). A interface oferece
-chat com memória isolada por sessão, envio pelo botão ou pela tecla Enter, limpeza da
-conversa e da memória, e geração de uma análise estruturada exibida como JSON somente
-depois da validação Pydantic. O aviso permanente no rodapé reforça privacidade, uso
-responsável e revisão humana.
+pergunta ao RAG, filtro opcional por categoria, controle do cross-encoder, resposta
+fundamentada e fontes citadas separadamente. O envio funciona pelo botão ou pela tecla Enter,
+e o aviso permanente no rodapé reforça privacidade, uso responsável e revisão humana.
 
 Se a chave estiver ausente, o processo termina antes de criar a interface e mostra uma
 mensagem orientando a configurar `OLLAMA_API_KEY`. Em distribuições nas quais apenas
 `python3` existe fora do ambiente virtual, ative o ambiente virtual para usar o comando
 oficial `python -m app.main`.
+
+### Notebook executado
+
+Abra `notebooks/CKP02_DocMind_RAG.ipynb` a partir da raiz do repositório. O arquivo entregue
+já contém os outputs do `Run All`. Para revalidar sem refazer chamadas externas:
+
+```bash
+jupyter nbconvert --to notebook --execute \
+  notebooks/CKP02_DocMind_RAG.ipynb \
+  --output CKP02_DocMind_RAG.ipynb --output-dir notebooks
+```
+
+As células leem e verificam as evidências reais preservadas. A reconstrução completa, que
+exige o Ollama local, a credencial cloud e conectividade, usa nesta ordem:
+
+```bash
+python -m app.ingestion
+python -m app.phase3
+python -m app.evaluation
+python -m app.phase5
+```
+
+### Como adicionar documentos
+
+1. Coloque um PDF, TXT ou Markdown real em `data/raw/`, sem dados pessoais desnecessários.
+2. Acrescente uma entrada em `data/manifest.json` com ID único, título, organização, autoria,
+   datas, tipo, categoria, idioma, URLs, caminho local, direitos e justificativa.
+3. Calcule e registre `sha256`, `file_size_bytes` e, para PDF, `page_count`.
+4. Execute `python -m pytest -q tests/test_manifest.py tests/test_loader.py` para validar a
+   fonte antes da indexação.
+5. Remova ou arquive os índices locais antigos e execute `python -m app.ingestion`; para
+   reconstruir e comparar todas as configurações, execute `python -m app.evaluation`.
+
+Os índices em `artifacts/indexes/` são derivados, grandes e ignorados pelo Git. A entrega
+mantém os documentos, manifesto e artefatos de avaliação necessários para reconstruí-los e
+auditar a escolha final.
 
 ## Arquitetura das duas chains
 
@@ -114,7 +339,7 @@ O projeto mantém dois fluxos separados:
    `AnaliseRecrutamento`. Uma falha de parsing permite uma única correção; a segunda falha
    vira um erro de domínio compreensível.
 
-Ambas usam exclusivamente `gemma4:cloud`. Templates, schema, memória, regras de negócio,
+As chains generativas usam `gemma4:cloud` na Cloud. Templates, schema, memória, regras de negócio,
 experimento e interface ficam em módulos separados dentro de `app/`.
 
 ## Chat com memória
@@ -285,7 +510,7 @@ substitui os artefatos no diretório de saída escolhido.
 |---|---|
 | Projeto Python local e comando oficial | Pacote `app`, executado por `python -m app.main`. |
 | Interface Gradio | Chat, envio, limpeza, análise JSON e aviso em `http://localhost:7860`. |
-| Modelo e configuração segura | Somente `gemma4:cloud`; chave carregada do `.env`, nunca hardcoded. |
+| Modelo e configuração segura | `gemma4:cloud` na Cloud; chave carregada do `.env`, nunca hardcoded. Embeddings locais sem chave. |
 | Duas chains | `ConversationChain` com memória e pipeline LCEL estruturado. |
 | Memória gerenciada | Limite aproximado de 1.200 tokens, isolamento e limpeza por sessão. |
 | Pydantic v2 | `AnaliseRecrutamento` tipado, restrito e integrado ao parser. |
@@ -308,3 +533,18 @@ substitui os artefatos no diretório de saída escolhido.
   atributos sensíveis, nem produzir diagnósticos psicológicos.
 - O uso depende de disponibilidade, latência e credencial válida do Ollama Cloud. Os tempos do
   context rot representam uma única execução e não constituem benchmark.
+- A conta usada na fase 2 não tinha acesso cloud ao `nomic-embed-text`; por isso, o mesmo
+  modelo obrigatório foi executado no Ollama local. Essa divergência do requisito literal está
+  explícita e deve ser informada ao professor.
+- O RAGAS usa um modelo como juiz. Mesmo com temperatura zero, uma nova avaliação pode variar;
+  por isso, dataset, respostas, contextos, versões, hashes e métricas por pergunta foram
+  preservados em `artifacts/evaluation/`.
+
+## Preparação para o CKP03
+
+O CKP03 pode encapsular `app.retriever.buscar()` como tool sem conhecer ChromaDB, loaders ou
+embeddings. O retorno tipado `DocumentoRecuperado` já inclui conteúdo, score, título, URL,
+página, categoria e ID do chunk. A inicialização tardia evita efeitos colaterais no import, e
+os filtros de metadata podem ser encaminhados pelo agente. Antes dessa integração, convém
+manter a validação de citações e a regra de insuficiência de evidência como barreiras
+obrigatórias, em vez de permitir que o agente trate ausência de contexto como resposta livre.

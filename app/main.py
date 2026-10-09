@@ -1,92 +1,78 @@
-"""Interface Gradio e ponto de entrada oficial da aplicação."""
+"""Interface Gradio do RAG e ponto de entrada oficial da aplicação."""
 
-from collections.abc import Sequence
-from typing import Any
-from uuid import uuid4
+from __future__ import annotations
 
-from app.chain import ChatService, StructuredAnalysisService, StructuredAnalysisError
 from app.config import get_settings
+from app.rag_chain import RAGService, RespostaRAG
+from app.reranker import CrossEncoderReranker
+
+CATEGORIES = {
+    "Todas as categorias": None,
+    "Privacidade e proteção de dados": "privacidade",
+    "Recrutamento justo": "recrutamento_justo",
+    "Recrutamento e seleção": "recrutamento_e_selecao",
+    "Seleção por competências": "selecao_por_competencias",
+    "Diversidade e inclusão": "diversidade_e_inclusao",
+}
 
 
-ChatHistory = list[dict[str, Any]]
+def _format_sources(result: RespostaRAG) -> str:
+    """Exibe fontes em área separada, usando apenas metadata validada."""
+
+    if not result.fontes:
+        return "_Nenhuma fonte citada._"
+    linhas = []
+    for source in result.fontes:
+        page = f" — p. {source.pagina}" if source.pagina is not None else ""
+        linhas.append(
+            f"- **{source.chunk_id}**{page} — [{source.titulo}]({source.fonte})"
+        )
+    return "\n".join(linhas)
 
 
-def _conversation_text(history: Sequence[dict[str, Any]]) -> str:
-    """Converte o histórico visual em texto delimitado para a análise."""
+def _answer_question(
+    question: str,
+    category_label: str,
+    use_reranking: bool,
+    base_service: RAGService,
+    reranked_service: RAGService,
+) -> tuple[str, str, str, str]:
+    """Executa o RAG escolhido e prepara os componentes visuais."""
 
-    labels = {"user": "Usuário", "assistant": "Recruta AI"}
-    return "\n".join(
-        f"{labels.get(str(item.get('role')), str(item.get('role')))}: "
-        f"{str(item.get('content')).strip()}"
-        for item in history
-        if item.get("role") in labels and str(item.get("content", "")).strip()
+    normalized = (question or "").strip()
+    if not normalized:
+        return "", "", "", "⚠️ Informe uma pergunta antes de consultar."
+
+    category = CATEGORIES.get(category_label)
+    filters = {"category": category} if category else None
+    service = reranked_service if use_reranking else base_service
+    try:
+        result = service.answer(normalized, filters=filters)
+    # A fronteira da UI converte falhas de modelo, índice e rede em estado visível.
+    except Exception as exc:  # noqa: BLE001
+        return normalized, "", "", f"⚠️ Não foi possível executar o RAG: {exc}"
+
+    method = "com cross-encoder" if use_reranking else "busca vetorial"
+    filter_status = category or "sem filtro"
+    return (
+        normalized,
+        result.resposta,
+        _format_sources(result),
+        f"✅ Consulta concluída ({method}; {filter_status}).",
     )
 
 
-def _send_message(
-    message: str,
-    history: ChatHistory | None,
-    session_id: str,
-    chat_service: ChatService,
-) -> tuple[str, ChatHistory, str]:
-    """Envia uma mensagem e devolve o histórico pronto para o Chatbot."""
+def _clear_interface() -> tuple[str, str, str, str]:
+    """Limpa somente os resultados da consulta; o RAG não mantém memória."""
 
-    current_history = list(history or [])
-    normalized_message = (message or "").strip()
-    if not normalized_message:
-        return "", current_history, "Informe uma mensagem antes de enviar."
-
-    try:
-        response = chat_service.chat(session_id, normalized_message)
-        status = ""
-    except Exception as exc:
-        response = (
-            "Não foi possível consultar o Recruta AI agora. "
-            "Confira a conexão e tente novamente."
-        )
-        status = f"⚠️ Falha no envio: {exc}"
-
-    updated_history = current_history + [
-        {"role": "user", "content": normalized_message},
-        {"role": "assistant", "content": str(response)},
-    ]
-    return "", updated_history, status
-
-
-def _clear_chat(
-    session_id: str,
-    chat_service: ChatService,
-) -> tuple[str, ChatHistory, None, str]:
-    """Limpa os componentes visuais e a memória da sessão atual."""
-
-    chat_service.clear_session(session_id)
-    return "", [], None, "Conversa e memória da sessão foram limpas."
-
-
-def _generate_analysis(
-    history: ChatHistory | None,
-    analysis_service: StructuredAnalysisService,
-) -> tuple[dict[str, Any] | None, str]:
-    """Gera uma saída legível somente depois da validação Pydantic."""
-
-    conversation = _conversation_text(history or [])
-    if not conversation:
-        return None, "Inicie uma conversa antes de gerar a análise estruturada."
-
-    try:
-        result = analysis_service.analyze(conversation)
-        return result.model_dump(mode="json"), "✅ Análise validada com sucesso."
-    except (ValueError, StructuredAnalysisError) as exc:
-        return None, f"⚠️ {exc}"
-    except Exception as exc:
-        return None, f"⚠️ Falha ao gerar a análise: {exc}"
+    return "", "", "", "Consulta limpa."
 
 
 def build_interface(
-    chat_service: ChatService | None = None,
-    analysis_service: StructuredAnalysisService | None = None,
+    base_service: RAGService | None = None,
+    reranked_service: RAGService | None = None,
 ):
-    """Monta a interface sem iniciá-la durante a importação do módulo."""
+    """Monta a interface sem acessar modelo, índice ou rede durante o import."""
 
     try:
         import gradio as gr
@@ -95,67 +81,62 @@ def build_interface(
             "Gradio não está instalado. Execute: pip install -r requirements.txt"
         ) from exc
 
-    current_chat_service = chat_service or ChatService()
-    current_analysis_service = analysis_service or StructuredAnalysisService(
-        llm=current_chat_service.llm
+    current_base_service = base_service or RAGService()
+    current_reranked_service = reranked_service or RAGService(
+        llm=current_base_service.llm,
+        reranker=CrossEncoderReranker(),
+        candidate_k=10,
+        top_k=5,
     )
 
-    def send_message(message: str, history: ChatHistory | None, session_id: str):
-        return _send_message(message, history, session_id, current_chat_service)
+    def answer(question: str, category: str, reranking: bool):
+        return _answer_question(
+            question,
+            category,
+            reranking,
+            current_base_service,
+            current_reranked_service,
+        )
 
-    def clear_chat(session_id: str):
-        return _clear_chat(session_id, current_chat_service)
-
-    def generate_analysis(history: ChatHistory | None):
-        return _generate_analysis(history, current_analysis_service)
-
-    with gr.Blocks(title="Recruta AI") as demo:
-        session_id = gr.State(lambda: str(uuid4()))
+    with gr.Blocks(title="Recruta AI — RAG") as demo:
         gr.Markdown(
-            "# Recruta AI\n\n"
-            "Assistente profissional para levantar requisitos, revisar descrições de "
-            "vagas e preparar entrevistas de recrutamento e RH."
+            "# Recruta AI — Base documental\n\n"
+            "Faça perguntas sobre recrutamento, privacidade, inclusão e gestão de "
+            "pessoas. As respostas usam somente os documentos recuperados."
         )
-        chatbot = gr.Chatbot(
-            type="messages",
-            label="Conversa",
-            height=420,
-            placeholder="Conte ao Recruta AI qual vaga ou necessidade de RH deseja organizar.",
-        )
-        message = gr.Textbox(
-            label="Mensagem",
-            placeholder="Ex.: Preciso estruturar uma vaga de desenvolvedor backend pleno.",
+        question = gr.Textbox(
+            label="Pergunta",
+            placeholder="Ex.: Quais cuidados devo ter com dados de candidatos?",
             lines=2,
         )
         with gr.Row():
-            send = gr.Button("Enviar", variant="primary")
-            clear = gr.Button("Limpar conversa e memória")
-            analyze = gr.Button("Gerar análise estruturada")
-        analysis_output = gr.JSON(label="Análise validada")
+            category = gr.Dropdown(
+                choices=list(CATEGORIES),
+                value="Todas as categorias",
+                label="Filtro por categoria",
+            )
+            reranking = gr.Checkbox(
+                value=False,
+                label="Reordenar resultados com cross-encoder (experimental)",
+            )
+        with gr.Row():
+            send = gr.Button("Consultar base", variant="primary")
+            clear = gr.Button("Limpar")
+
+        answer_output = gr.Markdown(label="Resposta fundamentada")
+        sources_output = gr.Markdown(label="Fontes citadas")
         status = gr.Markdown()
         gr.Markdown(
             "### Uso responsável\n\n"
-            "> O Recruta AI é uma ferramenta de apoio e não decide contratações. "
-            "Evite inserir dados pessoais desnecessários, não use atributos sensíveis como "
-            "critério e submeta toda recomendação à revisão humana."
+            "> O Recruta AI apoia, mas não decide contratações. Evite dados pessoais "
+            "desnecessários e critérios sensíveis. Confirme as fontes e mantenha revisão humana."
         )
 
-        send.click(
-            send_message,
-            [message, chatbot, session_id],
-            [message, chatbot, status],
-        )
-        message.submit(
-            send_message,
-            [message, chatbot, session_id],
-            [message, chatbot, status],
-        )
-        clear.click(
-            clear_chat,
-            [session_id],
-            [message, chatbot, analysis_output, status],
-        )
-        analyze.click(generate_analysis, [chatbot], [analysis_output, status])
+        inputs = [question, category, reranking]
+        outputs = [question, answer_output, sources_output, status]
+        send.click(answer, inputs, outputs)
+        question.submit(answer, inputs, outputs)
+        clear.click(_clear_interface, outputs=outputs)
     return demo
 
 

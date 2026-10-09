@@ -1,0 +1,154 @@
+{
+  "manifest_version": 1,
+  "project": "Recruta AI - CKP02 DocMind RAG",
+  "accessed_at": "2026-10-06",
+  "selection_criteria": [
+    "Fonte oficial, pública ou institucional reconhecida",
+    "Aplicação direta a recrutamento, seleção, privacidade ou inclusão",
+    "Conteúdo suficiente para perguntas não triviais",
+    "Ausência de currículos e dados pessoais de candidatos reais",
+    "Arquivo PDF íntegro, legível e com texto extraível"
+  ],
+  "documents": [
+    {
+      "document_id": "DOC-01",
+      "title": "Manual de Gestão de Pessoas: Módulo II - Gerenciar Recrutamento e Seleção de Pessoas",
+      "organization": "Escola Nacional de Administração Pública (Enap)",
+      "authors": [
+        "Escola Nacional de Administração Pública (Brasil)"
+      ],
+      "publication_date": "2021-03",
+      "access_date": "2026-10-06",
+      "document_type": "manual",
+      "category": "recrutamento_e_selecao",
+      "language": "pt-BR",
+      "source_page_url": "https://repositorio.enap.gov.br/items/648f2f46-2127-453c-8c5f-e78f8e6315ab",
+      "download_url": "https://repositorio.enap.gov.br/bitstreams/168e0ff3-9060-42ac-b19f-4f8683334dd4/download",
+      "local_file": "data/raw/DOC-01_manual_gestao_pessoas_enap.pdf",
+      "sha256": "4dcc73644b132510982286d6368ec82c9e11ceef84f01df0bc07eb9b12e9db9a",
+      "file_size_bytes": 2327857,
+      "page_count": 86,
+      "rights_note": "A página institucional identifica a Enap como detentora dos direitos. O arquivo é mantido integralmente, com atribuição e link de origem, para uso acadêmico.",
+      "inclusion_reason": "Descreve de ponta a ponta o planejamento e a execução de processos de recrutamento e seleção, com atores, tarefas e documentos envolvidos.",
+      "supported_topics": [
+        "planejamento de recrutamento e seleção",
+        "papéis e responsabilidades",
+        "fluxo do processo seletivo",
+        "documentação do processo"
+      ]
+    },
+    {
+      "document_id": "DOC-02",
+      "title": "GT1 - Proteção de Dados no Contexto Laboral: Relatório Final",
+      "organization": "Conselho Nacional de Proteção de Dados Pessoais e da Privacidade (CNPD/ANPD)",
+      "authors": [
+        "Grupo de Trabalho 1 - Proteção de Dados no Contexto Laboral"
+      ],
+      "publication_date": "2026",
+      "access_date": "2026-10-06",
+      "document_type": "relatorio",
+      "category": "privacidade",
+      "language": "pt-BR",
+      "source_page_url": "https://www.gov.br/anpd/pt-br/cnpd/grupos-de-trabalho",
+      "download_url": "https://www.gov.br/anpd/pt-br/cnpd-2/grupos-de-trabalho/gt1-relatorio-final-cnpd.pdf/@@display-file/file",
+      "local_file": "data/raw/DOC-02_protecao_dados_contexto_laboral_anpd.pdf",
+      "sha256": "5bcc5994e4befaacc6f1b071641fc3ad7e3e66c478f14b98c6aad60323e73223",
+      "file_size_bytes": 2325677,
+      "page_count": 95,
+      "rights_note": "Documento oficial disponibilizado no portal gov.br. O arquivo é mantido integralmente, com atribuição e link de origem, para uso acadêmico.",
+      "inclusion_reason": "Trata diretamente de dados de candidatos na fase pré-contratual, minimização, transparência, decisões automatizadas, revisão humana e riscos discriminatórios.",
+      "supported_topics": [
+        "dados pessoais de candidatos",
+        "princípio da necessidade",
+        "decisões automatizadas e revisão humana",
+        "riscos discriminatórios",
+        "governança e transparência"
+      ]
+    },
+    {
+      "document_id": "DOC-03",
+      "title": "Princípios gerais e linhas orientadoras para o recrutamento justo: definição de comissões de recrutamento e custos relacionados",
+      "organization": "Organização Internacional do Trabalho (OIT)",
+      "authors": [
+        "Organização Internacional do Trabalho"
+      ],
+      "publication_date": "2022-12-20",
+      "access_date": "2026-10-06",
+      "document_type": "guia",
+      "category": "recrutamento_justo",
+      "language": "pt-PT",
+      "source_page_url": "https://www.ilo.org/pt-pt/publications/principios-gerais-e-linhas-orientadoras-para-o-recrutamento-justo-definicao",
+      "download_url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@europe/@ro-geneva/@ilo-lisbon/documents/publication/wcms_864398.pdf",
+      "local_file": "data/raw/DOC-03_recrutamento_justo_oit.pdf",
+      "sha256": "5480a24b57deb38c2714b8aa82a9beee3e98b55fc5a2eb81fd60bfcc29f0cb67",
+      "file_size_bytes": 8013252,
+      "page_count": 38,
+      "rights_note": "Copyright OIT. O documento permite pequenos excertos com atribuição; pedidos de reprodução mais ampla devem seguir as condições indicadas na própria publicação.",
+      "inclusion_reason": "Fornece princípios internacionais sobre recrutamento justo, transparência, direitos humanos, deveres de empresas e prevenção de práticas abusivas.",
+      "supported_topics": [
+        "recrutamento justo",
+        "direitos humanos",
+        "transparência",
+        "responsabilidades de empregadores",
+        "custos de recrutamento"
+      ]
+    },
+    {
+      "document_id": "DOC-04",
+      "title": "Manual de Boas Práticas para Recrutamento e Seleção de Novos Servidores da SEPLAG",
+      "organization": "Prefeitura de Niterói - Secretaria de Planejamento, Orçamento e Modernização da Gestão",
+      "authors": [
+        "SEPLAG Niterói"
+      ],
+      "publication_date": "2024-09",
+      "access_date": "2026-10-06",
+      "document_type": "manual",
+      "category": "selecao_por_competencias",
+      "language": "pt-BR",
+      "source_page_url": "https://seplag.niteroi.rj.gov.br/",
+      "download_url": "https://seplag.niteroi.rj.gov.br/wp-content/uploads/2024/09/MANUAL-DE-BOAS-PRATICAS-PARA-RECRUTAMENTO-E-SELECAO-DE-NOVOS-SERVIDORES-DA-SEPLAG2.pdf",
+      "local_file": "data/raw/DOC-04_manual_boas_praticas_seplag_niteroi.pdf",
+      "sha256": "984fbb01e7356abf13e3774abed10847876162252f605ec15f9f90ef85b81230",
+      "file_size_bytes": 7072183,
+      "page_count": 46,
+      "rights_note": "Manual oficial disponibilizado publicamente pela Prefeitura de Niterói. Não foi localizada licença aberta explícita; o arquivo é preservado com atribuição e link de origem para uso acadêmico.",
+      "inclusion_reason": "Apresenta práticas operacionais de definição de perfil, diversidade, entrevista e gestão por competências aplicáveis ao desenho de processos seletivos.",
+      "supported_topics": [
+        "definição do perfil da vaga",
+        "respeito à diversidade",
+        "entrevista",
+        "seleção por competências",
+        "planejamento do processo seletivo"
+      ]
+    },
+    {
+      "document_id": "DOC-05",
+      "title": "Pesquisa Diversidade Aprendiz: aprendizados para um futuro inclusivo",
+      "organization": "Organização Internacional do Trabalho (OIT) e Somos Diversidade",
+      "authors": [
+        "Organização Internacional do Trabalho",
+        "Somos Diversidade"
+      ],
+      "publication_date": "2021-11-11",
+      "access_date": "2026-10-06",
+      "document_type": "pesquisa",
+      "category": "diversidade_e_inclusao",
+      "language": "pt-BR",
+      "source_page_url": "https://www.ilo.org/pt-pt/publications/pesquisa-diversidade-aprendiz-aprendizados-para-um-futuro-inclusivo",
+      "download_url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@americas/@ro-lima/@ilo-brasilia/documents/publication/wcms_829572.pdf",
+      "local_file": "data/raw/DOC-05_diversidade_aprendiz_oit.pdf",
+      "sha256": "2b3468b7b5b53757eba18d58577a7bf517fdb9bfb028b0cbbdeb442cfd39414c",
+      "file_size_bytes": 15800774,
+      "page_count": 42,
+      "rights_note": "Publicação institucional da OIT e parceiros. O arquivo é mantido integralmente, com atribuição e link de origem, para uso acadêmico.",
+      "inclusion_reason": "Traz evidências empíricas sobre barreiras de entrada, diversidade e inclusão em processos seletivos e políticas de permanência e ascensão.",
+      "supported_topics": [
+        "diversidade e inclusão",
+        "barreiras de entrada",
+        "processos seletivos inclusivos",
+        "competências para vagas de entrada",
+        "permanência e ascensão"
+      ]
+    }
+  ]
+}
